@@ -1,0 +1,85 @@
+<div style="    display: inline-grid;
+justify-content: center;
+align-items: center;
+position: absolute;
+align-content: center;
+justify-items: center;">
+  <img style="position: relative; width: 60%; margin-top: 5.5em; margin-bottom:5.5em" src="../../../../assets/images/wiggly.png"/>
+  <div style="position: relative; color: black; font-size: 40px; font-family: serif; font-weight: 500; line-height: 28px; word-wrap: break-word">
+    Creá una cuenta!
+  </div>
+  <form [formGroup]="registrationForm" style="display: contents;">
+    <div style="    position: relative;
+    display: flex;
+    margin-top: 4.5em;
+    height: 35%;
+    width: 85%;
+    justify-content: space-between;">
+      <input autofocus formControlName="name" placeholder="Nombre" style="width: 40%; border: 0.5px #FDA769 solid; color: #787878; background: white; border-radius: 8px; /* margin-top: 5em; */ height: 100%; padding-inline: 0.8em;">
+    <input formControlName="surename" placeholder="Apellido" style="width: 40%; border: 0.5px #FDA769 solid; color: #787878; background: white; border-radius: 8px; /* margin-top: 5em; */ height: 100%; padding-inline: 0.8em;">
+    </div>
+     
+    <input formControlName="email" placeholder="Email" style="    position: relative;
+    width: 80%; border: 0.50px #FDA769 solid; color: #787878;
+    background: white;
+    border-radius: 8px;
+    margin-top: 5em;
+    height: 35%;    padding-inline: 0.8em;"> 
+    <div style="    position: relative;
+    display: flex;
+    border-radius: 8px;
+    width: 84%;
+    margin-top: 5em;
+    height: 33.5%;
+    justify-content: flex-end;
+    align-items: center;">
+      <input formControlName="password" [type]="!showPass ? 'password' : 'text'" placeholder="Contraseña" style="width: 100%;
+      display: flex;
+      border-radius: 8px; color: #787878;
+      height: 100%;
+      padding-inline: 0.8em;
+      border: 0.50px #FDA769 solid">
+      <button mat-icon-button style="position: absolute;" (click)="showPass = !showPass;">
+        <mat-icon style="color: #787878;
+        text-align: center;" matSuffix >{{!showPass ? 'visibility_off' : 'visibility'}}</mat-icon>
+      </button>
+    </div>
+    <label style="    position: relative;
+    border-radius: 8px;
+    width: 80%;
+    margin-top: 4em;
+    height: 33%;
+    color: #787878;
+    margin-right: 1.5em;">
+    Fecha de nacimiento
+      <input formControlName="birthday" type="date" placeholder="Fecha de nacimiento" style="width: 100%;
+      display: flex; color: #787878;
+      border-radius: 8px;
+      height: 100%;
+      padding-inline: 0.8em;
+      border: 0.50px #FDA769 solid">
+      </label>
+    </form>
+  <button style="    width: 70%;
+  height: 55%;
+  position: relative;
+  background: #E76801;
+  border-radius: 15px;
+  justify-content: center;
+  align-items: center;
+  display: inline-flex;
+  margin-top: 3.5em;
+  border: none;
+  color: white;
+  font-size: 25px;
+  font-family: serif;
+  line-height: 20px;
+  word-wrap: break-word;" mat-raised-button (click)="register()"> Registrarse
+  </button>
+  <div style="position: relative;
+  text-align: center;
+  margin-top: 3em;">
+    <span style="color: #787878; font-size: 18px; font-family: serif; font-weight: 400; line-height: 27px; word-wrap: break-word">¿Ya tenés una cuenta?</span>
+    <button (click)="switchToSignIn()" style="cursor: pointer; border:none; background-color: white; color: #FDA769; font-size: 18px; font-family: serif; font-weight: 600; line-height: 27px; word-wrap: break-word"> Iniciá sesión</button>
+  </div>
+</div>
