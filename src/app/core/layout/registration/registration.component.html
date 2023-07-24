@@ -60,7 +60,7 @@ justify-items: center;">
       border: 0.50px #FDA769 solid">
       </label>
     </form>
-  <button style="    width: 70%;
+  <button [disabled]="!registrationForm.valid" [style.background-color]="registrationForm.invalid ? '#787878' : '#E76801'" style="    width: 70%;
   height: 55%;
   position: relative;
   background: #E76801;
