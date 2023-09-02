@@ -15,4 +15,8 @@ export class ConfigService {
   public getLoginUrl(): string {
 		return environment.baseUrl + '/signin';
 	}
+
+  public getRegisterUrl(): string {
+		return environment.baseUrl + '/register';
+	}
 }

@@ -14,7 +14,7 @@ justify-items: center;">
   <form [formGroup]="form"  style="width: 80%; position: relative;
   height: 35%;
   ">
-    <input autofocus formControlName="email" placeholder="Email" style="position: relative;
+    <input required type="email" ngModel email formControlName="email" placeholder="Email" style="position: relative;
     width: 100%;
     border: 0.5px #FDA769 solid;
     background: white;
@@ -29,7 +29,7 @@ justify-items: center;">
     height: 100%;
     justify-content: flex-end;
     align-items: center;">
-      <input matInput formControlName="password" [type]="!showPass ? 'password' : 'text'" placeholder="Contraseña" style="width: 100%;
+      <input required matInput formControlName="password" [type]="!showPass ? 'password' : 'text'" placeholder="Contraseña" style="width: 100%;
       border-radius: 8px;
       height: 100%;
       padding-left: 0.8em;
@@ -51,7 +51,7 @@ justify-items: center;">
   width: 85%;
   border: none;
   background-color: white;
-  cursor: pointer;" (click)="forgotPassword()">¿Olvidaste tu contraseña?</button>
+  cursor: pointer;" (click)="openForgotPasswordModal()">¿Olvidaste tu contraseña?</button>
   <button [disabled]="!form.valid" [style.background-color]="form.invalid ? '#787878' : '#E76801'" style="    width: 70%;
   height: 55%;
   position: relative;

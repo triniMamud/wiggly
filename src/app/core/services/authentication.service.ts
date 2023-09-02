@@ -1,6 +1,6 @@
 import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { map } from 'rxjs';
+import { Observable, map } from 'rxjs';
 import { CurrentUser } from '../models/user.model';
 import { ConfigService } from '../services/config.service';
 //import jwt_decode from "jwt-decode";
@@ -9,7 +9,7 @@ import { ConfigService } from '../services/config.service';
   providedIn: 'root'
 })
 export class AuthenticationService {
-
+  
   public user: any;
   private baseUrl: string = this.configService.getHost();
 
@@ -18,18 +18,28 @@ export class AuthenticationService {
     this.getUser()
   }
 
-  login(email: string, password: string) {
+  login(email: string, password: string): Observable<any> {
+    const headers = new HttpHeaders()
+    .set('Content-Type', 'application/json')
+    .set('email', email)
+    .set('password', password);
 
+    const user = this.http.post<any>(this.configService.getLoginUrl(), null, { headers });
+      return user;
+  }
+
+  register(data: { name: string; surename: string; email: string; password: string; birthday: string; }) {
     const body = new HttpParams()
       //.set('grant_type', 'password')
-      .set('email', email)
-      .set('password', password);
+      .set('name', data.name)
+      .set('surename', data.surename)
+      .set('birthday', data.birthday);
 
-    return this.http.get<any>(this.configService.getLoginUrl(), {
+    return this.http.post<any>(this.configService.getRegisterUrl(), body, {
       headers: new HttpHeaders()
         .set('Content-Type', 'application/x-www-form-urlencoded')
-        .set('email', email)
-        .set('password', password)
+        .set('email', data.email)
+        .set('password', data.password)
     })
       .pipe(map((res) => {
         //let decoded: TokenDecode = <TokenDecode>jwt_decode(res?.data?.token);
@@ -41,7 +51,6 @@ export class AuthenticationService {
           //empresa:user?.empresa,
           //rolId: user?.role_id,
           //rolDescripcion: user?.role_name,
-          id: user?._id,
         };
 
         localStorage.setItem('user', JSON.stringify(kCloackUser));
@@ -57,7 +66,6 @@ export class AuthenticationService {
 
         return kCloackUser;
       }))
-
   }
 
   getUser() {

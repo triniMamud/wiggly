@@ -1,16 +1,16 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { HomePageComponent } from './home-page.component';
+import { ModalOkComponent } from './modal-ok.component';
 
-describe('HomePageComponent', () => {
-  let component: HomePageComponent;
-  let fixture: ComponentFixture<HomePageComponent>;
+describe('ModalOkComponent', () => {
+  let component: ModalOkComponent;
+  let fixture: ComponentFixture<ModalOkComponent>;
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      declarations: [HomePageComponent]
+      declarations: [ModalOkComponent]
     });
-    fixture = TestBed.createComponent(HomePageComponent);
+    fixture = TestBed.createComponent(ModalOkComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

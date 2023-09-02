@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { ROUTES_NAME } from './core/constants/routes';
-import { HomePageComponent } from './core/layout/home-page/home-page.component';
+import { NavHomePageComponent } from './core/layout/nav-home-page/nav-home-page.component';
 import { LandingComponent } from './core/layout/landing/landing.component';
 
 const routes: Routes = [
@@ -12,7 +12,7 @@ const routes: Routes = [
   },
   {
     path: ROUTES_NAME.HOME,
-		component: HomePageComponent,
+		component: NavHomePageComponent,
 		pathMatch: 'full'
   }
 ];

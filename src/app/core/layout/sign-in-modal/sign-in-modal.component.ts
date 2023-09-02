@@ -6,6 +6,7 @@ import { first } from 'rxjs';
 import { AuthenticationService } from '../../services/authentication.service';
 import { UtilService } from '../../services/util.service';
 import { RegistrationComponent } from '../registration/registration.component';
+import { ForgotPasswordComponent } from '../forgot-password/forgot-password.component';
 
 @Component({
   selector: 'app-sign-in-modal',
@@ -56,20 +57,25 @@ export class SignInModalComponent implements OnInit, AfterViewInit {
 
   async singIn () {
     this.authenticationService.login(this.form.controls.email.value!, this.form.controls.password.value!)
-      .pipe(first())
       .subscribe((currentUser: any) => {
           if (!currentUser) {
             this.utilService.notification('No se pudo obtener el usuario', 'error');
             return;
           }
+          this.dialog.closeAll();
+          this.router.navigateByUrl('home');
         },
         (error: any) => {
           this.utilService.notification('Email o contraseña incorrectos', 'error')
         });
   }
 
-  forgotPassword() {
-    //HACER LOGICA
+  openForgotPasswordModal() {
+    this.dialog.closeAll();
+    this.dialog.open(ForgotPasswordComponent, {
+      width: '36em',
+      height: '40em',
+    })
   }
 
   switchToRegister() {

@@ -4,6 +4,7 @@ import { MatDialog } from '@angular/material/dialog';
 import { AuthenticationService } from '../../services/authentication.service';
 import { UtilService } from '../../services/util.service';
 import { SignInModalComponent } from '../sign-in-modal/sign-in-modal.component';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-registration',
@@ -26,7 +27,8 @@ export class RegistrationComponent implements OnInit, AfterViewInit {
   constructor(
     private dialog: MatDialog,
     private authenticationService: AuthenticationService,
-    private utilService: UtilService
+    private utilService: UtilService,
+    private router: Router
   ) {}
     
 
@@ -55,7 +57,7 @@ export class RegistrationComponent implements OnInit, AfterViewInit {
     })
   }
 
-  async register() {
+  async signUp() {
     const data = {
       name: this.registrationForm.controls.name.value!,
       surename: this.registrationForm.controls.surename.value!,
@@ -71,6 +73,8 @@ export class RegistrationComponent implements OnInit, AfterViewInit {
           this.utilService.notification('No se pudo obtener el usuario', 'error');
           return;
         }
+        this.dialog.closeAll();
+        this.router.navigateByUrl('/home');
       },
       (error: any) => {
         this.utilService.notification('Email o contraseña incorrectos', 'error')
