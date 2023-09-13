@@ -38,6 +38,9 @@ import { ModalOkComponent } from './core/modalUtils/modal-ok/modal-ok.component'
 import { AdopcionesComponent } from './core/layout/adopciones/adopciones.component';
 import { MisMascotasComponent } from './core/layout/mis-mascotas/mis-mascotas.component';
 import { HomePageComponent } from './core/layout/home-page/home-page.component';
+import { CommonModule } from '@angular/common';
+import { NgImageSliderModule } from 'ng-image-slider';
+import { CarouselModule } from 'ngx-bootstrap/carousel';
 
 @NgModule({
   declarations: [
@@ -53,6 +56,9 @@ import { HomePageComponent } from './core/layout/home-page/home-page.component';
     HomePageComponent
   ],
   imports: [
+    NgImageSliderModule,
+    CarouselModule,
+    CommonModule,
     BrowserAnimationsModule,
     BrowserModule,
     AppRoutingModule,

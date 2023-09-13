@@ -10,8 +10,6 @@ import { SignInModalComponent } from '../sign-in-modal/sign-in-modal.component';
 })
 export class LandingComponent implements OnInit {
 
-  //@ViewChild('signInModal') signInModal: any;
-
   constructor(private dialog: MatDialog) { }
 
   ngOnInit(): void {
