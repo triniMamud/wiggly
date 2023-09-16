@@ -1,75 +1,76 @@
-<!--<div style="    position: absolute;
-display: grid;
-width: 100%;
-z-index: 5;
-justify-content: center;
-margin-top: -5em;">
-<ul class="hList">
-  <li>
-    <a class="menu">
-      <h2 class="menu-title">Mascota</h2>
-      <ul class="menu-dropdown">
-        <li>Perros</li>
-        <li>Gatos</li>
-      </ul>
-    </a>
-  </li>
-  <li>
-    <a class="menu">
-      <h2 class="menu-title">Tamaño</h2>
-      <ul class="menu-dropdown">
-        <li>
-          <input type="checkbox" value="pequeño"><label for="pequeño">Pequeño</label>
-        </li>
-        <li>
-          <input type="checkbox" value="mediano"><label for="mediano">Mediano</label>
-        </li>
-        <li>
-          <input type="checkbox" value="grande"><label for="grande">Grande</label>
-        </li>
-      </ul>
-    </a>
-  </li>
-  <li>
-    <a class="menu">
-      <h2 class="menu-title">Edad</h2>
-      <ul class="menu-dropdown">
-        <li>Cachorro</li>
-        <li>Adulto</li>
-        <li>Mayor</li>
-      </ul>
-    </a>
-  </li>
-  <li>
-    <a class="menu">
-      <h2 class="menu-title">Sexo</h2>
-      <ul class="menu-dropdown">
-        <li>Macho</li>
-        <li>Hembra</li>
-      </ul>
-    </a>
-  </li>
-</ul>
-</div>-->
-
 <body>
-  <div *ngFor="let mascota of mascotas; let i = index">
-      <div class="swiffy-slider">
-        <ul class="slider-container">
-            <li><img [src]="mascotas[i].images[currentSlideIndex]" style="width: 50%;height: 50%;"></li>
-        </ul>
-    <button type="button" class="slider-nav" (click)="previousSlide()" style="visibility: visible; background-color: red;" ></button>
-    <button type="button" class="slider-nav slider-nav-next" (click)="nextSlide(i)" style="visibility: visible; background-color: red;"></button>
-  
-    <div class="slider-indicators">
-        <button class="active"></button>
-        <button class=""></button>
-        <button class=""></button>
-    </div>
+  <div style="    position: absolute; display: grid; width: 100%; z-index: 5; justify-content: center; margin-top: -5em;">
+    <ul class="hList">
+      <li>
+        <a class="menu">
+          <h2 class="menu-title">Mascota</h2>
+          <ul class="menu-dropdown">
+            <li>
+              <input type="checkbox" value="perros"><label for="perros">Perros</label>
+            </li>
+            <li>
+              <input type="checkbox" value="gatos"><label for="gatos">Gatos</label>
+            </li>
+          </ul>
+        </a>
+      </li>
+      <li>
+        <a class="menu">
+          <h2 class="menu-title">Tamaño</h2>
+          <ul class="menu-dropdown">
+            <li>
+              <input type="checkbox" value="pequeño"><label for="pequeño">Pequeño</label>
+            </li>
+            <li>
+              <input type="checkbox" value="mediano"><label for="mediano">Mediano</label>
+            </li>
+            <li>
+              <input type="checkbox" value="grande"><label for="grande">Grande</label>
+            </li>
+          </ul>
+        </a>
+      </li>
+      <li>
+        <a class="menu">
+          <h2 class="menu-title">Edad</h2>
+          <ul class="menu-dropdown">
+            <li>
+              <input type="checkbox" value="cachorro"><label for="cachorro">Cachorro</label>
+            </li>
+            <li>
+              <input type="checkbox" value="adulto"><label for="adulto">Adulto</label>
+            </li>
+            <li>
+              <input type="checkbox" value="mayor"><label for="mayor">Mayor</label>
+            </li>
+          </ul>
+        </a>
+      </li>
+      <li>
+        <a class="menu">
+          <h2 class="menu-title">Sexo</h2>
+          <ul class="menu-dropdown">
+            <li>
+              <input type="checkbox" value="macho"><label for="macho">Macho</label>
+            </li>
+            <li>
+              <input type="checkbox" value="hembra"><label for="hembra">Hembra</label>
+            </li>
+          </ul>
+        </a>
+      </li>
+    </ul>
   </div>
-  
-</div>
-
+  <div *ngFor="let mascota of mascotas; let i = index" style="    display: block;
+  height: 45%;
+  width: 15%;
+  margin: 0 1.5em 3em 0;
+  background: white;    border-radius: 1em; filter: drop-shadow(0 0 0.3rem rgba(0, 0, 0, 0.5));">
+    <app-home-card [pet]="mascota" style="position: relative;
+    width: 100%;
+    display: block;
+    height: 100%;"></app-home-card>
+  </div>
 </body>
 <!--
 <div *ngIf= this.mascotas>

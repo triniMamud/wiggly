@@ -1,0 +1,78 @@
+<div>
+
+</div>
+<form [formGroup]="addPetForm" class="modal">
+  <div *ngIf="currentStep === 1">
+    <div>
+      <input required formControlName="name" placeholder="Ingresá su nombre">
+      <label class="toggle">
+        <input required type="checkbox" formControlName="type">
+        <span class="slider"></span>
+        <span class="labels" data-on="Perro" data-off="Gato"></span>
+      </label>
+      <label class="toggle">
+        <input required type="checkbox" formControlName="gender">
+        <span class="slider"></span>
+        <span class="labels" data-on="Macho" data-off="Hembra"></span>
+      </label>
+      <label class="toggle">
+        <input required type="checkbox" formControlName="isCastrated">
+        <span class="slider"></span>
+        <span class="labels" data-on="Si" data-off="No"></span>
+      </label>
+      <input required formControlName="size" placeholder="Ingresá su tamaño">
+      <input required formControlName="location" placeholder="Ingresá dónde se encuentra">
+      
+      <div class="image-thumbnails">
+        <div *ngFor="let image of addPetForm.get('images')?.value; let i = index" class="image-thumbnail">
+          <img [src]="getImageUrl(image)" alt="Miniatura de imagen">
+          <p>{{ image.name }}</p>
+          <button (click)="removeImage(i)">Eliminar</button>
+        </div>
+      </div>
+      <input type="file" (change)="onFileSelected($event)" accept="image/*" multiple>
+    </div>
+    <button (click)="nextStep()">Siguiente</button>
+  </div>
+  <div *ngIf="currentStep === 2">
+    <input required formControlName="vaccines" placeholder="¿Tiene las vacunas al dia?">
+    <input required formControlName="deparasited" placeholder="¿Está desparasitado?">
+    <input required formControlName="medicalInfo" placeholder="Agregá toda la informacion médica que sepas (enfermedades actuales o pasadas, diagnósticos, tratamientos, dietas, medicación, etc.)">
+    <div>
+      <label>¿Se lleva bien con otras mascotas?</label>
+      <mat-radio-group [formControlName]="'goodWithPets'">
+        <mat-radio-button value="yes">Sí</mat-radio-button>
+        <mat-radio-button value="no">No</mat-radio-button>
+        <mat-radio-button value="unknown">No sé</mat-radio-button>
+      </mat-radio-group>
+    </div>
+    <div>
+      <label>¿Se lleva bien con niños?</label>
+      <mat-radio-group [formControlName]="'goodWithChildren'">
+        <mat-radio-button value="yes">Sí</mat-radio-button>
+        <mat-radio-button value="no">No</mat-radio-button>
+        <mat-radio-button value="unknown">No sé</mat-radio-button>
+      </mat-radio-group>
+    </div>
+    <div>
+      <label>¿Sabe quedarse solo?</label>
+      <label class="toggle">
+        <input required type="checkbox" formControlName="beOnItsOwn">
+        <span class="slider"></span>
+        <span class="labels" data-on="Si" data-off="No"></span>
+      </label>
+    </div>
+    <div>
+      <label>¿Sabe hacer sus necesidades afuera?</label>
+      <mat-radio-group [formControlName]="'bathroomOutside'">
+        <mat-radio-button value="yes">Sí</mat-radio-button>
+        <mat-radio-button value="yes">Algunas veces</mat-radio-button>
+        <mat-radio-button value="no">Está aprendiendo</mat-radio-button>
+        <mat-radio-button value="unknown">No</mat-radio-button>
+      </mat-radio-group>
+    </div>    
+    <input required formControlName="generalInfo" placeholder="Agragá información que creas relevante (personalidad, preferencias, juguete o comida favorita, etc.)">
+    <button (click)="submitForm()">Enviar Formulario</button>
+    <button (click)="previousStep()">Volver</button> <!-- Agregar botón de volver -->
+  </div>
+</form>

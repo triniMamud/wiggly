@@ -1,1 +1,15 @@
-<p>mis-mascotas works!</p>
+<body>
+  <div *ngIf="misMascotas && misMascotas.length != 0">
+    <div *ngFor="let miMascota of misMascotas">
+      <p>miMascota.name</p>
+    </div>
+  </div>
+  <div *ngIf="!misMascotas || misMascotas.length == 0" style="    display: flex;
+  /* justify-content: center; */
+  flex-direction: column;
+  align-items: center;">
+    <p style="font-size: 24px; font-family: Manrope; font-weight: bold;">Aun no tienes ninguna mascota para dar en adopcion!</p>
+    <img src="../../../../assets/images/AdobeStock_610288835.png" style="    width: 25%;">
+    <button class="agrega-mascota" (click)="addMiMascota()">Agragá una mascota</button>
+  </div>
+</body>

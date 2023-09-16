@@ -1,0 +1,16 @@
+.agrega-mascota {
+  margin-top: 2em;
+  background: #FDA769;
+  color: white;
+  border: none;
+  font-family: Manrope;
+  font-size: 24px;
+  padding: 0.5em 1em 0.5em 1em;
+  border-radius: 1em;
+  cursor: pointer;
+}
+
+.agrega-mascota:hover {
+  background: #E76801;
+  transition: .3s background-color
+}
