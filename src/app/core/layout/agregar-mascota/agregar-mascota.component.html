@@ -1,27 +1,89 @@
-<div>
-
+<div style="display: flex; align-items: center;flex-direction: column; margin: 2em;">
+  <p style="    color: #FDA769;
+  font-size: 40px;
+  font-family: serif;
+  font-weight: 500;
+  line-height: 28px;
+  word-wrap: break-word;"> Dando en Adopción </p>
+  <p style="    color: black;
+  font-size: 18px;
+  font-family: serif;
+  font-weight: 400;
+  line-height: 27px;
+  word-wrap: break-word;"> Completá la información de tu mascota </p>
+  <p style="font-size: 14px;
+  margin-top: 1em; color: #787878;">Este formulario consta de dos partes, te pedimos que lo completes a conciencia y lo mas detallado posible</p>
 </div>
 <form [formGroup]="addPetForm" class="modal">
   <div *ngIf="currentStep === 1">
-    <div>
-      <input required formControlName="name" placeholder="Ingresá su nombre">
-      <label class="toggle">
-        <input required type="checkbox" formControlName="type">
-        <span class="slider"></span>
-        <span class="labels" data-on="Perro" data-off="Gato"></span>
-      </label>
-      <label class="toggle">
-        <input required type="checkbox" formControlName="gender">
-        <span class="slider"></span>
-        <span class="labels" data-on="Macho" data-off="Hembra"></span>
-      </label>
-      <label class="toggle">
-        <input required type="checkbox" formControlName="isCastrated">
-        <span class="slider"></span>
-        <span class="labels" data-on="Si" data-off="No"></span>
-      </label>
-      <input required formControlName="size" placeholder="Ingresá su tamaño">
-      <input required formControlName="location" placeholder="Ingresá dónde se encuentra">
+    <div style="    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: flex-start; margin: 0 1em 0 1em; align-items: center;">
+      <input required formControlName="name" placeholder="Ingresá su nombre" style="width: 100%;
+      border: 0.5px #FDA769 solid;
+      color: #787878;
+      background: white;
+      border-radius: 8px;
+      height: 100%;
+      padding-inline: 0.8em;
+      display: flex;
+      padding: 1em;
+      align-items: center; margin-bottom: 1.5em;">
+      <div style="width: 100%;
+      margin-top: 2em;
+      margin-bottom: 2em;
+      display: flex;
+      justify-content: space-evenly;">
+        <div class="toggle" style="display: flex;
+        justify-content: center;
+        flex-direction: column;
+        align-items: center;">
+          <div style="margin-bottom: 4em;">Tipo</div>
+          <input required type="checkbox" formControlName="type">
+          <span class="slider"></span>
+          <span class="labels" data-on="Perro" data-off="Gato"></span>
+        </div>
+        <div class="toggle" style="display: flex;
+        justify-content: center;
+        flex-direction: column;
+        align-items: center;">
+          <div style="margin-bottom: 4em;">Género</div>
+          <input required type="checkbox" formControlName="gender">
+          <span class="slider"></span>
+          <span class="labels" data-on="Macho" data-off="Hembra"></span>
+        </div>
+        <div class="toggle" style="display: flex;
+        justify-content: center;
+        flex-direction: column;
+        align-items: center;">
+          <div style="margin-bottom: 4em;">¿Está castrado?</div>
+          <input required type="checkbox" formControlName="isCastrated">
+          <span class="slider"></span>
+          <span class="labels" data-on="Si" data-off="No"></span>
+        </div>
+      </div>
+      
+      <input required formControlName="size" placeholder="Ingresá su tamaño" style="    width: 40%;
+      border: 0.5px #FDA769 solid;
+      color: #787878;
+      background: white;
+      border-radius: 8px;
+      height: 100%;
+      padding-inline: 0.8em;
+      display: flex;
+      padding: 1em;
+      align-items: center;">
+      <input required formControlName="location" placeholder="Ingresá dónde se encuentra" style="    width: 40%;
+      border: 0.5px #FDA769 solid;
+      color: #787878;
+      background: white;
+      border-radius: 8px;
+      height: 100%;
+      padding-inline: 0.8em;
+      display: flex;
+      padding: 1em;
+      align-items: center;">
       
       <div class="image-thumbnails">
         <div *ngFor="let image of addPetForm.get('images')?.value; let i = index" class="image-thumbnail">

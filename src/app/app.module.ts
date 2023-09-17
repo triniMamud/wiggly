@@ -41,6 +41,8 @@ import { HomePageComponent } from './core/layout/home-page/home-page.component';
 import { CommonModule } from '@angular/common';
 import { NgImageSliderModule } from 'ng-image-slider';
 import { CarouselModule } from 'ngx-bootstrap/carousel';
+import { HomeCardComponent } from './core/layout/home-card/home-card.component';
+import { AgregarMascotaComponent } from './core/layout/agregar-mascota/agregar-mascota.component';
 
 @NgModule({
   declarations: [
@@ -53,7 +55,9 @@ import { CarouselModule } from 'ngx-bootstrap/carousel';
     AdopcionesComponent,
     MisMascotasComponent,
     NavHomePageComponent,
-    HomePageComponent
+    HomePageComponent,
+    HomeCardComponent,
+    AgregarMascotaComponent
   ],
   imports: [
     NgImageSliderModule,
