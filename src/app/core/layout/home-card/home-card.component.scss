@@ -71,11 +71,11 @@
   background: #FDA769;
   border-radius: 0.4em;
   cursor: pointer;
+  transition: .3s background-color;
 }
 
 .Cta:hover {
   background: #E76801;
-  transition: .3s background-color
 }
 
 .slider-container>* {

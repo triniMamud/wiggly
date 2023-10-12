@@ -57,11 +57,12 @@ export class SignInModalComponent implements OnInit, AfterViewInit {
 
   async singIn () {
     this.authenticationService.login(this.form.controls.email.value!, this.form.controls.password.value!)
-      .subscribe((currentUser: any) => {
-          if (!currentUser) {
+      .subscribe((user: any) => {
+          if (!user) {
             this.utilService.notification('No se pudo obtener el usuario', 'error');
             return;
           }
+          this.currentUser = user;
           this.dialog.closeAll();
           this.router.navigateByUrl('home');
         },

@@ -8,9 +8,9 @@
   padding: 0.5em 1em 0.5em 1em;
   border-radius: 1em;
   cursor: pointer;
+  transition: .3s background-color
 }
 
 .agrega-mascota:hover {
   background: #E76801;
-  transition: .3s background-color
 }

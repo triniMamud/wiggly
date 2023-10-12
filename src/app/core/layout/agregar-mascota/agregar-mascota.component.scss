@@ -39,11 +39,11 @@
   transition: all 0.4s ease-in-out;
 }
 
-.toggle input:checked+.slider {
+.toggle input:checked + .slider {
   background-color: #FDA769;
 }
 
-.toggle input:checked+.slider::before {
+.toggle input:checked + .slider::before {
   transform: translateX(calc(var(--width) - var(--height)));
 }
 
@@ -77,41 +77,113 @@
   transition: all 0.4s ease-in-out;
 }
 
-.toggle input:checked~.labels::after {
+.toggle input:checked ~ .labels::after {
   opacity: 0;
 }
 
-.toggle input:checked~.labels::before {
+.toggle input:checked ~ .labels::before {
   opacity: 1;
 }
 
 .image-thumbnails {
+  width: 100%;
   display: flex;
-  flex-wrap: wrap;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  align-items: center;
+  justify-content: space-around;
 }
 
 .image-thumbnail {
-  margin: 10px;
+  margin: 1em;
   text-align: center;
+  width: 15%;
+  height: 15%;
+  position: relative;
 }
 
 .image-thumbnail img {
-  max-width: 100px;
-  max-height: 100px;
   border: 1px solid #ccc;
-  border-radius: 5px;
+  border-radius: 1em;
+  width: 100%;
+  height: 100%;
 }
 
 .image-thumbnail p {
-  margin-top: 5px;
+  margin-top: 0.5em;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
-.image-thumbnail button {
+.image-thumbnail button {    
+  position: absolute;
+  top: -0.5em;
+  right: -0.5em;
   background-color: #f44336;
   color: white;
   border: none;
   border-radius: 50%;
-  padding: 5px 10px;
   cursor: pointer;
-  font-size: 14px;
+  width: 1.2em;
+  height: 1.2em;
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
+
+.image-thumbnail button:hover {
+  background-color: darkred; /* darken on hover for effect */
+}
+
+input[type="file"] {
+  display: none;
+}
+
+.custom-file-label {
+  margin-top: 1.5em;
+  background: #FDA769;
+  color: white;
+  border: none;
+  font-family: Manrope;
+  font-size: 16px;
+  padding: 0.5em 1em 0.5em 1em;
+  border-radius: 1em;
+  cursor: pointer;
+  transition: .3s background-color;
+}
+
+.custom-file-label:hover {
+  background: #E76801;
+}
+
+.siguiente-button {
+  bottom: 0;
+  position: absolute;
+  right: 0;
+  margin: 0 1em 1em 0;
+  background: none;
+  color: #FDA769;
+  font-size: 16px;
+  border: none;
+  cursor: pointer;
+  transition: all .3s ease;
+  text-align: center;
+  display: flex;
+  align-items: center;
+}
+
+.siguiente-button:hover{
+  color: #E76801;
+  font-size: 18px;
+}
+
+.flecha-siguiente {
+  display: flex;
+  font-size: 18px;
+  margin-left: 0.3em;
+  align-items: center
+}
+
+

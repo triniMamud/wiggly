@@ -24,8 +24,8 @@ export class AuthenticationService {
     .set('email', email)
     .set('password', password);
 
-    const user = this.http.post<any>(this.configService.getLoginUrl(), null, { headers });
-      return user;
+    localStorage.setItem('userEmail', JSON.stringify(email));
+    return this.http.post<any>(this.configService.getLoginUrl(), null, { headers });
   }
 
   register(data: { name: string; surename: string; email: string; password: string; birthday: string; }) {
@@ -47,10 +47,7 @@ export class AuthenticationService {
         let user = res?.data?.user;
         const kCloackUser: any = {
           name: user?.name,
-          email: user?.email,
-          //empresa:user?.empresa,
-          //rolId: user?.role_id,
-          //rolDescripcion: user?.role_name,
+          email: user?.email
         };
 
         localStorage.setItem('user', JSON.stringify(kCloackUser));
@@ -71,6 +68,7 @@ export class AuthenticationService {
   getUser() {
     let userStorage = localStorage.getItem('user');
     if(userStorage) this.user = JSON.parse(userStorage);
+    else this.user = localStorage.getItem('userEmail')
     return this.user;
   }
 }

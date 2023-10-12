@@ -62,6 +62,15 @@ export class AgregarMascotaComponent {
       }
     }
   }
+
+  onFileDropped(event: any) {
+    const files = event.item.data;
+    if (files && files.length > 0) {
+      for (const file of files) {
+        this.addPetForm.get('images')?.value?.push(file);
+      }
+    }
+  }
   
   removeImage(index: number) {
     this.addPetForm.get('images')?.value?.splice(index, 1);

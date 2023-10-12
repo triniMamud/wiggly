@@ -35,7 +35,7 @@ export class MisMascotasComponent {
   addMiMascota() {
     this.dialog.open(AgregarMascotaComponent, {
       width: '36em',
-      height: '60em',
+      height: '50em',
     })
   }
   

@@ -19,7 +19,7 @@
     <div style="    display: flex;
     flex-direction: row;
     flex-wrap: wrap;
-    justify-content: flex-start; margin: 0 1em 0 1em; align-items: center;">
+    justify-content: space-around; margin: 0 1em 0 1em; align-items: center;">
       <input required formControlName="name" placeholder="Ingresá su nombre" style="width: 100%;
       border: 0.5px #FDA769 solid;
       color: #787878;
@@ -30,21 +30,22 @@
       display: flex;
       padding: 1em;
       align-items: center; margin-bottom: 1.5em;">
-      <div style="width: 100%;
+    <div style="width: 100%;
       margin-top: 2em;
       margin-bottom: 2em;
       display: flex;
       justify-content: space-evenly;">
-        <div class="toggle" style="display: flex;
-        justify-content: center;
-        flex-direction: column;
-        align-items: center;">
-          <div style="margin-bottom: 4em;">Tipo</div>
-          <input required type="checkbox" formControlName="type">
-          <span class="slider"></span>
-          <span class="labels" data-on="Perro" data-off="Gato"></span>
-        </div>
-        <div class="toggle" style="display: flex;
+      <label class="toggle" style="display: flex;
+      justify-content: center;
+      flex-direction: column;
+      align-items: center;"> 
+        <div style="margin-bottom: 4em;">Tipo</div>
+        <input required type="checkbox" formControlName="type">
+        <span class="slider"></span>
+        <span class="labels" data-on="Perro" data-off="Gato"></span>
+      </label>
+    
+        <label class="toggle" style="display: flex;
         justify-content: center;
         flex-direction: column;
         align-items: center;">
@@ -52,49 +53,67 @@
           <input required type="checkbox" formControlName="gender">
           <span class="slider"></span>
           <span class="labels" data-on="Macho" data-off="Hembra"></span>
-        </div>
-        <div class="toggle" style="display: flex;
+        </label>
+        <label class="toggle" style="display: flex;
         justify-content: center;
         flex-direction: column;
         align-items: center;">
-          <div style="margin-bottom: 4em;">¿Está castrado?</div>
+          <div style="margin-bottom: 4em;">¿Castrado?</div>
           <input required type="checkbox" formControlName="isCastrated">
           <span class="slider"></span>
           <span class="labels" data-on="Si" data-off="No"></span>
-        </div>
+        </label>
       </div>
-      
-      <input required formControlName="size" placeholder="Ingresá su tamaño" style="    width: 40%;
-      border: 0.5px #FDA769 solid;
-      color: #787878;
-      background: white;
-      border-radius: 8px;
-      height: 100%;
-      padding-inline: 0.8em;
+      <div style="width: 100%;
       display: flex;
-      padding: 1em;
-      align-items: center;">
-      <input required formControlName="location" placeholder="Ingresá dónde se encuentra" style="    width: 40%;
-      border: 0.5px #FDA769 solid;
-      color: #787878;
-      background: white;
-      border-radius: 8px;
-      height: 100%;
-      padding-inline: 0.8em;
-      display: flex;
-      padding: 1em;
-      align-items: center;">
+      flex-direction: row;
+      justify-content: space-between; gap: 1em;">
+        <input required formControlName="size" placeholder="Ingresá su tamaño" style="    width: 45%;
+        border: 0.5px #FDA769 solid;
+        color: #787878;
+        background: white;
+        border-radius: 8px;
+        height: 100%;
+        display: flex;
+        padding: 1em;
+        align-items: center;
+        margin-bottom: 1.5em;">
+        <input required formControlName="location" placeholder="Ingresá dónde se encuentra" style="    width: 45%;
+        border: 0.5px #FDA769 solid;
+        color: #787878;
+        background: white;
+        border-radius: 8px;
+        height: 100%;
+        display: flex;
+        padding: 1em;
+        align-items: center;
+        margin-bottom: 1.5em;">
+      </div>
       
       <div class="image-thumbnails">
         <div *ngFor="let image of addPetForm.get('images')?.value; let i = index" class="image-thumbnail">
           <img [src]="getImageUrl(image)" alt="Miniatura de imagen">
           <p>{{ image.name }}</p>
-          <button (click)="removeImage(i)">Eliminar</button>
+          <button (click)="removeImage(i)">x</button>
         </div>
       </div>
-      <input type="file" (change)="onFileSelected($event)" accept="image/*" multiple>
+      <div style="width: 100%;
+      display: flex;
+      flex-direction: row;
+      justify-content: flex-start;
+      align-items: center;">
+
+
+        <label for="fileInput" class="custom-file-label">Subí fotos de tu mascota!</label>
+        <input type="file" id="fileInput" (change)="onFileSelected($event)" accept="image/*" multiple>
+      </div>
     </div>
-    <button (click)="nextStep()">Siguiente</button>
+    <div style="display: flex;  align-items: center;
+justify-content: center;    ">
+      <button (click)="nextStep()" class="siguiente-button">Siguiente
+        <mat-icon class="flecha-siguiente">arrow_forward</mat-icon>
+      </button>
+    </div>
   </div>
   <div *ngIf="currentStep === 2">
     <input required formControlName="vaccines" placeholder="¿Tiene las vacunas al dia?">
@@ -133,7 +152,7 @@
         <mat-radio-button value="unknown">No</mat-radio-button>
       </mat-radio-group>
     </div>    
-    <input required formControlName="generalInfo" placeholder="Agragá información que creas relevante (personalidad, preferencias, juguete o comida favorita, etc.)">
+    <input required formControlName="generalInfo" placeholder="Agregá información que creas relevante (personalidad, preferencias, juguete o comida favorita, etc.)">
     <button (click)="submitForm()">Enviar Formulario</button>
     <button (click)="previousStep()">Volver</button> <!-- Agregar botón de volver -->
   </div>
