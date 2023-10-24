@@ -11,14 +11,19 @@ import { Router } from '@angular/router';
   templateUrl: './registration.component.html',
   styleUrls: ['./registration.component.scss']
 })
-export class RegistrationComponent implements OnInit, AfterViewInit {
+export class RegistrationComponent implements OnInit {
 
   registrationForm = new FormGroup({
     name: new FormControl('', [Validators.required]),
-    surename: new FormControl('', [Validators.required]),
+    lastName: new FormControl('', [Validators.required]),
     email: new FormControl('', [Validators.required]),
     password: new FormControl('', [Validators.required]),
-    birthday: new FormControl('', [Validators.required])
+    age: new FormControl('', [Validators.required]),
+    dni: new FormControl('', [Validators.required]),
+    phone: new FormControl('', [Validators.required]),
+    location: new FormControl('', [Validators.required]),
+    transit: new FormControl(false, [Validators.required]),
+    adoption: new FormControl(false, [Validators.required])
   })
 
   currentUser: any = {};
@@ -35,20 +40,6 @@ export class RegistrationComponent implements OnInit, AfterViewInit {
   ngOnInit(): void {
   }
 
-  ngAfterViewInit() {
-    setTimeout(() => {
-      // this.focusElements.first.focus();
-    });
-  }
-
-  reset() {
-    this.registrationForm.controls.name.setValue('');
-    this.registrationForm.controls.surename.setValue('');
-    this.registrationForm.controls.email.setValue('');
-    this.registrationForm.controls.password.setValue('');
-    this.registrationForm.controls.birthday.setValue('');
-  }
-
   switchToSignIn() {
     this.dialog.closeAll();
     this.dialog.open(SignInModalComponent, {
@@ -58,12 +49,22 @@ export class RegistrationComponent implements OnInit, AfterViewInit {
   }
 
   async signUp() {
+
+    let adoptionType;
+    if (this.registrationForm.get('transit')?.value && this.registrationForm.get('adoption')?.value) adoptionType = "BOTH";
+    else if (this.registrationForm.get('transit')?.value) adoptionType = "TRANSIT";
+    else if (this.registrationForm.get('adoption')?.value) adoptionType = "ADOPTION"
+
     const data = {
-      name: this.registrationForm.controls.name.value!,
-      surename: this.registrationForm.controls.surename.value!,
-      email: this.registrationForm.controls.email.value!,
-      password: this.registrationForm.controls.password.value!,
-      birthday: this.registrationForm.controls.birthday.value!
+      name: this.registrationForm.get('name')?.value,
+      lastName: this.registrationForm.get('lastName')?.value,
+      email: this.registrationForm.get('email')?.value,
+      password: this.registrationForm.get('password')?.value,
+      age: this.registrationForm.get('age')?.value,
+      dni: this.registrationForm.get('dni')?.value,
+      phone: this.registrationForm.get('phone')?.value,
+      location: this.registrationForm.get('location')?.value,
+      adoptionType: adoptionType
     }
 
     this.authenticationService.register(data)

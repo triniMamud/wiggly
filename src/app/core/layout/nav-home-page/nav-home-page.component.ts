@@ -3,6 +3,7 @@ import { MisMascotasComponent } from '../mis-mascotas/mis-mascotas.component';
 import { AdopcionesComponent } from '../adopciones/adopciones.component';
 import { HomePageComponent } from '../home-page/home-page.component';
 import { state, transition, trigger } from '@angular/animations';
+import { AuthenticationService } from '../../services/authentication.service';
 
 @Component({
   selector: 'app-nav-home-page',
@@ -29,6 +30,7 @@ export class NavHomePageComponent implements OnInit {
   edad: any;
   tamanio: any;
   sexo: any;
+  userName: String = '';
 
   tabs = [
     {title: 'Inicio', component: HomePageComponent},
@@ -36,9 +38,10 @@ export class NavHomePageComponent implements OnInit {
     {title: 'Mis mascotas', component: MisMascotasComponent}
   ]
 
-  constructor() { }
+  constructor(private authenticationService: AuthenticationService) { }
 
   ngOnInit(): void {
+    this.userName = this.authenticationService.getUser().name;
   }
 
   changeIndex(index: number){

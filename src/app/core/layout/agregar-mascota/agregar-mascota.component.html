@@ -1,4 +1,4 @@
-<div style="display: flex; align-items: center;flex-direction: column; margin: 2em;">
+<div style="display: flex; align-items: center;flex-direction: column; margin: 2em 2em 0em 2em;">
   <p style="    color: #FDA769;
   font-size: 40px;
   font-family: serif;
@@ -11,55 +11,75 @@
   font-weight: 400;
   line-height: 27px;
   word-wrap: break-word;"> Completá la información de tu mascota </p>
-  <p style="font-size: 14px;
-  margin-top: 1em; color: #787878;">Este formulario consta de dos partes, te pedimos que lo completes a conciencia y lo mas detallado posible</p>
+ 
 </div>
 <form [formGroup]="addPetForm" class="modal">
   <div *ngIf="currentStep === 1">
-    <div style="    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    justify-content: space-around; margin: 0 1em 0 1em; align-items: center;">
-      <input required formControlName="name" placeholder="Ingresá su nombre" style="width: 100%;
-      border: 0.5px #FDA769 solid;
-      color: #787878;
-      background: white;
-      border-radius: 8px;
-      height: 100%;
-      padding-inline: 0.8em;
-      display: flex;
-      padding: 1em;
-      align-items: center; margin-bottom: 1.5em;">
-    <div style="width: 100%;
-      margin-top: 2em;
-      margin-bottom: 2em;
-      display: flex;
-      justify-content: space-evenly;">
-      <label class="toggle" style="display: flex;
-      justify-content: center;
-      flex-direction: column;
-      align-items: center;"> 
-        <div style="margin-bottom: 4em;">Tipo</div>
-        <input required type="checkbox" formControlName="type">
-        <span class="slider"></span>
-        <span class="labels" data-on="Perro" data-off="Gato"></span>
-      </label>
-    
-        <label class="toggle" style="display: flex;
-        justify-content: center;
-        flex-direction: column;
-        align-items: center;">
+    <div style="display: flex; align-items: center;flex-direction: column; margin: 0em 2em 2em 2em;">
+      <p style="font-size: 14px;
+      margin-top: 1em; color: #787878;">Este formulario consta de dos partes, te pedimos que lo completes a conciencia y lo mas detallado posible</p>
+    </div>
+   
+    <div class="form-step-content">
+      <div class="two-inputs-row">
+        <input formControlName="name" placeholder="Ingresá su nombre" class="input-formulario" [ngClass]="{'invalid': addPetForm.get('name')?.touched && addPetForm.get('name')?.invalid}">
+        <input type="number" formControlName="age" placeholder="Ingresá su edad" class="input-formulario" [ngClass]="{'invalid': addPetForm.get('age')?.touched && addPetForm.get('age')?.invalid}">
+      </div>
+      <div style="width: 100%;      margin-top: 2em;      margin-bottom: 2em;      display: flex;      justify-content: space-evenly;">
+        <label class="toggle" style="display: flex;      justify-content: center;      flex-direction: column;      align-items: center;"> 
+          <div style="margin-bottom: 4em;">Tipo</div>
+          <input type="checkbox" formControlName="type">
+          <span class="slider"></span>
+          <span class="labels" data-on="Perro" data-off="Gato"></span>
+        </label>
+        <label class="toggle" style="display: flex;      justify-content: center;      flex-direction: column;      align-items: center;">
           <div style="margin-bottom: 4em;">Género</div>
-          <input required type="checkbox" formControlName="gender">
+          <input type="checkbox" formControlName="gender">
           <span class="slider"></span>
           <span class="labels" data-on="Macho" data-off="Hembra"></span>
         </label>
-        <label class="toggle" style="display: flex;
-        justify-content: center;
-        flex-direction: column;
-        align-items: center;">
+        <label class="toggle" style="display: flex;      justify-content: center;      flex-direction: column;      align-items: center;">
           <div style="margin-bottom: 4em;">¿Castrado?</div>
-          <input required type="checkbox" formControlName="isCastrated">
+          <input type="checkbox" formControlName="isCastrated">
+          <span class="slider"></span>
+          <span class="labels" data-on="Si" data-off="No"></span>
+        </label>
+      </div>
+      <div class="two-inputs-row">
+        <input formControlName="size" placeholder="Ingresá su tamaño" class="input-formulario" [ngClass]="{'invalid': addPetForm.get('size')?.touched && addPetForm.get('size')?.invalid}">
+        <input formControlName="location" placeholder="Ingresá dónde se encuentra" class="input-formulario" [ngClass]="{'invalid': addPetForm.get('location')?.touched && addPetForm.get('location')?.invalid}">
+      </div>
+      <div class="two-inputs-row">
+        <input formControlName="vaccines" class="input-formulario" placeholder="¿Tiene las vacunas al dia?" [ngClass]="{'invalid': addPetForm.get('vaccines')?.touched && addPetForm.get('vaccines')?.invalid}">
+        <input formControlName="deparasited" class="input-formulario" placeholder="¿Está desparasitado?" [ngClass]="{'invalid': addPetForm.get('deparasited')?.touched && addPetForm.get('deparasited')?.invalid}">
+      </div>
+      
+      <div style="width: 100%;      display: flex;      flex-direction: column;      justify-content: flex-start;      align-items: center;">
+        <div class="custom-dropzone" ngx-dropzone [accept]="'image/*'" (change)="onSelect($event)">
+          <ngx-dropzone-label>
+            <div>
+              <mat-icon>add_a_photo</mat-icon>
+              <h2>Arrastra y suelta fotos de tu mascota</h2>
+            </div>
+          </ngx-dropzone-label>
+          <ngx-dropzone-image-preview ngProjectAs="ngx-dropzone-preview" *ngFor="let f of addPetForm.get('images')?.value; let i = index" [file]="f" [removable]="true" (removed)="onRemove(f, i)">
+            <ngx-dropzone-label>{{ f.name }} ({{ f.type }})</ngx-dropzone-label>
+          </ngx-dropzone-image-preview>
+        </div>
+      </div>
+    </div>
+    <div class="cambiar-step-button cambiar-step-button-siguiente">
+      <button (click)="nextStep()" class="step-button step-button-siguiente">Siguiente
+        <mat-icon class="flecha-step">arrow_forward</mat-icon>
+      </button>
+    </div>
+  </div>
+  <div *ngIf="currentStep === 2">
+    <div class="form-step-content">
+      <div style="width: 100%;display: flex;align-items: center;align-content: center;justify-content: flex-start; margin-bottom: 1.5em;">
+        <label style="width: 61%;">¿Sabe quedarse solo?</label>
+        <label class="toggle">
+          <input type="checkbox" formControlName="beOnItsOwn">
           <span class="slider"></span>
           <span class="labels" data-on="Si" data-off="No"></span>
         </label>
@@ -67,93 +87,57 @@
       <div style="width: 100%;
       display: flex;
       flex-direction: row;
-      justify-content: space-between; gap: 1em;">
-        <input required formControlName="size" placeholder="Ingresá su tamaño" style="    width: 45%;
-        border: 0.5px #FDA769 solid;
-        color: #787878;
-        background: white;
-        border-radius: 8px;
-        height: 100%;
-        display: flex;
-        padding: 1em;
-        align-items: center;
-        margin-bottom: 1.5em;">
-        <input required formControlName="location" placeholder="Ingresá dónde se encuentra" style="    width: 45%;
-        border: 0.5px #FDA769 solid;
-        color: #787878;
-        background: white;
-        border-radius: 8px;
-        height: 100%;
-        display: flex;
-        padding: 1em;
-        align-items: center;
-        margin-bottom: 1.5em;">
-      </div>
-      
-      <div class="image-thumbnails">
-        <div *ngFor="let image of addPetForm.get('images')?.value; let i = index" class="image-thumbnail">
-          <img [src]="getImageUrl(image)" alt="Miniatura de imagen">
-          <p>{{ image.name }}</p>
-          <button (click)="removeImage(i)">x</button>
+      margin-bottom: 1.5em;
+      align-content: center;
+      align-items: center;
+      justify-content: space-between;">
+        <label>¿Hace sus necesidades afuera?</label>
+        <mat-radio-group formControlName="bathroomOutside">
+          <mat-radio-button value="YES">Sí</mat-radio-button>
+          <mat-radio-button value="NO">No</mat-radio-button>
+          <mat-radio-button value="SOMETIMES">A veces</mat-radio-button>
+        </mat-radio-group>
+      </div>    
+  
+      <div class="radio-input-row">
+        <label>¿Se lleva bien con otras mascotas?</label>
+        <div>
+          <mat-radio-group formControlName="goodWithPets">
+            <mat-radio-button value="Si">Sí</mat-radio-button>
+            <mat-radio-button value="No">No</mat-radio-button>
+            <mat-radio-button value="No se sabe">No sé</mat-radio-button>
+          </mat-radio-group>
         </div>
       </div>
-      <div style="width: 100%;
-      display: flex;
-      flex-direction: row;
-      justify-content: flex-start;
-      align-items: center;">
+      <div class="radio-input-row">
+        <label>¿Se lleva bien con niños?</label>
+        <div>
+          <mat-radio-group formControlName="goodWithChildren">
+            <mat-radio-button value="Si">Sí</mat-radio-button>
+            <mat-radio-button value="No">No</mat-radio-button>
+            <mat-radio-button value="No se sabe">No sé</mat-radio-button>
+          </mat-radio-group>
+        </div>
+      </div>
+      <textarea formControlName="medicalInfo" style="width: 100%; padding-bottom: 6em;resize: none; margin-bottom: 1em;" class="input-formulario" [ngClass]="{'invalid': addPetForm.get('medicalInfo')?.touched && addPetForm.get('medicalInfo')?.invalid}"
+        placeholder="Agregá toda la informacion médica que sepas (enfermedades actuales o pasadas, diagnósticos, tratamientos, dietas, medicación, etc.)"></textarea>  
+        <textarea formControlName="generalInfo" style="width: 100%; padding-bottom: 6em;resize: none; " class="input-formulario" [ngClass]="{'invalid': addPetForm.get('generalInfo')?.touched && addPetForm.get('generalInfo')?.invalid}"
+        placeholder="Agregá información que creas relevante (personalidad, preferencias, juguete o comida favorita, etc.)"></textarea>
+    </div>
+    <div style="width: 100%; display: flex; align-items: center; justify-content: center;     flex-direction: column;">
+      <button (click)="submitForm()" class="enviar-formulario-agregar" [disabled]="!this.addPetForm.valid|| this.enviando">{{this.enviando ? 'Enviando Formulario' : 'Enviar formulario'}}</button>
+      <mat-spinner class="spinner mr-2" style="margin-right: 10px;" [diameter]="20" *ngIf="this.enviando">
+      </mat-spinner>
 
-
-        <label for="fileInput" class="custom-file-label">Subí fotos de tu mascota!</label>
-        <input type="file" id="fileInput" (change)="onFileSelected($event)" accept="image/*" multiple>
+      <div *ngIf="this.addPetForm.status === 'INVALID'" class="error-message" style="margin-top: 0.5em; margin-bottom: 1.5em; color: red;">
+        * Debes completar todos los campos requeridos del formulario
       </div>
     </div>
-    <div style="display: flex;  align-items: center;
-justify-content: center;    ">
-      <button (click)="nextStep()" class="siguiente-button">Siguiente
-        <mat-icon class="flecha-siguiente">arrow_forward</mat-icon>
-      </button>
-    </div>
-  </div>
-  <div *ngIf="currentStep === 2">
-    <input required formControlName="vaccines" placeholder="¿Tiene las vacunas al dia?">
-    <input required formControlName="deparasited" placeholder="¿Está desparasitado?">
-    <input required formControlName="medicalInfo" placeholder="Agregá toda la informacion médica que sepas (enfermedades actuales o pasadas, diagnósticos, tratamientos, dietas, medicación, etc.)">
-    <div>
-      <label>¿Se lleva bien con otras mascotas?</label>
-      <mat-radio-group [formControlName]="'goodWithPets'">
-        <mat-radio-button value="yes">Sí</mat-radio-button>
-        <mat-radio-button value="no">No</mat-radio-button>
-        <mat-radio-button value="unknown">No sé</mat-radio-button>
-      </mat-radio-group>
-    </div>
-    <div>
-      <label>¿Se lleva bien con niños?</label>
-      <mat-radio-group [formControlName]="'goodWithChildren'">
-        <mat-radio-button value="yes">Sí</mat-radio-button>
-        <mat-radio-button value="no">No</mat-radio-button>
-        <mat-radio-button value="unknown">No sé</mat-radio-button>
-      </mat-radio-group>
-    </div>
-    <div>
-      <label>¿Sabe quedarse solo?</label>
-      <label class="toggle">
-        <input required type="checkbox" formControlName="beOnItsOwn">
-        <span class="slider"></span>
-        <span class="labels" data-on="Si" data-off="No"></span>
-      </label>
-    </div>
-    <div>
-      <label>¿Sabe hacer sus necesidades afuera?</label>
-      <mat-radio-group [formControlName]="'bathroomOutside'">
-        <mat-radio-button value="yes">Sí</mat-radio-button>
-        <mat-radio-button value="yes">Algunas veces</mat-radio-button>
-        <mat-radio-button value="no">Está aprendiendo</mat-radio-button>
-        <mat-radio-button value="unknown">No</mat-radio-button>
-      </mat-radio-group>
-    </div>    
-    <input required formControlName="generalInfo" placeholder="Agregá información que creas relevante (personalidad, preferencias, juguete o comida favorita, etc.)">
-    <button (click)="submitForm()">Enviar Formulario</button>
-    <button (click)="previousStep()">Volver</button> <!-- Agregar botón de volver -->
+    <button (click)="previousStep()" class="cambiar-step-button step-button" style="position: absolute;
+    bottom: 0;
+    left: 0;">
+      <mat-icon class="flecha-step">arrow_back</mat-icon>
+      Volver
+    </button>
   </div>
 </form>

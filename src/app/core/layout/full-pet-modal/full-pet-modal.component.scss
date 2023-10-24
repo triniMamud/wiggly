@@ -625,20 +625,3 @@
   }
 }
 
-.fav-button-card {
-  position: absolute;
-  width: 100%;
-  display: flex;
-  justify-content: flex-end;
-  margin-left: -0.5em;
-  cursor: pointer;
-}
-
-.fav-button-card i {
-  color: #FDA769;
-  border: #E76801;
-}
-
-.fav-button-card i:hover {
-  background-color: #E76801;
-}

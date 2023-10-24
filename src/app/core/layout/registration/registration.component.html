@@ -1,84 +1,77 @@
-<div style="    display: inline-grid;
+<div style="    display: flex;
 justify-content: center;
 align-items: center;
 position: absolute;
-align-content: center;
-justify-items: center;">
-  <img style="position: relative; width: 60%; margin-top: 5.5em; margin-bottom:5.5em" src="../../../../assets/images/wiggly.png"/>
+justify-items: center;
+flex-direction: column;">
+  <img style="position: relative; width: 60%; margin-top: 3.5em; margin-bottom:3.5em" src="../../../../assets/images/wiggly.png"/>
   <div style="position: relative; color: black; font-size: 40px; font-family: serif; font-weight: 500; line-height: 28px; word-wrap: break-word">
     Creá una cuenta!
   </div>
   <form [formGroup]="registrationForm" style="display: contents;">
-    <div style="    position: relative;
-    display: flex;
-    margin-top: 4.5em;
-    height: 35%;
-    width: 85%;
-    justify-content: space-between;">
-      <input required formControlName="name" placeholder="Nombre" style="width: 40%; border: 0.5px #FDA769 solid; color: #787878; background: white; border-radius: 8px; /* margin-top: 5em; */ height: 100%; padding-inline: 0.8em;">
-    <input required formControlName="surename" placeholder="Apellido" style="width: 40%; border: 0.5px #FDA769 solid; color: #787878; background: white; border-radius: 8px; /* margin-top: 5em; */ height: 100%; padding-inline: 0.8em;">
-    </div>
-     
-    <input required ngModel email type="email" placeholder="Email" style="    position: relative;
-    width: 80%; border: 0.50px #FDA769 solid; color: #787878;
-    background: white;
-    border-radius: 8px;
-    margin-top: 5em;
-    height: 35%;    padding-inline: 0.8em;"> 
-    <div style="    position: relative;
-    display: flex;
-    border-radius: 8px;
-    width: 84%;
-    margin-top: 5em;
-    height: 33.5%;
-    justify-content: flex-end;
-    align-items: center;">
-      <input required formControlName="password" [type]="!showPass ? 'password' : 'text'" placeholder="Contraseña" style="width: 100%;
+    <div style="display: flex;     flex-direction: column;
+    align-items: center; width: 100%;">
+      <div style="    position: relative;
       display: flex;
-      border-radius: 8px; color: #787878;
-      height: 100%;
-      padding-inline: 0.8em;
-      border: 0.50px #FDA769 solid">
-      <button mat-icon-button style="position: absolute;" (click)="showPass = !showPass;">
-        <mat-icon style="color: #787878;
-        text-align: center;" matSuffix >{{!showPass ? 'visibility_off' : 'visibility'}}</mat-icon>
-      </button>
+      margin-top: 2em;
+      height: 35%;
+      width: 85%;
+      justify-content: space-between;">
+        <input class="register-input" formControlName="name" placeholder="Nombre" style="margin-right: 0.5em;">
+        <input class="register-input" formControlName="lastName" placeholder="Apellido" style="margin-left: 0.5em;">
+      </div>
+       
+      <input class="register-input" formControlName="email" type="email" placeholder="Email"> 
+      <div style="position: relative;  display: flex;   border-radius: 8px;   width: 100%;   height: 33.5%;   justify-content: center;   align-items: center;">
+        <input class="register-input" formControlName="password" [type]="!showPass ? 'password' : 'text'" placeholder="Contraseña" >
+        <button mat-icon-button style="position: absolute; top: 0.87em; right: 1.5em;" (click)="showPass = !showPass;">
+          <mat-icon style="color: #E76801; text-align: center;" matSuffix >{{!showPass ? 'visibility_off' : 'visibility'}}</mat-icon>
+        </button>
+      </div>
+      <div style="    position: relative;
+      display: flex;
+      height: 35%;
+      width: 85%;
+      justify-content: space-between;">
+            <input class="register-input" formControlName="age" type="number" placeholder="Edad" style="margin-right: 0.5em;">
+            <input class="register-input" formControlName="location" placeholder="Ubicación" style="margin-left: 0.5em;">
+      </div>
+      <div style="    position: relative;
+      display: flex;
+      height: 35%;
+      width: 85%;
+      justify-content: space-between;">
+        <input class="register-input" formControlName="phone" type="number" placeholder="Teléfono/Celular" style="margin-right: 0.5em;">
+        <input class="register-input" formControlName="dni" type="number" placeholder="DNI" style="margin-left: 0.5em;">
+      </div>
+      <div style="display: flex;
+      align-items: flex-end;
+      margin-top: 2em;
+      width: 85%;
+      justify-content: space-between;">
+        <p>¿Qué tipo de adopción te interesa?</p>
+        <div>
+          <div style="margin-bottom: 0.3em;">
+            <label style="display: flex; align-items: flex-end;">
+              <input class="custom-checkbox" type="checkbox" id="transito" name="options" value="Transito" formControlName="transit"> Transito
+            </label>
+          </div>
+          <div>
+            <label style="display: flex; align-items: flex-end;">
+              <input class="custom-checkbox" type="checkbox" id="adopcion-permanente" name="options" value="Adopcion" formControlName="adoption"> Adopción permanente
+            </label>
+          </div>
+        </div>
+      </div>
     </div>
-    <label style="    position: relative;
-    border-radius: 8px;
-    width: 80%;
-    margin-top: 4em;
-    height: 33%;
-    color: #787878;
-    margin-right: 1.5em;">
-    Fecha de nacimiento
-      <input required formControlName="birthday" type="date" placeholder="Fecha de nacimiento" style="width: 100%;
-      display: flex; color: #787878;
-      border-radius: 8px;
-      height: 100%;
-      padding-inline: 0.8em;
-      border: 0.50px #FDA769 solid">
-      </label>
-    </form>
-  <button [disabled]="!registrationForm.valid" [style.background-color]="registrationForm.invalid ? '#787878' : '#E76801'" style="    width: 70%;
-  height: 55%;
-  position: relative;
-  background: #E76801;
-  border-radius: 15px;
-  justify-content: center;
-  align-items: center;
-  display: inline-flex;
-  margin-top: 3.5em;
-  border: none;
-  color: white;
-  font-size: 25px;
-  font-family: serif;
-  line-height: 20px;
-  word-wrap: break-word;" mat-raised-button (click)="signUp()"> Registrarse
+    
+  </form>
+  <button [disabled]="!this.registrationForm.valid" class="registrarse-button" [style.background-color]="this.registrationForm.invalid ? '#787878' : '#E76801'" (click)="signUp()">
+    Registrarse
   </button>
   <div style="position: relative;
   text-align: center;
-  margin-top: 3em;">
+  margin-top: 2.5em;">
     <span style="color: #787878; font-size: 18px; font-family: serif; font-weight: 400; line-height: 27px; word-wrap: break-word">¿Ya tenés una cuenta?</span>
     <button (click)="switchToSignIn()" style="cursor: pointer; border:none; background-color: white; color: #FDA769; font-size: 18px; font-family: serif; font-weight: 600; line-height: 27px; word-wrap: break-word"> Iniciá sesión</button>
   </div>

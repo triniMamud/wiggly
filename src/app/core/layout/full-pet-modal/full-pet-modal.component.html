@@ -1,0 +1,52 @@
+<body>
+  <div class="swiffy-slider" style="    overflow-x: hidden;">
+    <ul class="slider-container">
+      <li style="transition: opacity .5s;"><img class="imagenPet" [src]="petImages[currentSlideIndex]" style="width: 40em; height: 25em;"></li>
+    </ul>
+    <button type="button" class="slider-nav" (click)="previousSlide()" style="visibility: visible;" ></button>
+    <button type="button" class="slider-nav slider-nav-next" (click)="nextSlide()" style="visibility: visible;"></button>
+    <div class="fav-button-card">
+      <i class="fa fa-heart"></i>
+    </div>
+  </div>
+  <div style="width: 100%; height: 57%;">
+    <div class="pet-info" style="display: flex; flex-direction: column; height: 100%;">
+      <div style="margin-top: 0.5em;">
+        <p style="text-align: center; color: #191D23; font-size: 32px; font-family: Manrope; font-weight: 600; word-wrap: break-word;">{{petData.name}}, {{petData.age}} años</p>
+        <p style="text-align: center; color: #64748B; font-size: 18px; font-family: Manrope; font-weight: 400; word-wrap: break-word">{{petData.location}}</p> 
+      </div>
+      <div style="display: flex;
+      margin-top: 2em;
+      margin-inline: 1em;
+      margin-bottom: 0.5em;
+      align-content: flex-start;
+      flex-direction: column;
+      align-items: flex-start;
+      flex-wrap: wrap;
+      height: 100%;
+      justify-content: space-around;">
+        <div style="margin-bottom: 1em;">
+          <p style="margin-bottom: 0.5em; color: #E76801; font-size: medium;"><strong>Características Principales</strong></p>
+          <p>
+            {{petData.name}} es {{petTypeGender}}. {{petBathroom}} y {{this.petData.isCastrated ? "está" : "no está"}} {{this.petData.gender === "Macho" ? "castrado" : "castrada"}}. 
+            {{this.petData.beOnItsOwn ? "Sabe quedarse por su cuenta. " : "Todavía no sabe qeudarse por su cuenta. "}}
+            {{this.petGoodWithChildrenAndPets}}
+          </p>
+        </div>
+        <div style="margin-bottom: 1em;">
+          <p style="margin-bottom: 0.5em; color: #E76801; font-size: medium;"><strong>Información Genera</strong>l</p>
+          <p>{{this.petData.generalInfo}}</p>
+        </div>
+        <div style="margin-bottom: 1em;">
+          <p style="margin-bottom: 0.5em; color: #E76801; font-size: medium;"><strong>Información medica</strong></p>
+          <p>{{this.petData.medicalInfo}}</p>
+        </div>
+        <div>
+          <p><strong style="color: #E76801;">Desparasitación: </strong>{{this.petData.deparasited}}</p>
+          <p><strong style="color: #E76801;">Vacunas: </strong>{{this.petData.vaccines}}</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+

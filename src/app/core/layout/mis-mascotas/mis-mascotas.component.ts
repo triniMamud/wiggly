@@ -19,7 +19,7 @@ export class MisMascotasComponent {
     private utilService: UtilService,
     private dialog: MatDialog) {}
 
-  ngAfterViewInit(): void {
+  ngOnInit(): void {
     this.getAllMisMascotas();
   }
 
@@ -33,11 +33,13 @@ export class MisMascotasComponent {
   }
 
   addMiMascota() {
-    this.dialog.open(AgregarMascotaComponent, {
-      width: '36em',
-      height: '50em',
-    })
-  }
-  
+    const dialogRef = this.dialog.open(AgregarMascotaComponent, {
+      width: '40em',
+      height: '57em',
+    });
 
+    dialogRef.afterClosed().subscribe(result => {
+      this.getAllMisMascotas();
+    });
+  }
 }

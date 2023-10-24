@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { PetDTOResponse } from '../../models/PetDTOResponse.model';
 import { trigger, state, style, transition, animate } from '@angular/animations';
+import { MascotaService } from '../../services/mascota.service';
+import { UtilService } from '../../services/util.service';
 
 @Component({
   selector: 'app-home-page',
@@ -18,301 +20,25 @@ import { trigger, state, style, transition, animate } from '@angular/animations'
 export class HomePageComponent implements OnInit {
 
 
-  constructor() { }
+  constructor(private mascotaService: MascotaService, private utilService: UtilService) { }
 
   mascotas: PetDTOResponse[] = [];
 
   ngOnInit(): void {
-    this.mascotas = [
-      {
-        pet: {
-          id: 1,
-          name: "aku",
-          type: 0,
-          age: 2,
-          gender: "macho",
-          size: "mediano",
-          location: "nuñez",
-          is_castrated: true,
-          vaccines: "al dia",
-          deparasited: "si",
-          illnessesAndTreatments: "rodillita luxada",
-          medicalInfo: "no",
-          generalInfo: "es re bueno y cariñoso, y se pone nervioso facil",
-          goodWithPets: "si, tiene un hermano perruno",
-          goodWithChildren: "no se sabe",
-          beOnItsOwn: true,
-          bathroomOutside: 0
-        },
-        images: ["../../../../assets/images/aku.jpeg", "../../../../assets/images/kurama.jpg"]
-      },
-      {
-        pet: {
-          id: 1,
-          name: "zeke",
-          type: 0,
-          age: 3,
-          gender: "macho",
-          size: "mediano",
-          location: "nuñez",
-          is_castrated: true,
-          vaccines: "al dia",
-          deparasited: "si",
-          illnessesAndTreatments: "hipotiroidismo, sobrepeso",
-          medicalInfo: "toma dos pastillitas a la mañana en ayunas",
-          generalInfo: "terco y muertito de hambre, pero re re re mimoso",
-          goodWithPets: "si, tiene un hermano perruno",
-          goodWithChildren: "si",
-          beOnItsOwn: true,
-          bathroomOutside: 2
-        },
-        images: ["../../../../assets/images/zeke.jpeg", "../../../../assets/images/chihiro.jpeg"]
-      },
-      {
-        pet: {
-          id: 1,
-          name: "aku",
-          type: 0,
-          age: 2,
-          gender: "macho",
-          size: "mediano",
-          location: "nuñez",
-          is_castrated: true,
-          vaccines: "al dia",
-          deparasited: "si",
-          illnessesAndTreatments: "rodillita luxada",
-          medicalInfo: "no",
-          generalInfo: "es re bueno y cariñoso, y se pone nervioso facil",
-          goodWithPets: "si, tiene un hermano perruno",
-          goodWithChildren: "no se sabe",
-          beOnItsOwn: true,
-          bathroomOutside: 0
-        },
-        images: ["../../../../assets/images/aku.jpeg", "../../../../assets/images/kurama.jpg"]
-      },
-      {
-        pet: {
-          id: 1,
-          name: "aku",
-          type: 0,
-          age: 2,
-          gender: "macho",
-          size: "mediano",
-          location: "nuñez",
-          is_castrated: true,
-          vaccines: "al dia",
-          deparasited: "si",
-          illnessesAndTreatments: "rodillita luxada",
-          medicalInfo: "no",
-          generalInfo: "es re bueno y cariñoso, y se pone nervioso facil",
-          goodWithPets: "si, tiene un hermano perruno",
-          goodWithChildren: "no se sabe",
-          beOnItsOwn: true,
-          bathroomOutside: 0
-        },
-        images: ["../../../../assets/images/aku.jpeg", "../../../../assets/images/kurama.jpg"]
-      },
-      {
-        pet: {
-          id: 1,
-          name: "aku",
-          type: 0,
-          age: 2,
-          gender: "macho",
-          size: "mediano",
-          location: "nuñez",
-          is_castrated: true,
-          vaccines: "al dia",
-          deparasited: "si",
-          illnessesAndTreatments: "rodillita luxada",
-          medicalInfo: "no",
-          generalInfo: "es re bueno y cariñoso, y se pone nervioso facil",
-          goodWithPets: "si, tiene un hermano perruno",
-          goodWithChildren: "no se sabe",
-          beOnItsOwn: true,
-          bathroomOutside: 0
-        },
-        images: ["../../../../assets/images/aku.jpeg", "../../../../assets/images/kurama.jpg"]
-      },
-      {
-        pet: {
-          id: 1,
-          name: "aku",
-          type: 0,
-          age: 2,
-          gender: "macho",
-          size: "mediano",
-          location: "nuñez",
-          is_castrated: true,
-          vaccines: "al dia",
-          deparasited: "si",
-          illnessesAndTreatments: "rodillita luxada",
-          medicalInfo: "no",
-          generalInfo: "es re bueno y cariñoso, y se pone nervioso facil",
-          goodWithPets: "si, tiene un hermano perruno",
-          goodWithChildren: "no se sabe",
-          beOnItsOwn: true,
-          bathroomOutside: 0
-        },
-        images: ["../../../../assets/images/aku.jpeg", "../../../../assets/images/kurama.jpg"]
-      },
-      {
-        pet: {
-          id: 1,
-          name: "aku",
-          type: 0,
-          age: 2,
-          gender: "macho",
-          size: "mediano",
-          location: "nuñez",
-          is_castrated: true,
-          vaccines: "al dia",
-          deparasited: "si",
-          illnessesAndTreatments: "rodillita luxada",
-          medicalInfo: "no",
-          generalInfo: "es re bueno y cariñoso, y se pone nervioso facil",
-          goodWithPets: "si, tiene un hermano perruno",
-          goodWithChildren: "no se sabe",
-          beOnItsOwn: true,
-          bathroomOutside: 0
-        },
-        images: ["../../../../assets/images/aku.jpeg", "../../../../assets/images/kurama.jpg"]
-      },
-      {
-        pet: {
-          id: 1,
-          name: "aku",
-          type: 0,
-          age: 2,
-          gender: "macho",
-          size: "mediano",
-          location: "nuñez",
-          is_castrated: true,
-          vaccines: "al dia",
-          deparasited: "si",
-          illnessesAndTreatments: "rodillita luxada",
-          medicalInfo: "no",
-          generalInfo: "es re bueno y cariñoso, y se pone nervioso facil",
-          goodWithPets: "si, tiene un hermano perruno",
-          goodWithChildren: "no se sabe",
-          beOnItsOwn: true,
-          bathroomOutside: 0
-        },
-        images: ["../../../../assets/images/aku.jpeg", "../../../../assets/images/kurama.jpg"]
-      },
-      {
-        pet: {
-          id: 1,
-          name: "aku",
-          type: 0,
-          age: 2,
-          gender: "macho",
-          size: "mediano",
-          location: "nuñez",
-          is_castrated: true,
-          vaccines: "al dia",
-          deparasited: "si",
-          illnessesAndTreatments: "rodillita luxada",
-          medicalInfo: "no",
-          generalInfo: "es re bueno y cariñoso, y se pone nervioso facil",
-          goodWithPets: "si, tiene un hermano perruno",
-          goodWithChildren: "no se sabe",
-          beOnItsOwn: true,
-          bathroomOutside: 0
-        },
-        images: ["../../../../assets/images/aku.jpeg", "../../../../assets/images/kurama.jpg"]
-      },
-      {
-        pet: {
-          id: 1,
-          name: "aku",
-          type: 0,
-          age: 2,
-          gender: "macho",
-          size: "mediano",
-          location: "nuñez",
-          is_castrated: true,
-          vaccines: "al dia",
-          deparasited: "si",
-          illnessesAndTreatments: "rodillita luxada",
-          medicalInfo: "no",
-          generalInfo: "es re bueno y cariñoso, y se pone nervioso facil",
-          goodWithPets: "si, tiene un hermano perruno",
-          goodWithChildren: "no se sabe",
-          beOnItsOwn: true,
-          bathroomOutside: 0
-        },
-        images: ["../../../../assets/images/aku.jpeg", "../../../../assets/images/kurama.jpg"]
-      },
-      {
-        pet: {
-          id: 1,
-          name: "zeke",
-          type: 0,
-          age: 3,
-          gender: "macho",
-          size: "mediano",
-          location: "nuñez",
-          is_castrated: true,
-          vaccines: "al dia",
-          deparasited: "si",
-          illnessesAndTreatments: "hipotiroidismo, sobrepeso",
-          medicalInfo: "toma dos pastillitas a la mañana en ayunas",
-          generalInfo: "terco y muertito de hambre, pero re re re mimoso",
-          goodWithPets: "si, tiene un hermano perruno",
-          goodWithChildren: "si",
-          beOnItsOwn: true,
-          bathroomOutside: 2
-        },
-        images: ["../../../../assets/images/zeke.jpeg", "../../../../assets/images/chihiro.jpeg"]
-      },
-      {
-        pet: {
-          id: 1,
-          name: "zeke",
-          type: 0,
-          age: 3,
-          gender: "macho",
-          size: "mediano",
-          location: "nuñez",
-          is_castrated: true,
-          vaccines: "al dia",
-          deparasited: "si",
-          illnessesAndTreatments: "hipotiroidismo, sobrepeso",
-          medicalInfo: "toma dos pastillitas a la mañana en ayunas",
-          generalInfo: "terco y muertito de hambre, pero re re re mimoso",
-          goodWithPets: "si, tiene un hermano perruno",
-          goodWithChildren: "si",
-          beOnItsOwn: true,
-          bathroomOutside: 2
-        },
-        images: ["../../../../assets/images/zeke.jpeg", "../../../../assets/images/chihiro.jpeg"]
-      },{
-        pet: {
-          id: 1,
-          name: "zeke",
-          type: 0,
-          age: 3,
-          gender: "macho",
-          size: "mediano",
-          location: "nuñez",
-          is_castrated: true,
-          vaccines: "al dia",
-          deparasited: "si",
-          illnessesAndTreatments: "hipotiroidismo, sobrepeso",
-          medicalInfo: "toma dos pastillitas a la mañana en ayunas",
-          generalInfo: "terco y muertito de hambre, pero re re re mimoso",
-          goodWithPets: "si, tiene un hermano perruno",
-          goodWithChildren: "si",
-          beOnItsOwn: true,
-          bathroomOutside: 2
-        },
-        images: ["../../../../assets/images/zeke.jpeg", "../../../../assets/images/chihiro.jpeg"]
-      },
-    ]
+    this.getAllPets();
   }
-  /*
-  function bytesToBlob(byteArray: Uint8Array, contentType: string): Blob {
-  return new Blob([byteArray], { type: contentType });
-}*/
+
+  getAllPets(){
+    this.mascotaService.getAllMascotas().subscribe((response: any)=>{
+      this.mascotas = response;
+      this.mascotas.forEach((mascota: any) => {
+        mascota.images.forEach((image: string, index: number) => {
+          mascota.images[index] = "data:image;base64," + image;
+        });
+      });
+    },
+    error =>{
+      this.utilService.notification('No se pudieron obtener las mascotas', 'warning',2000);
+    });
+  }
 }

@@ -1,4 +1,6 @@
 import { Component, Input } from '@angular/core';
+import { MatDialog } from '@angular/material/dialog';
+import { FullPetModalComponent } from '../full-pet-modal/full-pet-modal.component';
 
 @Component({
   selector: 'app-home-card',
@@ -8,13 +10,11 @@ import { Component, Input } from '@angular/core';
 export class HomeCardComponent {
 
   @Input() pet: any;
+  currentSlideIndex = 0;
 
-  constructor() { }
+  constructor(private dialog: MatDialog) { }
 
   ngOnInit(): void {}
-
-
-  currentSlideIndex = 0;
 
   previousSlide() {
     if (this.currentSlideIndex > 0) {
@@ -32,5 +32,14 @@ export class HomeCardComponent {
     else {
       this.currentSlideIndex = 0;
     }
+  }
+
+  openFullMascotaModal() {
+    this.dialog.closeAll();
+    this.dialog.open(FullPetModalComponent, {
+      width: '36em',
+      height: '60em',
+      data: { pet: this.pet }
+    })
   }
 }

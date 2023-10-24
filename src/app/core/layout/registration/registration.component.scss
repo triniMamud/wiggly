@@ -7,3 +7,69 @@ input[type="date"]::-webkit-calendar-picker-indicator {
   //background: white;
   filter: orange;
 }
+.register-input {
+  position: relative;
+  width: 80%;
+  border: 0.5px #FDA769 solid;
+  color: #787878;
+  background: white;
+  border-radius: 8px;
+  margin-top: 2em;
+  height: 55%;
+  padding-inline: 0.8em;
+  padding-top: 0.75em;
+  padding-bottom: 0.75em;
+}
+
+.custom-checkbox {
+	-webkit-appearance: none;
+	background-color: white;
+	border: 1px solid #FDA769;
+	//box-shadow: 0 1px 2px rgba(0,0,0,0.05), inset 0px -15px 10px -12px rgba(0,0,0,0.05);
+	padding: 9px;
+	border-radius: 4px;
+	display: inline-block;
+	position: relative;
+  margin-right: 0.5em;
+  cursor: pointer;
+}
+
+.custom-checkbox:active, .custom-checkbox:checked:active {
+	box-shadow: 0 1px 2px rgba(0,0,0,0.05), inset 0px 1px 3px rgba(0,0,0,0.1);
+}
+
+.custom-checkbox:checked {
+	background-color: #FDA769;
+	border: 1px solid #E76801;
+	//box-shadow: 0 1px 2px rgba(0,0,0,0.05), inset 0px -15px 10px -12px rgba(0,0,0,0.05), inset 15px 10px -12px rgba(255,255,255,0.1);
+	color: #E76801;
+}
+
+.custom-checkbox:checked:after {
+	content: '\2714';
+	font-size: 14px;
+	position: absolute;
+	top: 0px;
+	left: 3px;
+	color: #E76801;
+}
+
+.registrarse-button {
+  width: 70%;
+  position: relative;
+  background: #E76801;
+  border-radius: 15px;
+  justify-content: center;
+  align-items: center;
+  display: inline-flex;
+  margin-top: 2em;
+  border: none;
+  color: white;
+  font-size: 25px;
+  font-family: serif;
+  padding-top: 0.5em;
+  padding-bottom: 0.5em;
+  line-height: 20px;
+  word-wrap: break-word;
+  cursor: pointer;
+}

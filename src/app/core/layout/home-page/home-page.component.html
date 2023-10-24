@@ -1,5 +1,5 @@
 <body>
-  <div style="    position: absolute; display: grid; width: 100%; z-index: 5; justify-content: center; margin-top: -5em;">
+  <div style="    position: absolute; display: grid; width: 100%; z-index: 5; justify-content: center; margin-top: -7.5em;">
     <ul class="hList">
       <li>
         <a class="menu">
@@ -48,7 +48,7 @@
       </li>
       <li>
         <a class="menu">
-          <h2 class="menu-title">Sexo</h2>
+          <h2 class="menu-title">Género</h2>
           <ul class="menu-dropdown">
             <li>
               <input type="checkbox" value="macho"><label for="macho">Macho</label>
@@ -61,14 +61,7 @@
       </li>
     </ul>
   </div>
-  <div *ngFor="let mascota of mascotas; let i = index" style="    display: block;
-  height: 45%;
-  width: 15%;
-  margin: 0 1.5em 3em 0;
-  background: white;    border-radius: 1em; filter: drop-shadow(0 0 0.3rem rgba(0, 0, 0, 0.5));">
-    <app-home-card [pet]="mascota" style="position: relative;
-    width: 100%;
-    display: block;
-    height: 100%;"></app-home-card>
+  <div *ngFor="let mascota of mascotas; let i = index" style="display: block; height: 45%; width: 15%; margin: 0 1.5em 3em 0; background: white; border-radius: 1em; filter: drop-shadow(0 0 0.3rem rgba(0, 0, 0, 0.5));">
+    <app-home-card [pet]="mascota" style="position: relative; width: 100%; display: block; height: 100%;"></app-home-card>
   </div>
 </body>

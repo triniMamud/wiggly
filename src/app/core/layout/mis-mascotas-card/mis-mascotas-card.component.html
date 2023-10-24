@@ -1,0 +1,44 @@
+<body style="display: inline-grid;">
+  <div class="swiffy-slider">
+      <ul class="slider-container">
+        <li style="transition: opacity .5s;"><img class="imagenPet" [src]="myPet.images[currentSlideIndex]" style="width: 20.1em; border-top-left-radius: 1em;
+          border-top-right-radius: 1em;
+          height: 16.3em;"></li>
+      </ul>
+      <button type="button" class="slider-nav" (click)="previousSlide()" style="visibility: visible;" ></button>
+      <button type="button" class="slider-nav slider-nav-next" (click)="nextSlide()" style="visibility: visible;"></button>
+      <div class="fav-button-card">
+        <i class="fa fa-heart"></i>
+      </div>
+  </div>
+
+  <div class="pet-info" style="    display: flex;
+  flex-direction: column;">
+    <div style="margin-top: 0.5em;">
+      <p style="text-align: center;
+      color: #191D23;
+      font-size: 32px;
+      font-family: Manrope;
+      font-weight: 600;
+      word-wrap: break-word;">{{myPet.pet.name}}</p>
+      <p style="text-align: center; color: #64748B; font-size: 18px; font-family: Manrope; font-weight: 400; word-wrap: break-word">{{myPet.pet.location}}</p> 
+    </div>
+  </div>
+  <div style="margin-bottom: 1.5em;
+  margin-left: 1.5em;
+  margin-top: 0.5em;">
+    <p>{{myPet.pet.name}} tuvo <strong style="color: #E76801;">{{postulationsCount}}</strong>  {{postulationsCount === 1 ? 'postulación' : 'postulaciones'}}</p>
+  </div>
+  <div class="Buttons" style="display: flex;
+  margin-bottom: 1em;
+  justify-content: center;
+  align-items: center;">
+    <div class="Cta">
+      <button class="Layout" style="    background-color: transparent;
+      border: none;
+      cursor: pointer; justify-content: center;   color: white;   align-items: center;      display: flex;">
+        Ver postulaciones
+      </button>
+    </div>
+  </div>
+</body>
