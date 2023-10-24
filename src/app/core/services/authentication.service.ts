@@ -25,29 +25,45 @@ export class AuthenticationService {
     .set('password', password);
 
     localStorage.setItem('userEmail', JSON.stringify(email));
-    return this.http.post<any>(this.configService.getLoginUrl(), null, { headers });
+    return this.http.post<any>(this.configService.getLoginUrl(), null, { headers })
+    .pipe(map((res) => {
+      //let decoded: TokenDecode = <TokenDecode>jwt_decode(res?.data?.token);
+
+      const kCloackUser: any = {
+        name: res?.name,
+        email: res?.email
+      };
+
+      localStorage.setItem('user', JSON.stringify(kCloackUser));
+      this.user = kCloackUser
+
+      return kCloackUser;
+    }));
   }
 
-  register(data: { name: string; surename: string; email: string; password: string; birthday: string; }) {
-    const body = new HttpParams()
-      //.set('grant_type', 'password')
-      .set('name', data.name)
-      .set('surename', data.surename)
-      .set('birthday', data.birthday);
+  register(data: any) {
+    const body = {
+      name: data.name,
+      lastName: data.lastName,
+      email: data.email,
+      age: data.age,
+      dni: data.dni,
+      phone: data.phone,
+      location: data.location,
+      adoptionType: data.adoptionType
+    }
 
     return this.http.post<any>(this.configService.getRegisterUrl(), body, {
       headers: new HttpHeaders()
-        .set('Content-Type', 'application/x-www-form-urlencoded')
-        .set('email', data.email)
+        .set('Content-Type', 'application/json')
         .set('password', data.password)
     })
       .pipe(map((res) => {
         //let decoded: TokenDecode = <TokenDecode>jwt_decode(res?.data?.token);
 
-        let user = res?.data?.user;
         const kCloackUser: any = {
-          name: user?.name,
-          email: user?.email
+          name: res?.name,
+          email: res?.email
         };
 
         localStorage.setItem('user', JSON.stringify(kCloackUser));

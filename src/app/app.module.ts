@@ -24,6 +24,7 @@ import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 import {MatRadioModule} from '@angular/material/radio';
 import { MatChipsModule } from '@angular/material/chips';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { NgxDropzoneModule } from 'ngx-dropzone';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -39,10 +40,11 @@ import { AdopcionesComponent } from './core/layout/adopciones/adopciones.compone
 import { MisMascotasComponent } from './core/layout/mis-mascotas/mis-mascotas.component';
 import { HomePageComponent } from './core/layout/home-page/home-page.component';
 import { CommonModule } from '@angular/common';
-import { NgImageSliderModule } from 'ng-image-slider';
 import { CarouselModule } from 'ngx-bootstrap/carousel';
 import { HomeCardComponent } from './core/layout/home-card/home-card.component';
 import { AgregarMascotaComponent } from './core/layout/agregar-mascota/agregar-mascota.component';
+import { MisMascotasCardComponent } from './core/layout/mis-mascotas-card/mis-mascotas-card.component';
+import { FullPetModalComponent } from './core/layout/full-pet-modal/full-pet-modal.component';
 
 @NgModule({
   declarations: [
@@ -57,10 +59,11 @@ import { AgregarMascotaComponent } from './core/layout/agregar-mascota/agregar-m
     NavHomePageComponent,
     HomePageComponent,
     HomeCardComponent,
-    AgregarMascotaComponent
+    AgregarMascotaComponent,
+    MisMascotasCardComponent,
+    FullPetModalComponent
   ],
   imports: [
-    NgImageSliderModule,
     CarouselModule,
     CommonModule,
     BrowserAnimationsModule,
@@ -91,7 +94,8 @@ import { AgregarMascotaComponent } from './core/layout/agregar-mascota/agregar-m
     MatSlideToggleModule,
     MatRadioModule,
     MatChipsModule,
-    MatDatepickerModule
+    MatDatepickerModule,
+    NgxDropzoneModule
   ],
   providers: [],
   bootstrap: [AppComponent]
