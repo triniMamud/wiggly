@@ -31,11 +31,6 @@ export class HomePageComponent implements OnInit {
   getAllPets(){
     this.mascotaService.getAllMascotas().subscribe((response: any)=>{
       this.mascotas = response;
-      this.mascotas.forEach((mascota: any) => {
-        mascota.images.forEach((image: string, index: number) => {
-          mascota.images[index] = "data:image;base64," + image;
-        });
-      });
     },
     error =>{
       this.utilService.notification('No se pudieron obtener las mascotas', 'warning',2000);

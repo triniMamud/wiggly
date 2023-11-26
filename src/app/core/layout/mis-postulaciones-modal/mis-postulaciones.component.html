@@ -1,0 +1,50 @@
+<body>
+  <div *ngIf="petPostulationsDetail.length == 0">
+    <div style="padding: 1em; display: flex; flex-direction: column;">
+      <img src="../../../../assets/images/AdobeStock_604133572.jpeg" style="width: 12em; border-radius: 1em; height: fit-content; margin-right: 2em;">
+      <p> No hay ninguna postulación! </p>
+    </div>
+  </div>
+  <div *ngIf="petPostulationsDetail.length != 0">
+    <div *ngFor="let postulation of petPostulationsDetail" style="margin: 0.5em;">
+      <div style="padding: 1em; display: flex;">
+        <div>
+          <img img class="imagenPet" src="../../../../assets/images/kurama.jpg" style="width: 12em; border-radius: 1em; height: fit-content; margin-right: 2em;">
+        </div>
+        <div style="display: flex; flex-direction: column; justify-content: center;">
+          <div style="font-size: x-large; font-weight: bolder; color: #E76801; padding-bottom: 0.5em;">
+            {{postulation.name}}
+            {{postulation.lastName}}
+          </div>
+          <div style="display: flex; flex-direction: column; margin-bottom: 0.25em;">
+            <label style="font-size: x-small; color: rgba(0, 0, 0, 0.4); font-weight: 500; margin-bottom: -0.75em;">Email</label>
+            {{postulation.email}}
+          </div>
+          <div style="display: flex; flex-direction: column; margin-bottom: 0.25em;">
+            <label style="font-size: x-small; color: rgba(0, 0, 0, 0.4); font-weight: 500; margin-bottom: -0.75em;">Edad</label>
+            {{postulation.age}}
+          </div>
+          <div style="display: flex; flex-direction: column; margin-bottom: 0.25em;">
+            <label style="font-size: x-small; color: rgba(0, 0, 0, 0.4); font-weight: 500; margin-bottom: -0.75em;">Ubicación</label>
+            {{postulation.location}}
+          </div>
+          <div style="display: flex; flex-direction: column; margin-bottom: 0.25em;">
+            <label style="font-size: x-small; color: rgba(0, 0, 0, 0.4); font-weight: 500; margin-bottom: -0.75em;">Teléfono</label>
+            {{postulation.phone}}
+          </div>
+        </div>
+      </div>
+      <mat-tab-group  (selectedIndexChange)="changeIndex($event)" style="display: inline-block; overflow: unset; width: 100%;" class="postulante" >
+        <mat-tab label="General">
+          <app-general-menu-postulation [postulation]="postulation" style="margin: 0;"></app-general-menu-postulation>
+        </mat-tab>
+        <mat-tab label="Adopción">
+          <app-adoption-menu-postulation [postulation]="postulation"></app-adoption-menu-postulation>
+        </mat-tab>
+        <mat-tab label="Vivienda">
+          <app-vivienda-menu-postulation [postulation]="postulation"></app-vivienda-menu-postulation> 
+        </mat-tab>
+      </mat-tab-group>
+    </div>
+  </div>
+</body>

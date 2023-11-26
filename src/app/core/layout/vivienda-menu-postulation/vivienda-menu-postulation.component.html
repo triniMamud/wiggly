@@ -1,0 +1,20 @@
+<body style="margin-top: 0em!important;">
+  <div>
+    {{postulation.house.allowsPets}}
+  </div>
+  <div>
+    {{postulation.house.hasContentionNet}}
+  </div>
+  <div>
+    {{postulation.house.openSpaces}}
+  </div>
+  <div>
+    {{postulation.house.owner}}
+  </div>
+  <div>
+    {{postulation.house.type}}
+  </div>
+  <div *ngFor="let image of postulation.house.houseImages">
+    <img [src]="image">
+  </div>
+</body>

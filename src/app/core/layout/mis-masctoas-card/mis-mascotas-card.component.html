@@ -29,14 +29,9 @@
   margin-top: 0.5em;">
     <p>{{myPet.pet.name}} tuvo <strong style="color: #E76801;">{{postulationsCount}}</strong>  {{postulationsCount === 1 ? 'postulación' : 'postulaciones'}}</p>
   </div>
-  <div class="Buttons" style="display: flex;
-  margin-bottom: 1em;
-  justify-content: center;
-  align-items: center;">
-    <div class="Cta">
-      <button class="Layout" style="    background-color: transparent;
-      border: none;
-      cursor: pointer; justify-content: center;   color: white;   align-items: center;      display: flex;">
+  <div class="Buttons" style="display: flex; margin-bottom: 1em; justify-content: center; align-items: center;">
+    <div class="Cta" (click)="handlePostulationDetailClick()">
+      <button [disabled]="postulationsCount == 0" class="button-ver-postulaciones" style="">
         Ver postulaciones
       </button>
     </div>

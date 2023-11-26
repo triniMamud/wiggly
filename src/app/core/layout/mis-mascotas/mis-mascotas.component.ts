@@ -13,6 +13,8 @@ import { AgregarMascotaComponent } from '../agregar-mascota/agregar-mascota.comp
 export class MisMascotasComponent {
 
   misMascotas: any;
+  showPostulationDetail: boolean = false;
+  postulationsDetails: any[] = [];
 
   constructor(
     private misMascotasService: MisMascotasService,
@@ -41,5 +43,10 @@ export class MisMascotasComponent {
     dialogRef.afterClosed().subscribe(result => {
       this.getAllMisMascotas();
     });
+  }
+
+  handlePetPostulationClick(postulationsData: any) {
+    this.showPostulationDetail = true;
+    this.postulationsDetails.push(postulationsData);
   }
 }

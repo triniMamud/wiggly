@@ -1,6 +1,9 @@
-import { Component, Input } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { MisMascotasService } from '../../services/mis-mascotas.service';
 import { UtilService } from '../../services/util.service';
+import { MatDialog } from '@angular/material/dialog';
+import { MisPostulacionesComponent } from '../mis-postulaciones-modal/mis-postulaciones.component';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-mis-mascotas-card',
@@ -10,20 +13,26 @@ import { UtilService } from '../../services/util.service';
 export class MisMascotasCardComponent {
 
   @Input() myPet: any;
+  @Input() postulation: any;
+  @Output() postulationPetClicked = new EventEmitter<any>();
   postulations: any;
   currentSlideIndex = 0;
   postulationsCount: number = 0;
+  showMisPostulaciones: boolean = false;
 
-  constructor(private misMascotasService: MisMascotasService, private utilService: UtilService) { }
+  constructor(
+    private misMascotasService: MisMascotasService,
+    private utilService: UtilService,
+    private dialog: MatDialog,
+    private router: Router) { }
 
   ngOnInit(): void {
-    this.myPet.images.forEach((image: string, index: number) => {
-      this.myPet.images[index] = "data:image;base64," + image;
-    });
-
     this.getPetPostulations();
   }
 
+  handlePostulationDetailClick() {
+    this.postulationPetClicked.emit(this.postulations);
+  }
 
   previousSlide() {
     if (this.currentSlideIndex > 0) {
@@ -52,5 +61,4 @@ export class MisMascotasCardComponent {
       this.utilService.notification('No se pudo obtener las postulaciones de la mascota', 'warning',2000)
     });
   }
-
 }

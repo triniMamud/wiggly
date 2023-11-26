@@ -43,8 +43,12 @@ import { CommonModule } from '@angular/common';
 import { CarouselModule } from 'ngx-bootstrap/carousel';
 import { HomeCardComponent } from './core/layout/home-card/home-card.component';
 import { AgregarMascotaComponent } from './core/layout/agregar-mascota/agregar-mascota.component';
-import { MisMascotasCardComponent } from './core/layout/mis-mascotas-card/mis-mascotas-card.component';
+import { MisMascotasCardComponent } from './core/layout/mis-masctoas-card/mis-mascotas-card.component';
 import { FullPetModalComponent } from './core/layout/full-pet-modal/full-pet-modal.component';
+import { MisPostulacionesComponent } from './core/layout/mis-postulaciones-modal/mis-postulaciones.component';
+import { GeneralMenuPostulationComponent } from './core/layout/general-menu-postulation/general-menu-postulation.component';
+import { AdoptionMenuPostulationComponent } from './core/layout/adoption-menu-postulation/adoption-menu-postulation.component';
+import { ViviendaMenuPostulationComponent } from './core/layout/vivienda-menu-postulation/vivienda-menu-postulation.component';
 
 @NgModule({
   declarations: [
@@ -61,7 +65,13 @@ import { FullPetModalComponent } from './core/layout/full-pet-modal/full-pet-mod
     HomeCardComponent,
     AgregarMascotaComponent,
     MisMascotasCardComponent,
-    FullPetModalComponent
+    FullPetModalComponent,
+    MisPostulacionesComponent,
+    GeneralMenuPostulationComponent,
+    AdoptionMenuPostulationComponent,
+    GeneralMenuPostulationComponent,
+    AdoptionMenuPostulationComponent,
+    ViviendaMenuPostulationComponent
   ],
   imports: [
     CarouselModule,

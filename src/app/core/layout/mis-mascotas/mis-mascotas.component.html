@@ -1,16 +1,18 @@
 <body>
-  <div *ngIf="this.misMascotas && this.misMascotas.length != 0" style="position: absolute; z-index: 100; top: 0; right: 0; margin-right: 2em;">
-    <button class="agrega-mascota" (click)="addMiMascota()">Agregá una mascota</button>
-  </div>
-  <div *ngIf="misMascotas && misMascotas.length != 0" style="display: flex;">
+  <div *ngIf="!showPostulationDetail" style="display: flex; align-items: flex-start; flex-direction: row; flex-wrap: wrap;">
+    <div *ngIf="this.misMascotas && this.misMascotas.length != 0" style="position: absolute; z-index: 100; top: 0; right: 0; margin-right: 2em;">
+      <button class="agrega-mascota" (click)="addMiMascota()">Agregá una mascota</button>
+    </div>
     <div *ngFor="let miMascota of misMascotas; let i = index" style="display: block; height: 45%; width: 15%; margin: 0 1.5em 3em 0; background: white; border-radius: 1em; filter: drop-shadow(0 0 0.3rem rgba(0, 0, 0, 0.5));">
-      <app-mis-mascotas-card [myPet]="miMascota" style="position: relative; width: 100%; display: block; height: 100%;"></app-mis-mascotas-card>
+      <app-mis-mascotas-card [myPet]="miMascota" (postulationPetClicked)="handlePetPostulationClick($event)" style="position: relative; width: 100%; display: block; height: 100%;"></app-mis-mascotas-card>
     </div>
   </div>
-  <div *ngIf="!misMascotas || misMascotas.length == 0" style="    display: flex;
-  /* justify-content: center; */
-  flex-direction: column;
-  align-items: center;">
+  <div *ngIf="this.showPostulationDetail" style="height: max-content; min-height: 40em; display: block; width: fit-content; margin: 0 1.5em 3em 0; background: white; border-radius: 1em; filter: drop-shadow(0 0 0.3rem rgba(0, 0, 0, 0.5));">
+    <button (click)="this.showPostulationDetail = false">Atrás</button>
+    <app-mis-postulaciones [postulationsDetails]="postulationsDetails"></app-mis-postulaciones>
+  </div>
+
+  <div *ngIf="!misMascotas || misMascotas.length == 0" style="display: flex; flex-direction: column; align-items: center;">
     <p style="font-size: 24px; font-family: Manrope; font-weight: bold;">Aun no tienes ninguna mascota para dar en adopción!</p>
     <img src="../../../../assets/images/AdobeStock_610288835.png" style="    width: 25%;">
     <button class="agrega-mascota" (click)="addMiMascota()">Agregá una mascota</button>
