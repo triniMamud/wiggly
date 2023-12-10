@@ -1,9 +1,9 @@
-<body style="display: inline-grid;">
+<body style="display: inline-grid; width: 100%;">
   <div class="swiffy-slider">
       <ul class="slider-container">
-        <li style="transition: opacity .5s;"><img class="imagenPet" [src]="myPet.images[currentSlideIndex]" style="width: 20.1em; border-top-left-radius: 1em;
-          border-top-right-radius: 1em;
-          height: 16.3em;"></li>
+        <li style="transition: opacity .5s;">
+          <img class="imagenPet" [src]="myPet.images[currentSlideIndex]" style="width: 100%; border-top-left-radius: 1em; border-top-right-radius: 1em; height: 16.3em;">
+        </li>
       </ul>
       <button type="button" class="slider-nav" (click)="previousSlide()" style="visibility: visible;" ></button>
       <button type="button" class="slider-nav slider-nav-next" (click)="nextSlide()" style="visibility: visible;"></button>
@@ -31,7 +31,7 @@
   </div>
   <div class="Buttons" style="display: flex; margin-bottom: 1em; justify-content: center; align-items: center;">
     <div class="Cta" (click)="handlePostulationDetailClick()">
-      <button [disabled]="postulationsCount == 0" class="button-ver-postulaciones" style="">
+      <button [disabled]="postulationsCount == 0" class="button-ver-postulaciones">
         Ver postulaciones
       </button>
     </div>

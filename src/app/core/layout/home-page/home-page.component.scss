@@ -5,8 +5,8 @@ body {
   justify-content: flex-start;
   display: flex;
   align-items: flex-start;
-  flex-direction: row;
   flex-wrap: wrap;
+  flex-direction: column;
 }
 
 header {
@@ -83,7 +83,8 @@ mat-tab-group {
 
 ::ng-deep .mat-mdc-tab-body-content {
   margin-left: 2em;
-  margin-top: 6em;
+  margin-right: 2em;
+  margin-top: 0;
 }
 
 ::ng-deep .mat-mdc-tab-group {

@@ -1,0 +1,28 @@
+<body style="display: flex; align-items: center; background: rgba(253, 167, 105, 50%);; border-radius: 1em;">
+  <div class="swiffy-slider">
+      <ul class="slider-container" style="height: 100%; width: 100%; overflow: hidden;">
+        <li style="transition: opacity .5s;     display: grid; transition: opacity .5s;">
+          <img class="imagenPet" [src]="postulatedPet.petImages[currentSlideIndex]" style="width: 20.1em; height: 16.3em; border-bottom-left-radius: 1em;
+          border-top-left-radius: 1em;">
+        </li>
+      </ul>
+      <button type="button" class="slider-nav" (click)="previousSlide()" style="visibility: visible;" ></button>
+      <button type="button" class="slider-nav slider-nav-next" (click)="nextSlide()" style="visibility: visible;"></button>
+      <div class="fav-button-card">
+        <i class="fa fa-heart"></i>
+      </div>
+  </div>
+
+  <div class="pet-info" style="    display: flex;
+  flex-direction: column;">
+    <div style="margin-top: 0.5em;">
+      <p style="text-align: center;
+      color: #191D23;
+      font-size: 32px;
+      font-family: Manrope;
+      font-weight: 600;
+      word-wrap: break-word;">{{postulatedPet.pet.name}}</p>
+      <p style="text-align: center; color: #64748B; font-size: 18px; font-family: Manrope; font-weight: 400; word-wrap: break-word">{{ postulatedPet.status | tranducirStatus }}</p> 
+    </div>
+  </div>
+</body>

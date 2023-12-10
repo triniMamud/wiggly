@@ -49,6 +49,10 @@ import { MisPostulacionesComponent } from './core/layout/mis-postulaciones-modal
 import { GeneralMenuPostulationComponent } from './core/layout/general-menu-postulation/general-menu-postulation.component';
 import { AdoptionMenuPostulationComponent } from './core/layout/adoption-menu-postulation/adoption-menu-postulation.component';
 import { ViviendaMenuPostulationComponent } from './core/layout/vivienda-menu-postulation/vivienda-menu-postulation.component';
+import { AdopcionesPostulacionesComponent } from './core/layout/adopciones-postulaciones/adopciones-postulaciones.component';
+import { AdopcionesFavoritosComponent } from './core/layout/adopciones-favoritos/adopciones-favoritos.component';
+import { CardAdopcionesPostulacionesComponent } from './core/layout/card-adopciones-postulaciones/card-adopciones-postulaciones.component';
+import { TranducirStatusPipe } from './core/pipes/tranducir-status.pipe';
 
 @NgModule({
   declarations: [
@@ -71,7 +75,11 @@ import { ViviendaMenuPostulationComponent } from './core/layout/vivienda-menu-po
     AdoptionMenuPostulationComponent,
     GeneralMenuPostulationComponent,
     AdoptionMenuPostulationComponent,
-    ViviendaMenuPostulationComponent
+    ViviendaMenuPostulationComponent,
+    AdopcionesPostulacionesComponent,
+    AdopcionesFavoritosComponent,
+    CardAdopcionesPostulacionesComponent,
+    TranducirStatusPipe
   ],
   imports: [
     CarouselModule,

@@ -2,7 +2,7 @@ import { Injectable } from "@angular/core";
 import { AuthenticationService } from "./authentication.service";
 import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 import { Observable } from "rxjs";
-import { getAllMisMascotasUrl, getPetPostulationsUrl, postNewPetUrl } from "../constants/endpoints";
+import { getAllMisMascotasUrl, getPostulationsUrl, postNewPetUrl } from "../constants/endpoints";
 
 @Injectable({
   providedIn: 'root'
@@ -32,6 +32,14 @@ export class MisMascotasService {
   }
 
   getPetPostulation(petId: number): Observable<any> {
-    return this.http.get<any>(getPetPostulationsUrl+`/${petId}`);
+    return this.http.get<any>(getPostulationsUrl+`/${petId}`);
+  }
+
+  getMyPostulations(): Observable<any> {
+    const headers = new HttpHeaders()
+    .set('Content-Type', 'application/json')
+    .set('email', this.user.email);
+
+    return this.http.get<any>(getPostulationsUrl, { headers });
   }
 }
