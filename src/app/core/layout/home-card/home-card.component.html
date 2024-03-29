@@ -7,9 +7,12 @@
       </ul>
       <button type="button" class="slider-nav" (click)="previousSlide()" style="visibility: visible;" ></button>
       <button type="button" class="slider-nav slider-nav-next" (click)="nextSlide()" style="visibility: visible;"></button>
-      <div class="fav-button-card">
-        <i class="fa fa-heart"></i>
+
+      <div class="fav-button-card" (click)="toggleFav()">
+        <mat-icon *ngIf="!this.pet.pet.isFavPet" matSuffix>favorite_border</mat-icon>
+        <mat-icon *ngIf="this.pet.pet.isFavPet" matSuffix>favorite</mat-icon>
       </div>
+
   </div>
 
   <div class="pet-info" style="display: flex; flex-direction: column;">

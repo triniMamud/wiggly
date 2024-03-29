@@ -12,7 +12,7 @@ export class CardAdopcionesPostulacionesComponent {
 
   constructor() {}
 
-  ngOnInit(): void {
+  ngOnInit(): void {    
   }
 
   previousSlide() {

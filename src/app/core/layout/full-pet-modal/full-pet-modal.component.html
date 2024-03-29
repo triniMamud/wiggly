@@ -20,7 +20,7 @@
           <p style="margin-bottom: 0.5em; color: #E76801; font-size: medium;"><strong>Características Principales</strong></p>
           <p>
             {{petData.name}} es {{petTypeGender}}. {{petBathroom}} y {{this.petData.isCastrated ? "está" : "no está"}} {{this.petData.gender === "Macho" ? "castrado" : "castrada"}}. 
-            {{this.petData.beOnItsOwn ? "Sabe quedarse por su cuenta. " : "Todavía no sabe qeudarse por su cuenta. "}}
+            {{this.petData.beOnItsOwn ? "Sabe quedarse por su cuenta. " : "Todavía no sabe quedarse por su cuenta. "}}
             {{this.petGoodWithChildrenAndPets}}
           </p>
         </div>
@@ -37,6 +37,11 @@
           <p><strong style="color: #E76801;">Vacunas: </strong>{{this.petData.vaccines}}</p>
         </div>
       </div>
+    </div>
+    <div style="display: flex; margin-top: 2em; justify-content: center;">
+      <button (click)="postularse()" style="padding: 0.7em; background: #FDA769; border: none; border-radius: 0.4em; margin-bottom: 1em; width: 45%; cursor: pointer; transition: 0.3s background-color; color: white; font-size: 16px; font-family: Manrope; font-weight: 600; line-height: 20px; word-wrap: break-word">
+        Postularse
+      </button>
     </div>
   </div>
 </body>

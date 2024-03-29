@@ -21,6 +21,10 @@ export class AdopcionesPostulacionesComponent {
 
   ngOnInit(): void {
     this.getAllMisPostulaciones();
+
+    this.misPostulacionesService.getRefreshPostulacionesObservable().subscribe(() => {
+      this.getAllMisPostulaciones();
+    });
   }
 
   getAllMisPostulaciones() {

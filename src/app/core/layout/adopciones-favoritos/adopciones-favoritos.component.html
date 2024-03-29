@@ -1,1 +1,11 @@
-<p>adopciones-favoritos works!</p>
+<body style="width: 30%;">
+  <div *ngIf="!showFavoritosDetail" style="width: 100%;">
+    <div *ngFor="let favorito of favoritos; let i = index" style="display: block; margin: 0 1.5em 3em 0; background: white; border-radius: 1em; filter: drop-shadow(0 0 0.3rem rgba(0, 0, 0, 0.5)); width: 100%;">
+      <app-card-adopciones-favoritos [favPet]="favorito" style="position: relative; width: 100%; display: block; height: 25em;"></app-card-adopciones-favoritos>
+    </div>
+  </div>
+  <div *ngIf="!favoritos || favoritos.length == 0" style="display: flex; flex-direction: column; align-items: center;">
+    <p style="font-size: 24px; font-family: Manrope; font-weight: bold;">Aun no marcaste como favorito ninguna mascota!</p>
+    <img src="../../../../assets/images/AdobeStock_610288835.png" style="    width: 25%;">
+  </div>
+</body>

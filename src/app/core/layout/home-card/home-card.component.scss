@@ -630,15 +630,17 @@
   width: 100%;
   display: flex;
   justify-content: flex-end;
-  margin-left: -0.5em;
+  margin-left: -1.5em;
   cursor: pointer;
 }
 
-.fav-button-card i {
+.fav-button-card mat-icon {
   color: #FDA769;
   border: #E76801;
+  transition: .2s ease;
 }
 
-.fav-button-card i:hover {
-  background-color: #E76801;
+.fav-button-card mat-icon:hover {
+  color: #E76801;
+  scale: 1.15;
 }

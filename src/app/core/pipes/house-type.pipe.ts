@@ -1,16 +1,16 @@
 import { Pipe, PipeTransform } from '@angular/core';
 
 @Pipe({
-  name: 'tranducirStatus'
+  name: 'houseType'
 })
-export class TranducirStatusPipe implements PipeTransform {
+export class HouseTypePipe implements PipeTransform {
 
   transform(value: string): string {
     const translations: { [key: string]: string } = {
-      'SENT': 'Enviada',
-      'IN_REVISION': 'En revisión',
-      'DECLAINED': 'Rechazada',
-      'ACCEPTED': 'Aprobada'
+      'HOUSE': 'Casa',
+      'DEPARTMENT': 'Departamento',
+      'PH': 'PH',
+      'OTHER': 'Otro'
     };
 
     return translations[value] || value;

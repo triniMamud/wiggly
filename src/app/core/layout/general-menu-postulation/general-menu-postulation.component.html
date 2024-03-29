@@ -1,23 +1,14 @@
-<body class="general-menu-body">
+<body class="general-menu-body" style="margin: 0; display: flex; flex-direction: column; justify-content: space-evenly; align-items: flex-start; flex-wrap: wrap;">
   <div>
-    {{postulation.childrenInfo}}
+    <p style="margin-bottom: 1em;"><strong style="color: #E76801; font-size: medium;">Cantidad de miembros en la familia:</strong> {{postulation.familyMembers}}</p>
   </div>
   <div>
-    {{postulation.dni}}
+    <p style="margin-bottom: 1em;"><strong style="color: #E76801; font-size: medium;">¿Tiene hijos?</strong> {{!postulation.hasChildren ? "No" : "Si, " }}{{postulation.childrenInfo}}</p>
   </div>
   <div>
-    {{postulation.familyMembers}}
+    <p style="margin-bottom: 1em;"><strong style="color: #E76801; font-size: medium;">¿Tiene otras mascotas?</strong> {{!postulation.hasOtherPets ? "No" : "Si, " }}{{postulation.otherPetsInfo}}</p>
   </div>
   <div>
-    {{postulation.hasChildren}}
-  </div>
-  <div>
-    {{postulation.hasOtherPets}}
-  </div>
-  <div>
-    {{postulation.jobSituation}}
-  </div>
-  <div>
-    {{postulation.otherPetsInfo}}
+    <p style="margin-bottom: 1em;"><strong style="color: #E76801; font-size: medium;">Situación laboral:</strong> {{postulation.jobSituation}}</p>
   </div>
 </body>

@@ -1,5 +1,9 @@
 import { Component, Inject } from '@angular/core';
-import { MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { MAT_DIALOG_DATA, MatDialog } from '@angular/material/dialog';
+import { MisMascotasService } from '../../services/mis-mascotas.service';
+import { MascotaService } from '../../services/mascota.service';
+import { UtilService } from '../../services/util.service';
+import { MisPostulacionesService } from '../../services/mis-postulaciones.service';
 
 @Component({
   selector: 'app-full-pet-modal',
@@ -15,7 +19,13 @@ export class FullPetModalComponent {
   petBathroom: string = "";
   petGoodWithChildrenAndPets: string = "";
 
-  constructor(@Inject(MAT_DIALOG_DATA) public pet: {pet: any}){}
+  constructor(
+    @Inject(MAT_DIALOG_DATA) public pet: {pet: any},
+    private mascotaService: MascotaService,
+    private utilService: UtilService,
+    private dialog: MatDialog,
+    private misPostulacionesService: MisPostulacionesService
+  ){}
 
   ngOnInit(): void {
     this.petData = this.pet.pet.pet;
@@ -27,21 +37,18 @@ export class FullPetModalComponent {
 
 
   previousSlide() {
-    if (this.currentSlideIndex > 0) {
+    if (this.currentSlideIndex > 0) 
       this.currentSlideIndex--;
-    }
-    else {
+    else 
       this.currentSlideIndex = this.petImages.length - 1;
-    }
   }
 
   nextSlide() {
-    if (this.currentSlideIndex < this.petImages.length - 1) {
+    if (this.currentSlideIndex < this.petImages.length - 1) 
       this.currentSlideIndex++;
-    }
-    else {
+    else 
       this.currentSlideIndex = 0;
-    }
+    
   }
 
   formulateSentencePetTypeGender() {
@@ -71,6 +78,18 @@ export class FullPetModalComponent {
     if (this.petData.goodWithPets !== "Si") this.petGoodWithChildrenAndPets = this.petGoodWithChildrenAndPets + this.petData.goodWithPets;
 
     this.petGoodWithChildrenAndPets = this.petGoodWithChildrenAndPets + "se lleva bien con otras mascotas.";
+  }
+
+  postularse() {    
+    this.mascotaService.postulateToPet(this.petData.id).subscribe({
+      next: (resp) => {
+        this.misPostulacionesService.refreshPostulaciones();
+      },
+      error: (error) => {
+        this.utilService.notification('Error al enviar la postulación', 'warning', 2000);
+      }
+    });
+    
   }
 
 

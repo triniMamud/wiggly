@@ -14,7 +14,7 @@ import { MatGridListModule } from '@angular/material/grid-list';
 import { MatSelectModule } from '@angular/material/select';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatStepperModule,} from '@angular/material/stepper';
-import { MatTooltipModule } from '@angular/material/tooltip';
+import { MatTooltip, MatTooltipModule } from '@angular/material/tooltip';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatCheckboxModule} from '@angular/material/checkbox';
@@ -53,6 +53,10 @@ import { AdopcionesPostulacionesComponent } from './core/layout/adopciones-postu
 import { AdopcionesFavoritosComponent } from './core/layout/adopciones-favoritos/adopciones-favoritos.component';
 import { CardAdopcionesPostulacionesComponent } from './core/layout/card-adopciones-postulaciones/card-adopciones-postulaciones.component';
 import { TranducirStatusPipe } from './core/pipes/tranducir-status.pipe';
+import { CardAdopcionesFavoritosComponent } from './core/layout/card-adopciones-favoritos/card-adopciones-favoritos.component';
+import { AdoptionTypePipe } from './core/pipes/adoption-type.pipe';
+import { HouseTypePipe } from './core/pipes/house-type.pipe';
+import { MisPostulacionesCardComponent } from './core/layout/mis-postulaciones-card/mis-postulaciones-card.component';
 
 @NgModule({
   declarations: [
@@ -79,7 +83,11 @@ import { TranducirStatusPipe } from './core/pipes/tranducir-status.pipe';
     AdopcionesPostulacionesComponent,
     AdopcionesFavoritosComponent,
     CardAdopcionesPostulacionesComponent,
-    TranducirStatusPipe
+    TranducirStatusPipe,
+    CardAdopcionesFavoritosComponent,
+    AdoptionTypePipe,
+    HouseTypePipe,
+    MisPostulacionesCardComponent
   ],
   imports: [
     CarouselModule,

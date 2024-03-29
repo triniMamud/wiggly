@@ -1,20 +1,27 @@
 <body style="margin-top: 0em!important;">
   <div>
-    {{postulation.house.allowsPets}}
+    <p style="margin-bottom: 0.5em;"><strong style="color: #E76801; font-size: medium;">Tipo de vivienda:</strong> {{postulation.house.type | houseType}}</p>
+  </div>
+  <div class="swiffy-slider" style="    overflow-x: hidden;">
+    <ul class="slider-container">
+      <li style="transition: opacity .5s;"><img class="imagenPet" [src]="postulation.house.houseImages[currentSlideIndex]" style="width: 40em; height: 25em;"></li>
+    </ul>
+    <button type="button" class="slider-nav" (click)="previousSlide()" style="visibility: visible;" ></button>
+    <button type="button" class="slider-nav slider-nav-next" (click)="nextSlide()" style="visibility: visible;"></button>
+    <div class="fav-button-card">
+      <i class="fa fa-heart"></i>
+    </div>
   </div>
   <div>
-    {{postulation.house.hasContentionNet}}
+    <p style="margin-bottom: 0.5em;"><strong style="color: #E76801; font-size: medium;">¿Es propietario?</strong> {{postulation.house.owner ? "Si" : "No"}}</p>
   </div>
   <div>
-    {{postulation.house.openSpaces}}
+    <p style="margin-bottom: 0.5em;"><strong style="color: #E76801; font-size: medium;">Permite mascotas:</strong> {{postulation.house.allowsPets ? "Si" : "No"}}</p>
   </div>
   <div>
-    {{postulation.house.owner}}
+    <p style="margin-bottom: 0.5em;"><strong style="color: #E76801; font-size: medium;">¿Tiene red de contención?</strong> {{postulation.house.hasContentionNet ? "Si" : "No"}}</p>
   </div>
   <div>
-    {{postulation.house.type}}
-  </div>
-  <div *ngFor="let image of postulation.house.houseImages">
-    <img [src]="image">
+    <p style="margin-bottom: 0.5em;"><strong style="color: #E76801; font-size: medium;">¿Tiene espacios abiertos?</strong> {{postulation.house.openSpaces ? "Si" : "No"}}</p>
   </div>
 </body>

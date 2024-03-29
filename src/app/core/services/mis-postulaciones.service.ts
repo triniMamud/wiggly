@@ -1,8 +1,8 @@
 import { Injectable } from "@angular/core";
 import { AuthenticationService } from "./authentication.service";
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { Observable } from "rxjs";
-import { getPostulationsUrl } from "../constants/endpoints";
+import { Observable, Subject } from "rxjs";
+import { postulationsControllerUrl } from "../constants/endpoints";
 
 @Injectable({
   providedIn: 'root'
@@ -10,6 +10,7 @@ import { getPostulationsUrl } from "../constants/endpoints";
 export class MisPostulacionesService {
   
   public user: any = this.authenticationService.getUser();
+  private refreshPostulacionesSubject = new Subject<void>();
 
   constructor(
     private http: HttpClient,
@@ -20,6 +21,18 @@ export class MisPostulacionesService {
     .set('Content-Type', 'application/json')
     .set('email', this.user.email);
 
-    return this.http.get<any>(getPostulationsUrl, { headers });
+    return this.http.get<any>(postulationsControllerUrl, { headers });
+  }
+
+  updateEstadoPostulacion(idPostulacion: any, status: any): Observable<any> {
+    return this.http.put<any>(postulationsControllerUrl+`/${idPostulacion}`, status);
+  }
+
+  refreshPostulaciones() {
+    this.refreshPostulacionesSubject.next();
+  }
+
+  getRefreshPostulacionesObservable() {
+    return this.refreshPostulacionesSubject.asObservable();
   }
 }

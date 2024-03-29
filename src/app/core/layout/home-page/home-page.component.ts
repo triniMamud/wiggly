@@ -3,6 +3,7 @@ import { PetDTOResponse } from '../../models/PetDTOResponse.model';
 import { trigger, state, style, transition, animate } from '@angular/animations';
 import { MascotaService } from '../../services/mascota.service';
 import { UtilService } from '../../services/util.service';
+import { MisFavoritosService } from '../../services/mis-favoritos.service';
 
 @Component({
   selector: 'app-home-page',
@@ -20,7 +21,10 @@ import { UtilService } from '../../services/util.service';
 export class HomePageComponent implements OnInit {
 
 
-  constructor(private mascotaService: MascotaService, private utilService: UtilService) { }
+  constructor(
+    private mascotaService: MascotaService,
+    private utilService: UtilService,
+    private misFavoritosService: MisFavoritosService) { }
 
   mascotas: PetDTOResponse[] = [];
 

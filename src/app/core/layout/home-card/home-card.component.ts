@@ -1,6 +1,8 @@
 import { Component, Input } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { FullPetModalComponent } from '../full-pet-modal/full-pet-modal.component';
+import { MisFavoritosService } from '../../services/mis-favoritos.service';
+import { UtilService } from '../../services/util.service';
 
 @Component({
   selector: 'app-home-card',
@@ -12,7 +14,7 @@ export class HomeCardComponent {
   @Input() pet: any;
   currentSlideIndex = 0;
 
-  constructor(private dialog: MatDialog) { }
+  constructor(private dialog: MatDialog, private misFavoritosService: MisFavoritosService, private utilService: UtilService) { }
 
   ngOnInit(): void {}
 
@@ -41,5 +43,30 @@ export class HomeCardComponent {
       height: '60em',
       data: { pet: this.pet }
     })
+  }
+
+  toggleFav() {
+    if (this.pet.pet.isFavPet) {
+      this.misFavoritosService.deleteFavouritePet(this.pet.pet.id).subscribe({
+        next: (resp) => {
+            this.pet.pet.isFavPet = false;  
+            this.misFavoritosService.refreshFavourites();
+        },
+        error: (error) => {
+          this.utilService.notification('No se pudo eliminar la mascota de favoritos', 'warning', 2000);
+        }
+      });
+    }
+    else {
+      this.misFavoritosService.addFavouritePet({petId: this.pet.pet.id}).subscribe({
+        next: (resp) => {
+          this.pet.pet.isFavPet = true;  
+          this.misFavoritosService.refreshFavourites();
+      },
+      error: (error) => {
+        this.utilService.notification('No se pudo agregar la mascota de favoritos', 'warning', 2000);
+      }
+      });
+    }
   }
 }

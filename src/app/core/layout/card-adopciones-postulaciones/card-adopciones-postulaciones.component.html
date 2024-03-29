@@ -1,28 +1,48 @@
-<body style="display: flex; align-items: center; background: rgba(253, 167, 105, 50%);; border-radius: 1em;">
-  <div class="swiffy-slider">
-      <ul class="slider-container" style="height: 100%; width: 100%; overflow: hidden;">
-        <li style="transition: opacity .5s;     display: grid; transition: opacity .5s;">
-          <img class="imagenPet" [src]="postulatedPet.petImages[currentSlideIndex]" style="width: 20.1em; height: 16.3em; border-bottom-left-radius: 1em;
-          border-top-left-radius: 1em;">
-        </li>
-      </ul>
-      <button type="button" class="slider-nav" (click)="previousSlide()" style="visibility: visible;" ></button>
-      <button type="button" class="slider-nav slider-nav-next" (click)="nextSlide()" style="visibility: visible;"></button>
-      <div class="fav-button-card">
-        <i class="fa fa-heart"></i>
-      </div>
+<body style="display: flex; align-items: center;  border-radius: 1em; justify-content: space-between; background: rgba(253, 167, 105, 30%);">
+  <div class="swiffy-slider" style="    width: 60%;  height: 100%;  display: grid;  align-content: center;">
+    <ul class="slider-container" style="    height: 25em;    overflow-y: hidden;">
+      <li style="transition: opacity .5s; height: 25em;">
+        <img class="imagenPet" [src]="postulatedPet.petImages[currentSlideIndex]" style="width: 100%; border-top-left-radius: 1em; border-top-right-radius: 1em; height: 100%;">
+      </li>
+    </ul>
+    <button type="button" class="slider-nav" (click)="previousSlide()" style="visibility: visible;" ></button>
+    <button type="button" class="slider-nav slider-nav-next" (click)="nextSlide()" style="visibility: visible;"></button>
+    <div class="fav-button-card">
+      <i class="fa fa-heart"></i>
+    </div>
   </div>
 
-  <div class="pet-info" style="    display: flex;
-  flex-direction: column;">
-    <div style="margin-top: 0.5em;">
-      <p style="text-align: center;
-      color: #191D23;
-      font-size: 32px;
-      font-family: Manrope;
-      font-weight: 600;
-      word-wrap: break-word;">{{postulatedPet.pet.name}}</p>
-      <p style="text-align: center; color: #64748B; font-size: 18px; font-family: Manrope; font-weight: 400; word-wrap: break-word">{{ postulatedPet.status | tranducirStatus }}</p> 
+  <div class="pet-info" style="display: flex;  justify-content: space-evenly;  width: 40%;  flex-direction: column;  height: 100%;  align-items: center;">
+    <p style="text-align: center; color: #E76801; font-size: 28px; font-family: Manrope; font-weight: 600; word-wrap: break-word; margin: 0.5em 0 0.5em 0em;;">{{postulatedPet.pet.name}}</p>
+    
+    <div style="    display: flex;    width: 100%;    flex-direction: column;    align-items: center;">
+      <p style="color: black; font-size: 18px; font-family: Manrope; text-align: center; font-weight: 600; margin-bottom: 1em;"><strong>Estado de la postulación</strong></p>
+      <div style="display: flex; align-content: flex-start; align-items: flex-start; flex-direction: column; justify-content: start; width: 90%; flex-wrap: wrap;">
+        <div style="width: 100%; display: flex; justify-content: space-between;" [ngStyle]="{'color': postulatedPet.status === 'SENT' ? '#FDA769' : '#64748B'}">
+          <p style="text-align: center;font-size: 18px; font-family: Manrope; word-wrap: break-word"
+          [ngStyle]="{'font-weight': postulatedPet.status === 'SENT' ? '700' : 'inherit', 'color': postulatedPet.status === 'SENT' ? '#FDA769' : 'inherit'}">Enviada</p>
+          <mat-icon style="margin-left: 0.5em;">{{postulatedPet.status === 'SENT' ? 'check_circle' : 'check_circle_outline'}}</mat-icon>
+        </div> 
+        <div style="width: 100%; display: flex; justify-content: space-between;" [ngStyle]="{'color': postulatedPet.status === 'IN_REVISION' ? '#FDA769' : '#64748B'}">
+          <p style="text-align: center; font-size: 18px; font-family: Manrope; word-wrap: break-word"
+          [ngStyle]="{'font-weight': postulatedPet.status === 'IN_REVISION' ? '700' : 'inherit'}">En revisión</p>
+          <mat-icon style="margin-left: 0.5em;">{{postulatedPet.status === 'IN_REVISION' ? 'check_circle' : 'check_circle_outline'}}</mat-icon>
+        </div>
+        <div *ngIf="postulatedPet.status === 'SENT' || postulatedPet.status === 'IN_REVISION'" style="width: 100%; display: flex; justify-content: space-between;  color: #64748B;">
+          <p style="text-align: center; font-size: 18px; font-family: Manrope; word-wrap: break-word">Aceptada/Rechazada</p>
+          <mat-icon style="margin-left: 0.5em;">check_circle_outline</mat-icon>
+        </div>
+        <div *ngIf="postulatedPet.status === 'ACCEPTED'" style="width: 100%; display: flex; justify-content: space-between;">
+          <p style="text-align: center; color: #FDA769; font-size: 18px; font-family: Manrope; word-wrap: break-word; font-weight: 700;">Aceptada</p>
+          <mat-icon style="margin-left: 0.5em;">check_circle</mat-icon>
+        </div>
+        <div *ngIf="postulatedPet.status === 'DECLAINED'" style="width: 100%; display: flex; justify-content: space-between;">
+          <p style="text-align: center; color: #FDA769; font-size: 18px; font-family: Manrope; word-wrap: break-word; font-weight: 700;">Rechazada</p>
+          <mat-icon style="margin-left: 0.5em;">highlight_off</mat-icon>
+        </div>
+      </div>
     </div>
+
+
   </div>
 </body>
