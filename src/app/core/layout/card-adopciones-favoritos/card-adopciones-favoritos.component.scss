@@ -1,0 +1,96 @@
+@media (min-width: 2560px) {
+  .fav-button-card {
+    position: absolute;
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+    margin-left: -1.5em;
+    cursor: pointer;
+  }
+  
+  .fav-button-card mat-icon {
+    color: #FDA769;
+    border: #E76801;
+    transition: .2s ease;
+  }
+  
+  .fav-button-card mat-icon:hover {
+    color: #E76801;
+    scale: 1.15;
+  }
+
+  .card-adopciones-fav-body {
+    display: inline-grid;
+    width: 100%;
+
+    li {
+      transition: opacity .5s;
+    }
+  }
+
+  .imagen-pet {
+    width: 100%;
+    border-top-left-radius: 1em;
+    border-top-right-radius: 1em;
+    height: 16.3em;
+  }
+
+  .pet-info {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .pet-info-header {
+    margin-top: 0.5em;
+  }
+
+  .pet-info-name {
+    text-align: center;
+    color: #191D23;
+    font-size: 32px;
+    font-family: Manrope;
+    font-weight: 600;
+    word-wrap: break-word;
+  }
+
+  .pet-info-location {
+    text-align: center;
+    color: #64748B;
+    font-size: 18px;
+    font-family: Manrope;
+    font-weight: 400;
+    word-wrap: break-word;
+  }
+
+  .circulos-container {
+    display: inline-flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    margin-top: 0.5em;
+    justify-content: center;
+    margin-bottom: 0.5em;
+  }
+
+  .circulo {
+    margin-bottom: 1em;
+    margin-right: 1em;
+    justify-content: center;
+    padding: 0.25em 0.2em 0.2em 0.25em;
+    background: white;
+    border-radius: 5em;
+    border: 1px #FDA769 solid;
+    align-items: center;
+    display: inline-flex;
+    width: 35%;
+  }
+
+  .circulo-text {
+    color: #555555;
+    font-size: 16px;
+    font-family: Poppins;
+    font-weight: 400;
+    line-height: 24px;
+    word-wrap: break-word
+  }
+}
+

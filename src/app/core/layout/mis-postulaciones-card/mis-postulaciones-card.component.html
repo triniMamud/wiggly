@@ -1,57 +1,44 @@
-<div style="display: block; margin: 0 3em 3em 0; background: white; border-radius: 1em; filter: drop-shadow(0 0 0.3rem rgba(0, 0, 0, 0.5)); padding: 0 0.25em 3em 0.25em; height: 82%;">
+<body>
   <div>
-    <div style="padding: 1em; display: flex;">
+    <div class="card-header">
       <div>
-        <img img class="imagenPet" src="../../../../assets/images/kurama.jpg" style="width: 12em; border-radius: 1em; height: fit-content; margin-right: 2em;">
+        <img img class="imagen-pet" src="../../../../assets/images/kurama.jpg">
       </div>
-      <div style="display: flex; flex-direction: column; justify-content: center;">
-        <div style="font-size: x-large; font-weight: bolder; color: #E76801; padding-bottom: 0.5em;">
-          {{myPostulation.name}}
-          {{myPostulation.lastName}}
+      <div class="header-info-container">
+        <div class="info-name">{{myPostulation.name}} {{myPostulation.lastName}}
         </div>
-        <div style="display: flex; flex-direction: column; margin-bottom: 0.25em;">
-          <label style="font-size: x-small; color: rgba(0, 0, 0, 0.4); font-weight: 500; margin-bottom: -0.75em;">Email</label>
-          {{myPostulation.email}}
+        <div class="info-container">
+          <label>Email</label> {{myPostulation.email}}
         </div>
-        <div style="display: flex; flex-direction: column; margin-bottom: 0.25em;">
-          <label style="font-size: x-small; color: rgba(0, 0, 0, 0.4); font-weight: 500; margin-bottom: -0.75em;">Edad</label>
-          {{myPostulation.age}}
+        <div class="info-container">
+          <label>Edad</label> {{myPostulation.age}}
         </div>
-        <div style="display: flex; flex-direction: column; margin-bottom: 0.25em;">
-          <label style="font-size: x-small; color: rgba(0, 0, 0, 0.4); font-weight: 500; margin-bottom: -0.75em;">Ubicación</label>
-          {{myPostulation.location}}
+        <div class="info-container">
+          <label>Ubicación</label> {{myPostulation.location}}
         </div>
-        <div style="display: flex; flex-direction: column; margin-bottom: 0.25em;">
-          <label style="font-size: x-small; color: rgba(0, 0, 0, 0.4); font-weight: 500; margin-bottom: -0.75em;">Teléfono</label>
-          {{myPostulation.phone}}
+        <div class="info-container">
+          <label>Teléfono</label> {{myPostulation.phone}}
         </div>
       </div>
     </div>
-    <mat-tab-group  (selectedIndexChange)="changeIndex($event)" style="display: inline-block; overflow: unset; width: 100%;" class="postulante" >
+    <mat-tab-group  (selectedIndexChange)="changeIndex($event)" class="postulante" >
       <mat-tab label="General">
-        <app-general-menu-postulation [postulation]="myPostulation" style="margin: 0; width: 30em; display: block; height: 20em; overflow: auto;"></app-general-menu-postulation>
+        <app-general-menu-postulation [postulation]="myPostulation" class="option-menu-container general"></app-general-menu-postulation>
       </mat-tab>
       <mat-tab label="Adopción">
-        <app-adoption-menu-postulation [postulation]="myPostulation" style="width: 30em; display: block; height: 20em; overflow: auto;"></app-adoption-menu-postulation>
+        <app-adoption-menu-postulation [postulation]="myPostulation" class="option-menu-container"></app-adoption-menu-postulation>
       </mat-tab>
       <mat-tab label="Vivienda">
-        <app-vivienda-menu-postulation [postulation]="myPostulation" style="width: 30em; display: block; height: 20em; overflow: auto;"></app-vivienda-menu-postulation> 
+        <app-vivienda-menu-postulation [postulation]="myPostulation" class="option-menu-container"></app-vivienda-menu-postulation> 
       </mat-tab>
     </mat-tab-group>
   </div>
-  <div style="    display: flex;
-  justify-content: space-evenly;
-  margin-top: -1em;
-  margin-bottom: 1em;">
-    <button style="background: none; border: transparent;">
-      <mat-icon style="color: green; text-align: center; font-size: xx-large;
-      width: 100%;
-      height: 100%;" matSuffix matTooltip="Aceptar">check_circle</mat-icon>
+  <div class="aceptacion-buttons-container">
+    <button>
+      <mat-icon style="color: green;" class="icon-button" matSuffix matTooltip="Aceptar">check_circle</mat-icon>
     </button>
-    <button style="background: none; border: transparent;">
-      <mat-icon style="color: red; text-align: center; font-size: xx-large;
-      width: 100%;
-      height: 100%;" matSuffix matTooltip="Cancelar">cancel</mat-icon>
+    <button>
+      <mat-icon style="color: red;" class="icon-button" matSuffix matTooltip="Cancelar">cancel</mat-icon>
     </button>
   </div>
-</div>
+</body>

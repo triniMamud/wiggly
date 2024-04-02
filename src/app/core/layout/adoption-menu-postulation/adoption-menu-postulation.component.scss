@@ -1,0 +1,44 @@
+@media (min-width: 2560px) {
+  .manu-postu-body {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+  }
+
+  .container-titulo p {
+    margin-bottom: 0.5em;
+
+    strong {
+      color: #E76801; font-size: medium;
+    }
+  }
+
+  .info-opciones-container {
+    display: flex;
+    justify-content: center;
+    margin-left: 3em;
+    flex-wrap: wrap;
+  }
+
+  .ciruclo-info-opcion {
+    display: flex;
+    width: 25%;
+    margin-bottom: 1em;
+    margin-right: 1em;
+    justify-content: space-between;
+    padding: 0.3em;
+    background: white;
+    border-radius: 5em;
+    border: 1px #FDA769 solid;
+    align-items: center;
+  }
+
+  .titulo-info-opcion {
+    color: #555555;
+    font-size: 16px;
+    font-family: Poppins;
+    font-weight: 400;
+    line-height: 24px;
+    word-wrap: break-word
+  }
+}

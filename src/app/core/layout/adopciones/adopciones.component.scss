@@ -1,4 +1,9 @@
 
+@media (min-width: 2560px) {
+  
+}
+
+
 ::ng-deep .adopciones .mat-mdc-tab-label-container {
   overflow: unset
 }
@@ -18,4 +23,30 @@
 
 ::ng-deep .adopciones .mat-mdc-tab-body-content {
   margin-top: 0em;
+}
+
+::ng-deep .mat-mdc-tab-group .adopciones .mat-primary .mat-mdc-tab-group-stretch-tabs {
+  height: 100%;
+}
+
+.adopciones {
+  height: 100%;
+  display: inline-block;
+  overflow: unset;
+  width: 100%;
+  margin-top: 2%;
+}
+
+.mat-mdc-tab-group, .mat-mdc-tab-nav-bar {
+  --mdc-tab-indicator-active-indicator-color: #FDA769;
+  --mat-tab-header-active-label-text-color: #E76801;
+  --mat-tab-header-active-ripple-color: #FDA769;
+  --mat-tab-header-inactive-ripple-color: #E76801;
+  --mat-tab-header-active-focus-label-text-color: #FDA769;
+  --mat-tab-header-active-hover-label-text-color: #E76801;
+  --mat-tab-header-active-focus-indicator-color: #E76801;
+  --mat-tab-header-active-hover-indicator-color: #E76801;
+  --mat-tab-header-inactive-label-text-color: rgba(231,104,1, 0.6);
+  --mat-tab-header-inactive-focus-label-text-color: rgba(0, 0, 0, 0.6);
+  --mat-tab-header-inactive-hover-label-text-color: #E76801;
 }

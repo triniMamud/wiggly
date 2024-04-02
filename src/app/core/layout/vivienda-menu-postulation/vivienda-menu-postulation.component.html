@@ -1,27 +1,29 @@
-<body style="margin-top: 0em!important;">
+<body>
   <div>
-    <p style="margin-bottom: 0.5em;"><strong style="color: #E76801; font-size: medium;">Tipo de vivienda:</strong> {{postulation.house.type | houseType}}</p>
+    <p class="parrafo-info"><strong>Tipo de vivienda:</strong> {{postulation.house.type | houseType}}</p>
   </div>
-  <div class="swiffy-slider" style="    overflow-x: hidden;">
+  <div class="swiffy-slider" style="overflow-x: hidden;">
     <ul class="slider-container">
-      <li style="transition: opacity .5s;"><img class="imagenPet" [src]="postulation.house.houseImages[currentSlideIndex]" style="width: 40em; height: 25em;"></li>
+      <li class="li-imagen-pet">
+        <img class="imagen-pet" [src]="postulation.house.houseImages[currentSlideIndex]">
+      </li>
     </ul>
-    <button type="button" class="slider-nav" (click)="previousSlide()" style="visibility: visible;" ></button>
-    <button type="button" class="slider-nav slider-nav-next" (click)="nextSlide()" style="visibility: visible;"></button>
+    <button type="button" class="slider-nav slider-button" (click)="previousSlide()" ></button>
+    <button type="button" class="slider-nav slider-nav-next slider-button" (click)="nextSlide()"></button>
     <div class="fav-button-card">
       <i class="fa fa-heart"></i>
     </div>
   </div>
   <div>
-    <p style="margin-bottom: 0.5em;"><strong style="color: #E76801; font-size: medium;">¿Es propietario?</strong> {{postulation.house.owner ? "Si" : "No"}}</p>
+    <p class="parrafo-info"><strong>¿Es propietario?</strong> {{postulation.house.owner ? "Si" : "No"}}</p>
   </div>
   <div>
-    <p style="margin-bottom: 0.5em;"><strong style="color: #E76801; font-size: medium;">Permite mascotas:</strong> {{postulation.house.allowsPets ? "Si" : "No"}}</p>
+    <p class="parrafo-info"><strong>Permite mascotas:</strong> {{postulation.house.allowsPets ? "Si" : "No"}}</p>
   </div>
   <div>
-    <p style="margin-bottom: 0.5em;"><strong style="color: #E76801; font-size: medium;">¿Tiene red de contención?</strong> {{postulation.house.hasContentionNet ? "Si" : "No"}}</p>
+    <p class="parrafo-info"><strong>¿Tiene red de contención?</strong> {{postulation.house.hasContentionNet ? "Si" : "No"}}</p>
   </div>
   <div>
-    <p style="margin-bottom: 0.5em;"><strong style="color: #E76801; font-size: medium;">¿Tiene espacios abiertos?</strong> {{postulation.house.openSpaces ? "Si" : "No"}}</p>
+    <p class="parrafo-info"><strong>¿Tiene espacios abiertos?</strong> {{postulation.house.openSpaces ? "Si" : "No"}}</p>
   </div>
 </body>
