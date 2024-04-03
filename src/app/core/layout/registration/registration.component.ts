@@ -49,7 +49,6 @@ export class RegistrationComponent implements OnInit {
   }
 
   async signUp() {
-
     let adoptionType;
     if (this.registrationForm.get('transit')?.value && this.registrationForm.get('adoption')?.value) adoptionType = "BOTH";
     else if (this.registrationForm.get('transit')?.value) adoptionType = "TRANSIT";
@@ -67,18 +66,16 @@ export class RegistrationComponent implements OnInit {
       adoptionType: adoptionType
     }
 
-    this.authenticationService.register(data)
-    .subscribe((currentUser: any) => {
-        
-        if (!currentUser) {
-          this.utilService.notification('No se pudo obtener el usuario', 'error');
-          return;
-        }
-        this.dialog.closeAll();
-        this.router.navigateByUrl('/home');
-      },
-      (error: any) => {
-        this.utilService.notification('Email o contraseña incorrectos', 'error')
-      });
+    this.authenticationService.register(data).subscribe((currentUser: any) => {
+      if (!currentUser) {
+        this.utilService.notification('No se pudo obtener el usuario', 'error');
+        return;
+      }
+      this.dialog.closeAll();
+      this.router.navigateByUrl('/home');
+    },
+    (error: any) => {
+      this.utilService.notification('Email o contraseña incorrectos', 'error')
+    });
   }
 }

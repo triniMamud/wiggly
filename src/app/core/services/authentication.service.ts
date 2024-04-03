@@ -11,35 +11,12 @@ import { ConfigService } from '../services/config.service';
 export class AuthenticationService {
   
   public user: any;
-  private baseUrl: string = this.configService.getHost();
 
   constructor(private http: HttpClient,
     private configService: ConfigService) {
     this.getUser()
   }
 
-  login(email: string, password: string): Observable<any> {
-    const headers = new HttpHeaders()
-    .set('Content-Type', 'application/json')
-    .set('email', email)
-    .set('password', password);
-
-    localStorage.setItem('userEmail', JSON.stringify(email));
-    return this.http.post<any>(this.configService.getLoginUrl(), null, { headers })
-    .pipe(map((res) => {
-      //let decoded: TokenDecode = <TokenDecode>jwt_decode(res?.data?.token);
-
-      const kCloackUser: any = {
-        name: res?.name,
-        email: res?.email
-      };
-
-      localStorage.setItem('user', JSON.stringify(kCloackUser));
-      this.user = kCloackUser
-
-      return kCloackUser;
-    }));
-  }
 
   register(data: any) {
     const body = {
@@ -80,6 +57,30 @@ export class AuthenticationService {
         return kCloackUser;
       }))
   }
+
+  login(email: string, password: string): Observable<any> {
+    const headers = new HttpHeaders()
+    .set('Content-Type', 'application/json')
+    .set('email', email)
+    .set('password', password);
+
+    localStorage.setItem('userEmail', JSON.stringify(email));
+    return this.http.post<any>(this.configService.getLoginUrl(), null, { headers })
+    .pipe(map((res) => {
+      //let decoded: TokenDecode = <TokenDecode>jwt_decode(res?.data?.token);
+
+      const kCloackUser: any = {
+        name: res?.name,
+        email: res?.email
+      };
+
+      localStorage.setItem('user', JSON.stringify(kCloackUser));
+      this.user = kCloackUser
+
+      return kCloackUser;
+    }));
+  }
+
 
   getUser() {
     let userStorage = localStorage.getItem('user');
