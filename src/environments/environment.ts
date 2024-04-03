@@ -4,7 +4,7 @@
 
 export const environment = {
   production: false,
-  baseUrl: 'http://localhost:8080',
+  baseUrl: 'http://wiggly-backend-production.up.railway.app',
 };
 /*
  * For easier debugging in development mode, you can import the following file
