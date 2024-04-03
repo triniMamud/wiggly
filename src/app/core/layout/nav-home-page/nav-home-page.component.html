@@ -1,36 +1,26 @@
 <body>
-  <div style="position: absolute;
-  display: contents;">
-      <div style="    position: relative;
-      display: flex;
-      justify-content: center;
-      height: 10%;">
+  <div class="first-container">
+      <div class="img-container">
         <img src="../../../../assets/images/wiggly.png" />
       </div>
-    <div style="position: relative; height: 100%;">
-      <mat-tab-group  (selectedIndexChange)="changeIndex($event)" style="display: inline-block;"  >
+    <div class="navigation-header">
+      <mat-tab-group  (selectedIndexChange)="changeIndex($event)"  >
         <mat-tab label="Inicio">
           <app-home-page></app-home-page>
         </mat-tab>
         <mat-tab label="Adopciones">
-          <app-adopciones></app-adopciones>
+          <app-adopciones class="adopciones-container"></app-adopciones>
         </mat-tab>
         <mat-tab label="Mis mascotas">
           <app-mis-mascotas></app-mis-mascotas> 
         </mat-tab>
       </mat-tab-group>
-      <div style="position: absolute;
-      top: 2vh;
-      left: 90vw;
-      z-index: 5;
-      display: flex;
-      align-items: center;">
+      <div class="user-info-container">
         <mat-icon matSuffix >pets</mat-icon>
         <div>
           {{this.userName}}
         </div>
       </div>
     </div>
-    
   </div>  
 </body>

@@ -1,11 +1,11 @@
-<body style="width: 30%;">
-  <div *ngIf="!showPostulationDetail" style="width: 100%;">
-    <div *ngFor="let postulacion of postulaciones; let i = index" style="display: block; margin: 0 1.5em 3em 0; background: white; border-radius: 1em; filter: drop-shadow(0 0 0.3rem rgba(0, 0, 0, 0.5)); width: 100%;">
-      <app-card-adopciones-postulaciones [postulatedPet]="postulacion" style="position: relative; width: 100%; display: block; height: 25em;"></app-card-adopciones-postulaciones>
+<body>
+  <div *ngIf="!showPostulationDetail">
+    <div *ngFor="let postulacion of postulaciones; let i = index" class="card-adopcion-postu-container">
+      <app-card-adopciones-postulaciones [postulatedPet]="postulacion" class="card-adopcion-postu-component"></app-card-adopciones-postulaciones>
     </div>
   </div>
-  <div *ngIf="!postulaciones || postulaciones.length == 0" style="display: flex; flex-direction: column; align-items: center;">
-    <p style="font-size: 24px; font-family: Manrope; font-weight: bold;">Aun no te postulaste para adoptar una mascota!</p>
-    <img src="../../../../assets/images/AdobeStock_610288835.png" style="    width: 25%;">
+  <div *ngIf="!postulaciones || postulaciones.length == 0" class="adopciones-postu-none">
+    <p>Aun no te postulaste para adoptar una mascota!</p>
+    <img src="../../../../assets/images/AdobeStock_610288835.png">
   </div>
 </body>

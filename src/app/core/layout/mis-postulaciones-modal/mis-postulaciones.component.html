@@ -1,13 +1,13 @@
 <body>
   <div *ngIf="petPostulationsDetail.length == 0">
-    <div style="padding: 1em; display: flex; flex-direction: column;">
-      <img src="../../../../assets/images/AdobeStock_604133572.jpeg" style="width: 12em; border-radius: 1em; height: fit-content; margin-right: 2em;">
+    <div class="img-container">
+      <img src="../../../../assets/images/AdobeStock_604133572.jpeg">
       <p> No hay ninguna postulación! </p>
     </div>
   </div>
-  <div *ngIf="petPostulationsDetail.length != 0" style="display: flex; flex-direction: row;  flex-wrap: wrap;">
+  <div class="postulacion-detail-container" *ngIf="petPostulationsDetail.length != 0">
     <div *ngFor="let postulation of petPostulationsDetail; let i = index" >
-      <app-mis-postulaciones-card [myPostulation]="postulation" style="position: relative;"></app-mis-postulaciones-card>
+      <app-mis-postulaciones-card class="card-container" [myPostulation]="postulation"></app-mis-postulaciones-card>
     </div>
   </div>
 </body>

@@ -1,19 +1,44 @@
-::ng-deep .mat-mdc-tab-label-container {
-  overflow: unset
-}
+@media (min-width: 2560px) {
+  ::ng-deep .mat-mdc-tab-label-container {
+    overflow: unset
+  }
+  
+  ::ng-deep .postulante mat-tab-header {
+    border: #FDA769 solid 0.05em;
+    border-radius: 5em;
+    padding: 0;
+    margin-top: 1em;
+    margin-bottom: 1em;
+  }
+  
+  ::ng-deep .postulante .mat-mdc-tab-label-container {
+    background-color: rgba(231,104,1, 0.25)!important;
+  }
+  
+  ::ng-deep .mat-mdc-tab-body-content {
+    margin-top: 0em;
+  }
 
-::ng-deep .postulante mat-tab-header {
-  border: #FDA769 solid 0.05em;
-  border-radius: 5em;
-  padding: 0;
-  margin-top: 1em;
-  margin-bottom: 1em;
-}
+  .img-container {
+    padding: 1em;
+    display: flex;
+    flex-direction: column;
 
-::ng-deep .postulante .mat-mdc-tab-label-container {
-  background-color: rgba(231,104,1, 0.25)!important;
-}
+    img {
+      width: 12em;
+      border-radius: 1em;
+      height: fit-content;
+      margin-right: 2em;
+    }
+  }
 
-::ng-deep .mat-mdc-tab-body-content {
-  margin-top: 0em;
+  .postulacion-detail-container {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+
+  .card-container {
+    position: relative;
+  }
 }

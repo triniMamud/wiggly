@@ -1,62 +1,54 @@
-<body style="display: flex; flex-direction: column; justify-content: space-evenly;">
-  <div>
-    <p style="margin-bottom: 0.5em;"><strong style="color: #E76801; font-size: medium;">Tipo de adopción:</strong> {{postulation.adoptionType | adoptionType}}</p>
+<body class="menu-postu-body">
+  <div class="container-titulo">
+    <p ><strong>Tipo de adopción:</strong> {{postulation.adoptionType | adoptionType}}</p>
   </div>
 
   <div *ngIf="postulation.adoptionType !== 'ADOPTION'">
-    <div>
-      <p style="margin-bottom: 0.5em;"><strong style="color: #E76801; font-size: medium;">Información del último transito:</strong> {{postulation.lastTransitsInfo}}</p>
+    <div class="container-titulo">
+      <p><strong>Información del último transito:</strong> {{postulation.lastTransitsInfo}}</p>
     </div>
-    <div>
-      <p style="margin-bottom: 0.5em;"><strong style="color: #E76801; font-size: medium;">Tiempo máximo de transito:</strong> {{postulation.maxTimeTransit}}</p>
+    <div class="container-titulo">
+      <p><strong>Tiempo máximo de transito:</strong> {{postulation.maxTimeTransit}}</p>
     </div>
-    <div>
-      <p style="margin-bottom: 0.5em;"><strong style="color: #E76801; font-size: medium;">Preferencias:</strong> {{postulation.transitPreferences}}</p>
+    <div class="container-titulo">
+      <p><strong>Preferencias:</strong> {{postulation.transitPreferences}}</p>
     </div>
   </div>
 
 
-  <div>
-    <p style="margin-bottom: 0.5em;"><strong style="color: #E76801; font-size: medium;">Lugar donde dormiría la mascota:</strong> {{postulation.sleepingPlace}}</p>
+  <div class="container-titulo">
+    <p><strong>Lugar donde dormiría la mascota:</strong> {{postulation.sleepingPlace}}</p>
+  </div>
+  <div class="container-titulo">
+    <p><strong>Tiempo aproximado que la mascota se quedaría sola:</strong> {{postulation.timeAlonePet}}</p>
+  </div>
+  <div class="container-titulo">
+    <p><strong>Cantidad de paseos diarios:</strong> {{postulation.timesWalkPet}}</p>
   </div>
   <div>
-    <p style="margin-bottom: 0.5em;"><strong style="color: #E76801; font-size: medium;">Tiempo aproximado que la mascota se quedaría sola:</strong> {{postulation.timeAlonePet}}</p>
-  </div>
-  <div>
-    <p style="margin-bottom: 0.5em;"><strong style="color: #E76801; font-size: medium;">Cantidad de paseos diarios:</strong> {{postulation.timesWalkPet}}</p>
-  </div>
-  <div>
-    <div style="display: flex;    justify-content: center;       margin-left: 3em;    flex-wrap: wrap;">
-      <div class="Dropdown" style="display: flex;
-      width: 25%;
-      margin-bottom: 1em;
-      margin-right: 1em;
-      justify-content: space-between;
-      padding: 0.3em;
-      background: white;
-      border-radius: 5em;
-      border: 1px #FDA769 solid;
-      align-items: center;">
-        <div class="Frame2598" >
-          <div class="Filtros" style="color: #555555; font-size: 16px; font-family: Poppins; font-weight: 400; line-height: 24px; word-wrap: break-word">Entrenador</div>
-        </div>
-        <div style="color: red; display: flex;">
+    <div class="info-opciones-container">
+      <div class="ciruclo-info-opcion">
+        <div class="titulo-info-opcion">Entrenador</div>
+        <div [ngStyle]="{'color': postulation.canAffordTrainee ? 'green' : 'red'}">
           <mat-icon>{{postulation.canAffordTrainee ? 'check' : 'close'}}</mat-icon>
         </div>
       </div>
-      <div *ngIf="postulation.canAffordWalker" class="Dropdown" style="display: flex; width: 20%; margin-bottom: 1em; margin-right: 1em; justify-content: center; padding: 0.3em 0.5em 0.3em 0.5em; background: white; border-radius: 5em; border: 1px #FDA769 solid;">
-        <div class="Frame2598" >
-          <div class="Filtros" style="color: #555555; font-size: 16px; font-family: Poppins; font-weight: 400; line-height: 24px; word-wrap: break-word">Paseador</div>
+      <div class="ciruclo-info-opcion">
+        <div class="titulo-info-opcion">Paseador</div>
+        <div [ngStyle]="{'color': postulation.canAffordWalker ? 'green' : 'red'}">
+          <mat-icon>{{postulation.canAffordWalker ? 'check' : 'close'}}</mat-icon>
         </div>
       </div>
-      <div *ngIf="postulation.castrationCompromise" class="Dropdown" style="display: flex; width: 20%; margin-bottom: 1em; margin-right: 1em; justify-content: center; padding: 0.3em 0.5em 0.3em 0.5em; background: white; border-radius: 5em; border: 1px #FDA769 solid;">
-        <div class="Frame2598" >
-          <div class="Filtros" style="color: #555555; font-size: 16px; font-family: Poppins; font-weight: 400; line-height: 24px; word-wrap: break-word">Castración</div>
+      <div class="ciruclo-info-opcion">
+        <div class="titulo-info-opcion">Castración</div>
+        <div [ngStyle]="{'color': postulation.castrationCompromise ? 'green' : 'red'}">
+          <mat-icon>{{postulation.castrationCompromise ? 'check' : 'close'}}</mat-icon>
         </div>
       </div>
-      <div *ngIf="postulation.followUp" class="Dropdown" style="display: flex; width: 20%; margin-bottom: 1em; margin-right: 1em; justify-content: center; padding: 0.3em 0.5em 0.3em 0.5em; background: white; border-radius: 5em; border: 1px #FDA769 solid;">
-        <div class="Frame2598" >
-          <div class="Filtros" style="color: #555555; font-size: 16px; font-family: Poppins; font-weight: 400; line-height: 24px; word-wrap: break-word">Segimiento</div>
+      <div class="ciruclo-info-opcion">
+        <div class="titulo-info-opcion">Segimiento</div>
+        <div [ngStyle]="{'color': postulation.followUp ? 'green' : 'red'}">
+          <mat-icon>{{postulation.followUp ? 'check' : 'close'}}</mat-icon>
         </div>
       </div>
     </div>

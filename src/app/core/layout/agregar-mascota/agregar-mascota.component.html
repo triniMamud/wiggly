@@ -1,45 +1,32 @@
-<div style="display: flex; align-items: center;flex-direction: column; margin: 2em 2em 0em 2em;">
-  <p style="    color: #FDA769;
-  font-size: 40px;
-  font-family: serif;
-  font-weight: 500;
-  line-height: 28px;
-  word-wrap: break-word;"> Dando en Adopción </p>
-  <p style="    color: black;
-  font-size: 18px;
-  font-family: serif;
-  font-weight: 400;
-  line-height: 27px;
-  word-wrap: break-word;"> Completá la información de tu mascota </p>
- 
+<div class="agregar-mascota-header">
+  <p class="agregar-mascota-titulo"> Dando en Adopción </p>
+  <p class="agregar-mascota-subtitulo"> Completá la información de tu mascota </p>
 </div>
-<form [formGroup]="addPetForm" class="modal">
+<form [formGroup]="addPetForm">
   <div *ngIf="currentStep === 1">
-    <div style="display: flex; align-items: center;flex-direction: column; margin: 0em 2em 2em 2em;">
-      <p style="font-size: 14px;
-      margin-top: 1em; color: #787878;">Este formulario consta de dos partes, te pedimos que lo completes a conciencia y lo mas detallado posible</p>
+    <div class="descripcion-container">
+      <p>Este formulario consta de dos partes, te pedimos que lo completes a conciencia y lo mas detallado posible</p>
     </div>
-   
     <div class="form-step-content">
       <div class="two-inputs-row">
         <input formControlName="name" placeholder="Ingresá su nombre" class="input-formulario" [ngClass]="{'invalid': addPetForm.get('name')?.touched && addPetForm.get('name')?.invalid}">
         <input type="number" formControlName="age" placeholder="Ingresá su edad" class="input-formulario" [ngClass]="{'invalid': addPetForm.get('age')?.touched && addPetForm.get('age')?.invalid}">
       </div>
-      <div style="width: 100%;      margin-top: 2em;      margin-bottom: 2em;      display: flex;      justify-content: space-evenly;">
-        <label class="toggle" style="display: flex;      justify-content: center;      flex-direction: column;      align-items: center;"> 
-          <div style="margin-bottom: 4em;">Tipo</div>
+      <div class="toggles-container">
+        <label class="toggle toggle-label"> 
+          <div>Tipo</div>
           <input type="checkbox" formControlName="type">
           <span class="slider"></span>
           <span class="labels" data-on="Perro" data-off="Gato"></span>
         </label>
-        <label class="toggle" style="display: flex;      justify-content: center;      flex-direction: column;      align-items: center;">
-          <div style="margin-bottom: 4em;">Género</div>
+        <label class="toggle toggle-label">
+          <div>Género</div>
           <input type="checkbox" formControlName="gender">
           <span class="slider"></span>
           <span class="labels" data-on="Macho" data-off="Hembra"></span>
         </label>
-        <label class="toggle" style="display: flex;      justify-content: center;      flex-direction: column;      align-items: center;">
-          <div style="margin-bottom: 4em;">¿Castrado?</div>
+        <label class="toggle toggle-label">
+          <div>¿Castrado?</div>
           <input type="checkbox" formControlName="isCastrated">
           <span class="slider"></span>
           <span class="labels" data-on="Si" data-off="No"></span>
@@ -54,7 +41,7 @@
         <input formControlName="deparasited" class="input-formulario" placeholder="¿Está desparasitado?" [ngClass]="{'invalid': addPetForm.get('deparasited')?.touched && addPetForm.get('deparasited')?.invalid}">
       </div>
       
-      <div style="width: 100%;      display: flex;      flex-direction: column;      justify-content: flex-start;      align-items: center;">
+      <div class="dropzone-container">
         <div class="custom-dropzone" ngx-dropzone [accept]="'image/*'" (change)="onSelect($event)">
           <ngx-dropzone-label>
             <div>
@@ -76,7 +63,7 @@
   </div>
   <div *ngIf="currentStep === 2">
     <div class="form-step-content">
-      <div style="width: 100%;display: flex;align-items: center;align-content: center;justify-content: flex-start; margin-bottom: 1.5em;">
+      <div class="pregunta1-container">
         <label style="width: 61%;">¿Sabe quedarse solo?</label>
         <label class="toggle">
           <input type="checkbox" formControlName="beOnItsOwn">
@@ -84,13 +71,7 @@
           <span class="labels" data-on="Si" data-off="No"></span>
         </label>
       </div>
-      <div style="width: 100%;
-      display: flex;
-      flex-direction: row;
-      margin-bottom: 1.5em;
-      align-content: center;
-      align-items: center;
-      justify-content: space-between;">
+      <div class="pregunta2-container">
         <label>¿Hace sus necesidades afuera?</label>
         <mat-radio-group formControlName="bathroomOutside">
           <mat-radio-button value="YES">Sí</mat-radio-button>
@@ -119,23 +100,21 @@
           </mat-radio-group>
         </div>
       </div>
-      <textarea formControlName="medicalInfo" style="width: 100%; padding-bottom: 6em;resize: none; margin-bottom: 1em;" class="input-formulario" [ngClass]="{'invalid': addPetForm.get('medicalInfo')?.touched && addPetForm.get('medicalInfo')?.invalid}"
+      <textarea formControlName="medicalInfo" class="input-formulario textarea-info medical-info" [ngClass]="{'invalid': addPetForm.get('medicalInfo')?.touched && addPetForm.get('medicalInfo')?.invalid}"
         placeholder="Agregá toda la informacion médica que sepas (enfermedades actuales o pasadas, diagnósticos, tratamientos, dietas, medicación, etc.)"></textarea>  
-        <textarea formControlName="generalInfo" style="width: 100%; padding-bottom: 6em;resize: none; " class="input-formulario" [ngClass]="{'invalid': addPetForm.get('generalInfo')?.touched && addPetForm.get('generalInfo')?.invalid}"
+      <textarea formControlName="generalInfo" class="input-formulario textarea-info" [ngClass]="{'invalid': addPetForm.get('generalInfo')?.touched && addPetForm.get('generalInfo')?.invalid}"
         placeholder="Agregá información que creas relevante (personalidad, preferencias, juguete o comida favorita, etc.)"></textarea>
     </div>
-    <div style="width: 100%; display: flex; align-items: center; justify-content: center;     flex-direction: column;">
+    <div class="form-footer">
       <button (click)="submitForm()" class="enviar-formulario-agregar" [disabled]="!this.addPetForm.valid|| this.enviando">{{this.enviando ? 'Enviando Formulario' : 'Enviar formulario'}}</button>
-      <mat-spinner class="spinner mr-2" style="margin-right: 10px;" [diameter]="20" *ngIf="this.enviando">
+      <mat-spinner class="spinner" [diameter]="20" *ngIf="this.enviando">
       </mat-spinner>
 
-      <div *ngIf="this.addPetForm.status === 'INVALID'" class="error-message" style="margin-top: 0.5em; margin-bottom: 1.5em; color: red;">
+      <div *ngIf="this.addPetForm.status === 'INVALID'" class="error-message">
         * Debes completar todos los campos requeridos del formulario
       </div>
     </div>
-    <button (click)="previousStep()" class="cambiar-step-button step-button" style="position: absolute;
-    bottom: 0;
-    left: 0;">
+    <button (click)="previousStep()" class="cambiar-step-button step-button previous-step">
       <mat-icon class="flecha-step">arrow_back</mat-icon>
       Volver
     </button>

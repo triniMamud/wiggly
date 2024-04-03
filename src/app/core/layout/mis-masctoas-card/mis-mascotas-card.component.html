@@ -1,37 +1,28 @@
-<body style="display: inline-grid; width: 100%;">
+<body>
   <div class="swiffy-slider">
       <ul class="slider-container">
-        <li style="transition: opacity .5s;">
-          <img class="imagenPet" [src]="myPet.images[currentSlideIndex]" style="width: 100%; border-top-left-radius: 1em; border-top-right-radius: 1em; height: 16.3em;">
+        <li class="li-imagen-pet">
+          <img class="imagen-pet" [src]="myPet.images[currentSlideIndex]">
         </li>
       </ul>
-      <button type="button" class="slider-nav" (click)="previousSlide()" style="visibility: visible;" ></button>
-      <button type="button" class="slider-nav slider-nav-next" (click)="nextSlide()" style="visibility: visible;"></button>
-      
-      <div class="fav-button-card" >
+      <button type="button" class="slider-nav slider-button" (click)="previousSlide()"></button>
+      <button type="button" class="slider-nav slider-nav-next slider-button" (click)="nextSlide()"></button>
+      <!--<div class="edit-button-card" >
         <mat-icon matSuffix>edit</mat-icon>
-      </div>
+      </div>-->
   </div>
 
-  <div class="pet-info" style="    display: flex;
-  flex-direction: column;">
-    <div style="margin-top: 0.5em;">
-      <p style="text-align: center;
-      color: #191D23;
-      font-size: 32px;
-      font-family: Manrope;
-      font-weight: 600;
-      word-wrap: break-word;">{{myPet.pet.name}}</p>
-      <p style="text-align: center; color: #64748B; font-size: 18px; font-family: Manrope; font-weight: 400; word-wrap: break-word">{{myPet.pet.location}}</p> 
+  <div class="pet-info">
+    <div class="pet-info-header">
+      <p class="pet-info-title">{{myPet.pet.name}}</p>
+      <p class="pet-info-subtitle">{{myPet.pet.location}}</p> 
     </div>
   </div>
-  <div style="margin-bottom: 1.5em;
-  margin-left: 1.5em;
-  margin-top: 0.5em;">
-    <p>{{myPet.pet.name}} tuvo <strong style="color: #E76801;">{{postulationsCount}}</strong>  {{postulationsCount === 1 ? 'postulación' : 'postulaciones'}}</p>
+  <div class="postulaciones-count">
+    <p>{{myPet.pet.name}} tuvo <strong class="naranja-oscuro">{{postulationsCount}}</strong>  {{postulationsCount === 1 ? 'postulación' : 'postulaciones'}}</p>
   </div>
-  <div class="Buttons" style="display: flex; margin-bottom: 1em; justify-content: center; align-items: center;">
-    <div class="Cta" (click)="handlePostulationDetailClick()">
+  <div class="button-container">
+    <div (click)="handlePostulationDetailClick()">
       <button [disabled]="postulationsCount == 0" class="button-ver-postulaciones">
         Ver postulaciones
       </button>

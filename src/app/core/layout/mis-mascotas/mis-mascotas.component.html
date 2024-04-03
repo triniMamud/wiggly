@@ -1,20 +1,20 @@
 <body>
-  <div *ngIf="!showPostulationDetail" style="display: flex; align-items: flex-start; flex-direction: column; flex-wrap: wrap;">
-    <div *ngIf="this.misMascotas && this.misMascotas.length != 0" style="z-index: 100; top: 0; right: 0; margin-right: 2em; width: 100%; display: flex; justify-content: flex-end; margin-bottom: 2em;">
+  <div class="mascotas-container" *ngIf="!showPostulationDetail">
+    <div class="button-container" *ngIf="this.misMascotas && this.misMascotas.length != 0">
       <button class="agrega-mascota" (click)="addMiMascota()">Agregá una mascota</button>
     </div>
-    <div *ngFor="let miMascota of misMascotas; let i = index" style="display: block; height: 45%; width: 15.5%; margin: 0 1.5em 3em 0; background: white; border-radius: 1em; filter: drop-shadow(0 0 0.3rem rgba(0, 0, 0, 0.5));">
-      <app-mis-mascotas-card [myPet]="miMascota" (postulationPetClicked)="handlePetPostulationClick($event)" style="position: relative; width: 100%; display: block; height: 100%;"></app-mis-mascotas-card>
+    <div class="card-mascotas-container" *ngFor="let miMascota of misMascotas; let i = index">
+      <app-mis-mascotas-card [myPet]="miMascota" (postulationPetClicked)="handlePetPostulationClick($event)"></app-mis-mascotas-card>
     </div>
   </div>
-  <div *ngIf="this.showPostulationDetail" style="display: block; width: 100%;">
+  <div class="postulaciones-detail-container" *ngIf="this.showPostulationDetail">
     <button (click)="this.showPostulationDetail = false">Atrás</button>
     <app-mis-postulaciones [postulationsDetails]="postulationsDetails"></app-mis-postulaciones>
   </div>
 
-  <div *ngIf="!misMascotas || misMascotas.length == 0" style="display: flex; flex-direction: column; align-items: center;">
-    <p style="font-size: 24px; font-family: Manrope; font-weight: bold;">Aun no tienes ninguna mascota para dar en adopción!</p>
-    <img src="../../../../assets/images/AdobeStock_610288835.png" style="    width: 25%;">
+  <div class="no-mascotas-container" *ngIf="!misMascotas || misMascotas.length == 0">
+    <p>Aun no tienes ninguna mascota para dar en adopción!</p>
+    <img src="../../../../assets/images/AdobeStock_610288835.png">
     <button class="agrega-mascota" (click)="addMiMascota()">Agregá una mascota</button>
   </div>
 </body>

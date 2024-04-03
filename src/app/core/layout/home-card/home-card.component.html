@@ -1,48 +1,40 @@
-<body style="display: inline-grid; width: 100%;">
+<body class="home-card-body">
   <div class="swiffy-slider">
       <ul class="slider-container">
-        <li style="transition: opacity .5s;">
-          <img class="imagenPet" [src]="pet.images[currentSlideIndex]" style="width: 100%; border-top-left-radius: 1em; border-top-right-radius: 1em; height: 16.3em;">
+        <li class="li-imagen-pet">
+          <img class="imagen-pet" [src]="pet.images[currentSlideIndex]">
         </li>
       </ul>
-      <button type="button" class="slider-nav" (click)="previousSlide()" style="visibility: visible;" ></button>
-      <button type="button" class="slider-nav slider-nav-next" (click)="nextSlide()" style="visibility: visible;"></button>
-
+      <button type="button" class="slider-nav slider-button" (click)="previousSlide()"></button>
+      <button type="button" class="slider-nav slider-nav-next slider-button" (click)="nextSlide()"></button>
       <div class="fav-button-card" (click)="toggleFav()">
         <mat-icon *ngIf="!this.pet.pet.isFavPet" matSuffix>favorite_border</mat-icon>
         <mat-icon *ngIf="this.pet.pet.isFavPet" matSuffix>favorite</mat-icon>
       </div>
-
   </div>
 
-  <div class="pet-info" style="display: flex; flex-direction: column;">
-    <div style="margin-top: 0.5em;">
-      <p style="text-align: center; color: #191D23; font-size: 32px; font-family: Manrope; font-weight: 600; word-wrap: break-word;">{{pet.pet.name}}</p>
-      <p style="text-align: center; color: #64748B; font-size: 18px; font-family: Manrope; font-weight: 400; word-wrap: break-word">{{pet.pet.location}}</p>
+  <div class="pet-info">
+    <div class="pet-info-header">
+      <p class="pet-info-name">{{pet.pet.name}}</p>
+      <p class="pet-info-location">{{pet.pet.location}}</p>
     </div>
-    <div style="display: inline-flex; flex-wrap: wrap; flex-direction: row; margin-top: 0.5em; justify-content: center; margin-bottom: 0.5em;">
-      <div class="Dropdown" style="margin-bottom: 1em; margin-right: 1em;justify-content: center;padding: 0.25em 0.2em 0.2em 0.25em; background: white; border-radius: 5em; border: 1px #FDA769 solid; align-items: center; display: inline-flex; width: 35%;">
-        <div class="Frame2598" >
-          <div class="Filtros" style="color: #555555; font-size: 16px; font-family: Poppins; font-weight: 400; line-height: 24px; word-wrap: break-word">{{pet.pet.age}} años</div>
-        </div>
+    <div class="pet-info-container">
+      <div class="circulo-container">
+        <div class="circulo-info">{{pet.pet.age}} años</div>
       </div>
-      <div class="Dropdown" style="margin-bottom: 1em; margin-right: 1em; justify-content: center; padding: 0.3em 0.5em 0.3em 0.5em; background: white; border-radius: 5em; border: 1px #FDA769 solid;">
-        <div class="Frame2598" >
-          <div class="Filtros" style="color: #555555; font-size: 16px; font-family: Poppins; font-weight: 400; line-height: 24px; word-wrap: break-word">{{pet.pet.size}}</div>
-        </div>
+      <div class="circulo-container">
+        <div class="circulo-info" >{{pet.pet.size}}</div>
       </div>
-      <div class="Dropdown" style="margin-bottom: 1em; margin-right: 1em; justify-content: center; padding: 0.25em 0.2em 0.2em 0.25em; background: white; border-radius: 5em; border: 1px #FDA769 solid; align-items: center; display: inline-flex; width: 35%;">
-        <div class="Frame2598" >
-          <div class="Filtros" style="color: #555555; font-size: 16px; font-family: Poppins; font-weight: 400; line-height: 24px; word-wrap: break-word">{{pet.pet.gender}}</div>
-        </div>
+      <div class="circulo-container">
+        <div class="circulo-info">{{pet.pet.gender}}</div>
       </div>
     </div>
 
   </div>
-  <div class="Buttons" style="display: flex; margin-bottom: 1em; justify-content: center; align-items: center;">
+  <div class="button-container">
     <div class="Cta">
-      <div class="Layout" style="justify-content: center; align-items: center; display: flex;">
-        <div class="Label" style="color: white; font-size: 16px; font-family: Manrope; font-weight: 600; line-height: 20px; word-wrap: break-word" (click)="this.openFullMascotaModal()">Conocé más sobre {{pet.pet.name}}</div>
+      <div class="modal-button">
+        <div class="button" (click)="this.openFullMascotaModal()">Conocé más sobre {{pet.pet.name}}</div>
       </div>
     </div>
   </div>
