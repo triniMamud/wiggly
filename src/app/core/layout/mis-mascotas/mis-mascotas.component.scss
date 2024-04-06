@@ -1,94 +1,95 @@
-@media (min-width: 1920px) {
-  .agrega-mascota {
-    margin-top: 2%;
-    background: #FDA769;
-    color: white;
-    border: none;
-    font-family: Manrope;
-    font-size: 24px;
-    padding: 0.5em 1em 0.5em 1em;
-    border-radius: 1em;
-    cursor: pointer;
-    transition: .3s background-color
-  }
-  
-  .agrega-mascota:hover {
-    background: #E76801;
-  }
-  
-  body {
-    margin-top: 2%;
+.agrega-mascota {
+  margin-top: 2%;
+  background: #FDA769;
+  color: white;
+  border: none;
+  font-family: Manrope;
+  font-size: 24px;
+  padding: 0.5em 1em 0.5em 1em;
+  border-radius: 1em;
+  cursor: pointer;
+  transition: .3s background-color
+}
+
+.agrega-mascota:hover {
+  background: #E76801;
+}
+
+body {
+  margin-top: 2%;
+  width: 100%;
+  height: 100%;
+}
+
+.mascotas-container {
+  display: flex;
+  align-items: flex-start;
+  flex-direction: column;
+  flex-wrap: wrap;
+}
+
+.button-container {
+  z-index: 100;
+  top: 0;
+  right: 0;
+  margin-right: 2em;
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
+  margin-bottom: 2em;
+}
+
+.card-mascotas-container {
+  display: block;
+  height: 45%;
+  width: 15%;
+  margin: 0 1.5em 3em 0;
+  background: white;
+  border-radius: 1em;
+  filter: drop-shadow(0 0 0.3rem rgba(0, 0, 0, 0.5));
+
+  app-mis-mascotas-card {
+    position: relative;
     width: 100%;
+    display: block;
     height: 100%;
   }
-  
-  .mascotas-container {
-    display: flex;
-    align-items: flex-start;
-    flex-direction: column;
-    flex-wrap: wrap;
+}
+
+.postulaciones-detail-container {
+  display: block;
+  width: 100%;
+
+  button {
+    color: white;
+    margin-bottom: 1.5em;
+    padding: 0.5em;
+    background: #FDA769;
+    border-radius: 0.5em;
+    transition: .2s ease;
   }
 
-  .button-container {
-    z-index: 100;
-    top: 0;
-    right: 0;
-    margin-right: 2em;
-    width: 100%;
-    display: flex;
-    justify-content: flex-end;
-    margin-bottom: 2em;
+  button:hover {
+    background: #E76801;
+    scale: 1.15;
+  }
+}
+
+.no-mascotas-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  p {
+    font-size: 24px;
+    font-family: Manrope;
+    font-weight: bold;
   }
 
-  .card-mascotas-container {
-    display: block;
-    height: 45%;
-    width: 15%;
-    margin: 0 1.5em 3em 0;
-    background: white;
-    border-radius: 1em;
-    filter: drop-shadow(0 0 0.3rem rgba(0, 0, 0, 0.5));
-
-    app-mis-mascotas-card {
-      position: relative;
-      width: 100%;
-      display: block;
-      height: 100%;
-    }
+  img {
+    width: 25%;
   }
+}
 
-  .postulaciones-detail-container {
-    display: block;
-    width: 100%;
-
-    button {
-      color: white;
-      margin-bottom: 1.5em;
-      padding: 0.5em;
-      background: #FDA769;
-      border-radius: 0.5em;
-      transition: .2s ease;
-    }
-
-    button:hover {
-      background: #E76801;
-      scale: 1.15;
-    }
-  }
-
-  .no-mascotas-container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-
-    p {
-      font-size: 24px;
-      font-family: Manrope;
-      font-weight: bold;
-    }
-
-    img {
-      width: 25%;
-    }
-  }
+@media (min-width: 1920px) {
 }

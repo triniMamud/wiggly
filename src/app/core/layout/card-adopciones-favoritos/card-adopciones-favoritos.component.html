@@ -5,8 +5,8 @@
           <img class="imagen-pet" [src]="favPet.images[currentSlideIndex]">
         </li>
       </ul>
-      <button type="button" class="slider-nav" (click)="previousSlide()"></button>
-      <button type="button" class="slider-nav slider-nav-next" (click)="nextSlide()"></button>
+      <button type="button" class="slider-nav slider-button" (click)="previousSlide()"></button>
+      <button type="button" class="slider-nav slider-nav-next slider-button" (click)="nextSlide()"></button>
       <div class="fav-button-card">
         <mat-icon matSuffix>favorite_border</mat-icon>
       </div>
@@ -22,10 +22,10 @@
         <div class="circulo-text">{{favPet.pet.age}} años</div>
       </div>
       <div class="circulo">
-        <div class="circulo-text">{{favPet.pet.size}}</div>
+        <div class="circulo-text">{{favPet.pet.gender}}</div>
       </div>
       <div class="circulo">
-        <div class="circulo-text">{{favPet.pet.gender}}</div>
+        <div class="circulo-text">{{favPet.pet.size}}</div>
       </div>
     </div>
   </div>

@@ -20,7 +20,7 @@
     <p><strong>Lugar donde dormiría la mascota:</strong> {{postulation.sleepingPlace}}</p>
   </div>
   <div class="container-titulo">
-    <p><strong>Tiempo aproximado que la mascota se quedaría sola:</strong> {{postulation.timeAlonePet}}</p>
+    <p><strong>Tiempo que la mascota se quedaría sola:</strong> {{postulation.timeAlonePet}}</p>
   </div>
   <div class="container-titulo">
     <p><strong>Cantidad de paseos diarios:</strong> {{postulation.timesWalkPet}}</p>
@@ -30,7 +30,7 @@
       <div class="ciruclo-info-opcion">
         <div class="titulo-info-opcion">Entrenador</div>
         <div [ngStyle]="{'color': postulation.canAffordTrainee ? 'green' : 'red'}">
-          <mat-icon>{{postulation.canAffordTrainee ? 'check' : 'close'}}</mat-icon>
+          <mat-icon class="icon-info-opcion">{{postulation.canAffordTrainee ? 'check' : 'close'}}</mat-icon>
         </div>
       </div>
       <div class="ciruclo-info-opcion">

@@ -1,97 +1,103 @@
-@media (min-width: 1920px) {
-  .li-imagen-pet {
-    transition: opacity .5s;
-  }
+body {
+  overflow-x: hidden;
+}
 
-  .imagen-pet {
-    width: 40em;
-    height: 25em;
-  }
+.li-imagen-pet {
+  transition: opacity .5s;
+}
 
-  .slider-button {
-    visibility: visible;
-  }
+.imagen-pet {
+  width: 40em;
+  height: 25em;
+}
 
-  .pet-info-container {
-    width: 100%;
-    height: 57%;
-  }
+.slider-button {
+  visibility: visible; 
+}
 
-  .pet-info {
-    display: flex;
-    flex-direction: column;
-    height: 100%;
-  }
+.pet-info-container {
+  width: 100%;
+  height: 57%;
+}
 
-  .pet-info-header {
-    margin-top: 0.5em;
-  }
+.pet-info {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
 
-  .pet-info-header-title {
-    text-align: center;
-    color: #191D23;
-    font-size: 32px;
+.pet-info-header {
+  margin-top: 0.5em;
+}
+
+.pet-info-header-title {
+  text-align: center;
+  color: #191D23;
+  font-size: 32px;
+  font-family: Manrope;
+  font-weight: 600;
+  word-wrap: break-word;
+}
+
+.pet-info-header-subtitle {
+  text-align: center;
+  color: #64748B;
+  font-size: 18px;
+  font-family: Manrope;
+  font-weight: 400;
+  word-wrap: break-word
+}
+
+.caracteristicas-container {
+  display: flex;
+  margin-top: 2em;
+  margin-inline: 1em;
+  margin-bottom: 0.5em;
+  align-content: flex-start;
+  flex-direction: column;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  height: 100%;
+  justify-content: space-around;
+}
+
+.info-container {
+  margin-bottom: 1em;
+}
+
+.caracteristicas-titulo {
+  margin-bottom: 0.5em;
+  color: #E76801;
+  font-size: medium;
+}
+
+.naranja-oscuro {
+  color: #E76801;
+}
+
+.postularse-container {
+  display: flex;
+  margin-top: 2em;
+  justify-content: center;
+
+  button {
+    padding: 0.7em;
+    background: #FDA769;
+    border: none;
+    border-radius: 0.4em;
+    margin-bottom: 1em;
+    width: 45%;
+    cursor: pointer;
+    transition: 0.3s background-color;
+    color: white;
+    font-size: 16px;
     font-family: Manrope;
     font-weight: 600;
-    word-wrap: break-word;
-  }
-
-  .pet-info-header-subtitle {
-    text-align: center;
-    color: #64748B;
-    font-size: 18px;
-    font-family: Manrope;
-    font-weight: 400;
+    line-height: 20px;
     word-wrap: break-word
   }
+}
 
-  .caracteristicas-container {
-    display: flex;
-    margin-top: 2em;
-    margin-inline: 1em;
-    margin-bottom: 0.5em;
-    align-content: flex-start;
-    flex-direction: column;
-    align-items: flex-start;
-    flex-wrap: wrap;
-    height: 100%;
-    justify-content: space-around;
-  }
-
-  .info-container {
-    margin-bottom: 1em;
-  }
-
-  .caracteristicas-titulo {
-    margin-bottom: 0.5em;
-    color: #E76801;
-    font-size: medium;
-  }
-
-  .naranja-oscuro {
-    color: #E76801;
-  }
-
-  .postularse-container {
-    display: flex;
-    margin-top: 2em;
-    justify-content: center;
-
-    button {
-      padding: 0.7em;
-      background: #FDA769;
-      border: none;
-      border-radius: 0.4em;
-      margin-bottom: 1em;
-      width: 45%;
-      cursor: pointer;
-      transition: 0.3s background-color;
-      color: white;
-      font-size: 16px;
-      font-family: Manrope;
-      font-weight: 600;
-      line-height: 20px;
-      word-wrap: break-word
-    }
-  }
+@media (min-width: 1920px) {
+  
 }

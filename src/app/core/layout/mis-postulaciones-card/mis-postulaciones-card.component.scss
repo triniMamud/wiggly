@@ -1,84 +1,135 @@
+body {
+  display: block;
+  margin: 0 3em 3em 0;
+  background: white;
+  border-radius: 1em;
+  filter: drop-shadow(0 0 0.3rem rgba(0, 0, 0, 0.5));
+  padding-bottom: 3em;
+  height: 75%;
+  width: 40%;
+}
+
+::ng-deep .mis-postulaciones-header .mat-mdc-tab-label-container {
+  overflow: unset
+}
+
+::ng-deep .mis-postulaciones-header mat-tab-header {
+  border-bottom: #FDA769 solid 0.05em;
+  border-top: #FDA769 solid 0.05em;
+  padding-left: 0em;
+  margin-top: 1em;
+  margin-bottom: 2em;
+  padding-right: 0%;
+}
+
+::ng-deep .mis-postulaciones-header .mat-mdc-tab-label-container {
+  background-color: rgba(231,104,1, 0.25)!important;
+}
+
+::ng-deep .mis-postulaciones-header .mat-mdc-tab-body-content {
+  margin: 0em;
+}
+
+::ng-deep .mat-mdc-tab-group .mis-postulaciones-header .mat-primary .mat-mdc-tab-group-stretch-tabs {
+  height: 100%;
+}
+
+.mis-postulaciones-header {
+  height: 100%;
+  display: inline-block;
+  overflow: unset;
+  width: 100%;
+  margin-top: 2%;
+}
+
+.mat-mdc-tab-group, .mat-mdc-tab-nav-bar {
+  --mdc-tab-indicator-active-indicator-color: #FDA769;
+  --mat-tab-header-active-label-text-color: #E76801;
+  --mat-tab-header-active-ripple-color: #FDA769;
+  --mat-tab-header-inactive-ripple-color: #E76801;
+  --mat-tab-header-active-focus-label-text-color: #FDA769;
+  --mat-tab-header-active-hover-label-text-color: #E76801;
+  --mat-tab-header-active-focus-indicator-color: #E76801;
+  --mat-tab-header-active-hover-indicator-color: #E76801;
+  --mat-tab-header-inactive-label-text-color: rgba(231,104,1, 0.6);
+  --mat-tab-header-inactive-focus-label-text-color: rgba(0, 0, 0, 0.6);
+  --mat-tab-header-inactive-hover-label-text-color: #E76801;
+}
+
+.card-header {
+  padding: 1em;
+  display: flex;
+}
+
+.imagen-pet {
+  width: 12em;
+  border-radius: 1em;
+  height: fit-content;
+  margin-right: 2em;
+}
+
+.header-info-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.info-name {
+  font-size: x-large;
+  font-weight: bolder;
+  color: #E76801;
+  padding-bottom: 0.5em;
+}
+
+.info-container {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 0.25em;
+
+  label {
+    font-size: x-small;
+    color: rgba(0, 0, 0, 0.4);
+    font-weight: 500;
+    margin-bottom: -0.75em;
+  }
+}
+
+.postulante {
+  display: inline-block;
+  overflow: unset;
+  width: 100%;
+}
+
+.option-menu-container {
+  width: 100%;
+  display: block;
+  height: 20em;
+  overflow: auto;
+}
+
+.general {
+  margin: 0;
+  width: 100%;
+}
+
+.aceptacion-buttons-container {
+  display: flex;
+  justify-content: space-evenly;
+  margin-top: -1em;
+  margin-bottom: 1em;
+
+  button {
+    background: none;
+    border: transparent;
+  }
+}
+
+.icon-button {
+  text-align: center; font-size: xx-large;
+  width: 100%;
+  height: 100%;
+}
+
 @media (min-width: 1920px) {
-  body {
-    display: block;
-    margin: 0 3em 3em 0;
-    background: white;
-    border-radius: 1em;
-    filter: drop-shadow(0 0 0.3rem rgba(0, 0, 0, 0.5));
-    padding: 0 0.25em 3em 0.25em;
-    height: 82%;
-  }
-
-  .card-header {
-    padding: 1em;
-    display: flex;
-  }
-
-  .imagen-pet {
-    width: 12em;
-    border-radius: 1em;
-    height: fit-content;
-    margin-right: 2em;
-  }
-
-  .header-info-container {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-  }
-
-  .info-name {
-    font-size: x-large;
-    font-weight: bolder;
-    color: #E76801;
-    padding-bottom: 0.5em;
-  }
-
-  .info-container {
-    display: flex;
-    flex-direction: column;
-    margin-bottom: 0.25em;
-
-    label {
-      font-size: x-small;
-      color: rgba(0, 0, 0, 0.4);
-      font-weight: 500;
-      margin-bottom: -0.75em;
-    }
-  }
-
-  .postulante {
-    display: inline-block;
-    overflow: unset;
-    width: 100%;
-  }
-
-  .option-menu-container {
-    width: 30em;
-    display: block;
-    height: 20em;
-    overflow: auto;
-  }
   
-  .general {
-    margin: 0;
-  }
-
-  .aceptacion-buttons-container {
-    display: flex;
-    justify-content: space-evenly;
-    margin-top: -1em;
-    margin-bottom: 1em;
-
-    button {
-      background: none;
-      border: transparent;
-    }
-  }
-
-  .icon-button {
-    text-align: center; font-size: xx-large;
-    width: 100%;
-    height: 100%;
-  }
 }

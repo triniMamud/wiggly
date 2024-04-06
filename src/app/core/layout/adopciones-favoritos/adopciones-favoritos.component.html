@@ -1,4 +1,4 @@
-<body class="adopciones-fav-body">
+<body>
   <div *ngIf="!showFavoritosDetail" class="adopciones-fav-detail">
     <div *ngFor="let favorito of favoritos; let i = index" class="card-adopcion-fav-container">
       <app-card-adopciones-favoritos [favPet]="favorito" class="card-adopciones-component"></app-card-adopciones-favoritos>

@@ -21,7 +21,7 @@
         </div>
       </div>
     </div>
-    <mat-tab-group  (selectedIndexChange)="changeIndex($event)" class="postulante" >
+    <mat-tab-group class="mis-postulaciones-header"  (selectedIndexChange)="changeIndex($event)">
       <mat-tab label="General">
         <app-general-menu-postulation [postulation]="myPostulation" class="option-menu-container general"></app-general-menu-postulation>
       </mat-tab>
