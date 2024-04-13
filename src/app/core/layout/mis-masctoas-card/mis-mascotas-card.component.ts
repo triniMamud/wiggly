@@ -58,7 +58,7 @@ export class MisMascotasCardComponent {
       this.postulationsCount = response.length;
     },
     error =>{
-      this.utilService.notification('No se pudo obtener las postulaciones de la mascota', 'warning',2000)
+      this.utilService.openErrorModal('Error', 'No se pudo obtener las postulaciones de la mascota', 'OK');
     });
   }
 }

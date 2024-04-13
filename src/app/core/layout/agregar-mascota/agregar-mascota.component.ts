@@ -15,14 +15,14 @@ export class AgregarMascotaComponent {
 
   currentStep = 1;
   answers: any = {}; // Almacena las respuestas del usuario
-  enviando: Boolean = false;
+  isLoading = false;
   
   addPetForm = new FormGroup({
     name: new FormControl(null, [Validators.required]),
     type: new FormControl(true, []),
     age: new FormControl(null, [Validators.required]),
     gender: new FormControl(true, []),
-    size: new FormControl(null, [Validators.required]),
+    size: new FormControl("", [Validators.required]),
     location: new FormControl(null, [Validators.required]),
     isCastrated: new FormControl(false, []),
     vaccines: new FormControl(null, [Validators.required]),
@@ -49,7 +49,7 @@ export class AgregarMascotaComponent {
   }
 
   async submitForm() {
-    this.enviando = true;
+    this.isLoading = true;
     const pet = {
       name: this.addPetForm.get('name')?.value,
       type: this.addPetForm.get('type')?.value ? "DOG" : "CAT",
@@ -77,16 +77,19 @@ export class AgregarMascotaComponent {
     };
     
     this.misMascotasService.agregarMiMascota(body)
-      .subscribe((user: any) => {
-          if (!user) {
-            this.utilService.notification('No se pudo agregar la mascota', 'error');
-            return;
-          }
-          this.utilService.notification('Se agregó a la mascota correctamente', 'success');
-          this.dialog.closeAll();
+      .subscribe((resp: any) => {
+        this.isLoading = false;
+        if (!resp) {
+          this.utilService.openErrorModal('Error', 'No se pudo agregar a la mascota', 'Buu :(', 2000);
+          return;
+        }
+        this.utilService.openSuccessModal('¡Muy bien!', 'Se agregó a la mascota correctamente', 'OK', 2000);
+        this.misMascotasService.refreshMascotasList();
+        this.dialog.closeAll();
         },
         (error: any) => {
-          
+          this.isLoading = false;
+          this.utilService.openErrorModal('Error', 'No se pudo agregar a la mascota', 'Buu :(', 2000);
         });
   }
 
@@ -121,10 +124,7 @@ export class AgregarMascotaComponent {
     }
   }
 
-
-
 	onSelect(event: any) {
-		console.log(event);
     this.addPetForm.get('images')?.value?.push(...event.addedFiles);
 	}
 

@@ -1,3 +1,7 @@
-<div>
-  Hello, {{data.email}}
-</div>
+<mat-icon>check_circle_outline</mat-icon>
+<mat-dialog-content>
+  <p>{{ data.content }}</p>
+</mat-dialog-content>
+<mat-dialog-actions class="button-container">
+  <button mat-button [mat-dialog-close]="data.buttonText">{{ data.buttonText || 'OK' }}</button>
+</mat-dialog-actions>

@@ -3,8 +3,11 @@
     <div *ngFor="let favorito of favoritos; let i = index" class="card-adopcion-fav-container">
       <app-card-adopciones-favoritos [favPet]="favorito" class="card-adopciones-component"></app-card-adopciones-favoritos>
     </div>
+    <div *ngIf="isLoading" class="spinner-container">
+      <mat-spinner ></mat-spinner>
+    </div>
   </div>
-  <div *ngIf="!favoritos || favoritos.length == 0" class="adopciones-fav-none">
+  <div *ngIf="!isLoading && (!favoritos || favoritos.length == 0)" class="adopciones-fav-none">
     <p>Aun no marcaste como favorito ninguna mascota!</p>
     <img src="../../../../assets/images/AdobeStock_610288835.png">
   </div>

@@ -171,11 +171,6 @@ input[type="file"] {
   align-items: center;
 }
 
-.step-button-siguiente {
-  position: absolute;
-  bottom: -5em;
-}
-
 .step-button:hover {
   color: #E76801;
   font-size: 18px;
@@ -194,13 +189,46 @@ input[type="file"] {
   margin-bottom: 1.5em;
 }
 
+.select-container {
+  width: 51%;
+
+  mat-select {
+    height: 17%;
+    width: 87%;
+    display: flex;
+    color: #787878;
+    font-size: 13.3333px;
+    margin-top: 0.2em;
+  }
+}
+
+mat-label {
+  color: #787878;
+  font-size: 13.3333px;
+}
+
+.mat-mdc-option.mdc-list-item {
+  color: #787878;
+  font-size: 13.3333px;
+  transition: .2s ease;
+}
+
+.mat-mdc-option.mdc-list-item--disabled {
+  display: none;
+}
+
+.mat-mdc-option.mdc-list-item:hover {
+  background-color: #FDA769!important;
+}
+
 .form-step-content {
+  
   display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    justify-content: space-around;
-    margin: 3em 1em 0 1em;
-    align-items: center;
+  flex-direction: column;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  margin: 3em 1em 0 1em;
+  align-items: center;
 }
 
 .two-inputs-row {
@@ -252,7 +280,7 @@ input[type="file"] {
 }
 
 .cambiar-step-button-siguiente {
-  position: relative; 
+  width: 100%; 
 }
 
 .enviar-formulario-agregar {
@@ -332,9 +360,9 @@ input[type="file"] {
 }
 
 .descripcion-container {
+  text-align: center;
   display: flex;
   align-items: center;
-  flex-direction: column;
   margin: 0em 2em 2em 2em;
 
   p {
@@ -417,12 +445,6 @@ input[type="file"] {
   color: red;
 }
 
-.previous-step {
-  position: absolute;
-  bottom: 0;
-  left: 0;
-}
-
 .flecha-step {
   display: flex;
   font-size: 18px;
@@ -430,6 +452,32 @@ input[type="file"] {
   align-items: center
 }
 
-@media (min-width: 1920px) {
-  
+.spinner-container {
+  position: fixed;
+  width: 100%;
+  height: 60%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+::ng-deep .mat-mdc-progress-spinner .mdc-circular-progress__indeterminate-circle-graphic {
+  stroke: #E76801!important;
+}
+
+@media (min-width: 1280px) {
+  .form-step-content {
+    margin-top: 2em;
+  }
+
+  .step-button {
+    margin: 0;
+    margin-bottom: 0.75em;
+  }
+
+  .textarea-info {
+    width: 95%;
+    height: 6em;
+    padding-bottom: 0em;
+  }
 }

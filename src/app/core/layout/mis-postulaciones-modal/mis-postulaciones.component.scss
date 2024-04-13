@@ -1,5 +1,4 @@
-@media (min-width: 1920px) {
-  ::ng-deep .mat-mdc-tab-label-container {
+::ng-deep .mat-mdc-tab-label-container {
     overflow: unset
   }
   
@@ -40,5 +39,14 @@
 
   .card-container {
     position: relative;
+  }
+
+@media (min-width: 1280px) {
+  .card-container {
+    display: flex;
+  }
+  
+  .postulacion-card-detail {
+    width: 62%; 
   }
 }

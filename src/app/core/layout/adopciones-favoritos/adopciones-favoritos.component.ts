@@ -14,6 +14,7 @@ export class AdopcionesFavoritosComponent {
   favoritos: any;
   showFavoritosDetail: boolean = false;
   favoritosDetails: any[] = [];
+  isLoading: boolean = false;
 
   constructor(
     private misFavoritosService: MisFavoritosService,
@@ -29,11 +30,14 @@ export class AdopcionesFavoritosComponent {
   }
 
   getAllMisFavoritos() {
+    this.isLoading = true;
     this.misFavoritosService.getMisFavoritosByUser().subscribe((response: any)=>{
+      this.isLoading = false;
       this.favoritos = response;
     },
     error =>{
-      this.utilService.notification('No se pudo obtener las mascotas', 'warning',2000)
+      this.isLoading = false;
+      this.utilService.openErrorModal('Error', 'No se pudo obtener las mascotas', 'OK');
     });
   }
 }

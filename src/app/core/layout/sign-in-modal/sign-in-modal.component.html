@@ -14,7 +14,12 @@
     </div>
   </form>
   <button class="forgot-password-button" (click)="openForgotPasswordModal()">¿Olvidaste tu contraseña?</button>
-  <button class="iniciar-sesion-button" [disabled]="!form.valid" [style.background-color]="form.invalid ? '#787878' : '#E76801'" mat-raised-button (click)="singIn()">Iniciar Sesión</button>
+  <button class="iniciar-sesion-button" [disabled]="!form.valid" [style.background-color]="form.invalid ? '#787878' : '#E76801'" mat-raised-button (click)="singIn()">
+    Iniciar Sesión
+  </button>
+  <div *ngIf="isLoading" class="spinner-container">
+    <mat-spinner ></mat-spinner>
+  </div>
   <div class="no-cuenta-container">
     <span>¿No tenés una cuenta?</span>
     <button (click)="switchToRegister()"> Registrate</button>

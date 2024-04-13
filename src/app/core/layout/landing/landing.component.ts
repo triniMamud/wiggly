@@ -17,15 +17,15 @@ export class LandingComponent implements OnInit {
 
   openSignInModal() {
     this.dialog.open(SignInModalComponent, {
-      width: '36em',
-      height: '60em',
+      width: '30em',
+      height: '40em'
     })
   }
 
   openRegistrationModal() {
     this.dialog.open(RegistrationComponent, {
-      width: '36em',
-      height: '60em',
+      width: '30em',
+      height: '40em'
     })
   }
 

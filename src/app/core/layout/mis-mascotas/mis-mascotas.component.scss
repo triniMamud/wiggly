@@ -26,6 +26,9 @@ body {
   align-items: flex-start;
   flex-direction: column;
   flex-wrap: wrap;
+  width: 100%; 
+  flex-direction: row;
+  justify-content: flex-start;
 }
 
 .button-container {
@@ -41,7 +44,6 @@ body {
 
 .card-mascotas-container {
   display: block;
-  height: 45%;
   width: 15%;
   margin: 0 1.5em 3em 0;
   background: white;
@@ -59,20 +61,6 @@ body {
 .postulaciones-detail-container {
   display: block;
   width: 100%;
-
-  button {
-    color: white;
-    margin-bottom: 1.5em;
-    padding: 0.5em;
-    background: #FDA769;
-    border-radius: 0.5em;
-    transition: .2s ease;
-  }
-
-  button:hover {
-    background: #E76801;
-    scale: 1.15;
-  }
 }
 
 .no-mascotas-container {
@@ -91,5 +79,71 @@ body {
   }
 }
 
-@media (min-width: 1920px) {
+.cambiar-step-button {
+  display: flex;
+    align-items: center;
+    justify-content: flex-end;
+}
+
+.step-button {
+  margin: 0 1em 1em 0;
+  background: none;
+  color: #FDA769;
+  font-size: 16px;
+  border: none;
+  cursor: pointer;
+  transition: all .3s ease;
+  text-align: center;
+  display: flex;
+  align-items: center;
+}
+
+.step-button:hover {
+  color: #E76801;
+  font-size: 18px;
+}
+
+.flecha-step {
+  display: flex;
+  font-size: 18px;
+  margin-left: 0.3em;
+  align-items: center
+}
+
+.spinner-container {
+  position: fixed;
+  width: 100%;
+  height: 60%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+::ng-deep .mat-mdc-progress-spinner .mdc-circular-progress__indeterminate-circle-graphic {
+  stroke: #E76801!important;
+}
+
+@media (min-width: 1280px) {
+  .card-mascotas-container {
+    width: 18%;
+  }
+
+  .mascotas-container {
+    height: 100%;
+  }
+
+  .step-button {
+    margin: 0;
+    margin-bottom: 0.75em;
+  }
+
+  .body-container {
+    margin-bottom: 7em;
+    display: flex;
+    flex-wrap: wrap;
+    overflow-y: scroll;
+    height: 64%;
+    justify-content: flex-start;
+    width: 100%;
+  }
 }

@@ -115,13 +115,57 @@ body {
 .aceptacion-buttons-container {
   display: flex;
   justify-content: space-evenly;
-  margin-top: -1em;
   margin-bottom: 1em;
+  margin-top: 1em;
 
   button {
-    background: none;
     border: transparent;
   }
+}
+
+.aceptar-button {
+  display: inline-block;
+  background-color: #FDA769;
+  width: 7em;
+  height: 2em;
+  border-radius: 0.5em;
+  border: #FDA769 1px solid;
+  color: white;
+  font-size: 15px;
+  font-family: serif;
+  font-weight: 400;
+  line-height: 20px;
+  word-wrap: break-word;    
+  cursor: pointer;
+  transition: 0.3s;
+  letter-spacing: 1.5px;
+}
+
+.aceptar-button:hover {
+  background-color: #E76801;
+}
+
+.cancelar-button {
+  display: inline-block;
+  background-color: white;
+  width: 7em;
+  height: 2em;
+  border-radius: 0.5em;
+  border: #FDA769;
+  color: #FDA769;
+  font-size: 15px;
+  font-family: serif;
+  font-weight: 400;
+  line-height: 20px;
+  word-wrap: break-word;    
+  cursor: pointer;
+  transition: 0.3s;
+  letter-spacing: 1.5px;
+}
+
+.cancelar-button:hover {
+  background-color: #FDA769;
+  color: white;
 }
 
 .icon-button {
@@ -130,6 +174,64 @@ body {
   height: 100%;
 }
 
-@media (min-width: 1920px) {
-  
+@media (min-width: 1280px) {
+  body {
+    padding: 0;
+    height: 27em;
+  }
+
+  .general {
+    height: 100%;
+  }
+
+  .card-header {
+    padding: 0.5em;
+  }
+
+  .info-name {
+    font-size: large;
+  }
+
+  .info-container {
+    font-size: small;
+  }
+
+  .edad-ubicacion-container {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .imagen-pet {
+    width: 8em;
+    margin-right: 1em;
+  }
+
+  ::ng-deep .mat-mdc-tab-group.mat-mdc-tab-group-stretch-tabs>.mat-mdc-tab-header .mat-mdc-tab {
+    width: 10%;
+    font-size: 12px;
+    padding: 0;
+  }
+
+  ::ng-deep .mis-postulaciones-header mat-tab-header {
+    margin-top: 0;
+    margin-bottom: 1em;
+  }
+
+  .general-menu-body {
+    justify-content: flex-start
+  }
+
+  ::ng-deep .mat-mdc-tab-labels {
+    height: 2.5em;
+    display: flex;
+    align-items: center;
+  }
+
+  .aceptacion-buttons-container {
+    margin-top: 0;
+  }
+
+  .option-menu-container {
+    height: 8em;
+  }
 }

@@ -13,6 +13,7 @@ export class AdopcionesPostulacionesComponent {
   postulaciones: any;
   showPostulationDetail: boolean = false;
   postulationsDetails: any[] = [];
+  isLoading: boolean = false;
 
   constructor(
     private misPostulacionesService: MisPostulacionesService,
@@ -28,11 +29,14 @@ export class AdopcionesPostulacionesComponent {
   }
 
   getAllMisPostulaciones() {
+    this.isLoading = true;
     this.misPostulacionesService.getMisPostulacionesByUser().subscribe((response: any)=>{
+      this.isLoading = false;
       this.postulaciones = response;
     },
     error =>{
-      this.utilService.notification('No se pudo obtener las mascotas', 'warning',2000)
+      this.isLoading = false;
+      this.utilService.openErrorModal('Error', 'No se pudo obtener las mascotas', 'OK');
     });
   }
 

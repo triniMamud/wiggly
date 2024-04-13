@@ -28,6 +28,7 @@ export class RegistrationComponent implements OnInit {
 
   currentUser: any = {};
   showPass = false;
+  isLoading = false;
 
   constructor(
     private dialog: MatDialog,
@@ -49,6 +50,7 @@ export class RegistrationComponent implements OnInit {
   }
 
   async signUp() {
+    this.isLoading = true;
     let adoptionType;
     if (this.registrationForm.get('transit')?.value && this.registrationForm.get('adoption')?.value) adoptionType = "BOTH";
     else if (this.registrationForm.get('transit')?.value) adoptionType = "TRANSIT";
@@ -67,15 +69,18 @@ export class RegistrationComponent implements OnInit {
     }
 
     this.authenticationService.register(data).subscribe((currentUser: any) => {
+      this.isLoading = false;
       if (!currentUser) {
-        this.utilService.notification('No se pudo obtener el usuario', 'error');
+        this.utilService.openErrorModal('Error', 'No se pudo completar el registro', 'OK');
         return;
       }
+      this.utilService.openSuccessModal('¡Muy bien!', 'El usuario se registró con éxito', 'Continuar', 1500);
       this.dialog.closeAll();
       this.router.navigateByUrl('/home');
     },
     (error: any) => {
-      this.utilService.notification('Email o contraseña incorrectos', 'error')
+      this.isLoading = false;
+      this.utilService.openErrorModal('Error', 'No se pudo completar el registro', 'OK');
     });
   }
 }

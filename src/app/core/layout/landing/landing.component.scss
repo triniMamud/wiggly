@@ -1,5 +1,5 @@
 body {
-  margin-top: 2%;
+  margin-top: 1%;
   width:100%;
   height: 100%;
 }
@@ -16,7 +16,6 @@ footer {
   right: 0;
   left: 0;
   width: 100%;
-  height: 2.5rem;
   padding-left: 3em;
   display: inline-flex;
   align-items: center;
@@ -35,7 +34,7 @@ footer {
 
 .header-button-text {
   display: inline-block;
-  font-size: 20px;
+  font-size: 15px;
   font-family: Inter;
   font-weight: 600;
   line-height: 20px;
@@ -54,10 +53,8 @@ footer {
 .header-button {
   display: inline-block;
   background-color: #FDA769;
-  width: 160px;
-  height: 40px;
-  padding-left: 12px;
-  padding-right: 12px;
+  width: 7em;
+  height: 2em;
   border-radius: 0.5em;
   border: none;
   color: white;
@@ -91,8 +88,7 @@ footer {
 
 .text-container {
   display: flex;
-    flex-direction: column;
-    gap: 10em;
+  flex-direction: column;
 }
 
 .page-container-right {
@@ -105,6 +101,10 @@ footer {
 
 .wiggly-logo {
   display: inline-block;
+
+  img {
+    width: 70%;
+  }
 }
 
 .wiggly-slogan {
@@ -120,12 +120,11 @@ footer {
 .wiggly-subslogan {
   display: inline-block;
   color: black;
-  font-size: 50px;
+  font-size: 40px;
   font-family: Poppins;
   font-weight: 400;
   line-height: 36px;
   word-wrap: break-word;
-  margin-top: 0.5em;
 }
 
 .wiggly-text {
@@ -185,6 +184,45 @@ footer {
   font-weight: 500;
   line-height: 27.21px;
   word-wrap: break-word
+}
+
+
+@media (min-width: 1280px) {
+
+  .wiggly-slogan {
+    font-size: 70px;
+  }
+
+  .wiggly-subslogan {
+    font-size: 40px;
+    margin-top: 0em;
+  }
+
+  .text-container {
+    gap: 0em;
+  }
+
+  .header-button-text {
+    font-size: 15px;
+  }
+
+  .header-button {
+    font-size: 18px;
+  }
+
+  .header-button {
+    width: 7em;
+    height: 2em;
+  }
+
+  .back-image-circle {
+    height: 75%;
+    margin-right: 0.5em;
+  }
+
+  footer {
+    height: 2em;
+  }
 }
 
 @media (min-width: 1440px) {

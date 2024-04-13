@@ -14,7 +14,7 @@ import { ForgotPasswordComponent } from '../forgot-password/forgot-password.comp
   styleUrls: ['./sign-in-modal.component.scss']
 })
 
-export class SignInModalComponent implements OnInit, AfterViewInit {
+export class SignInModalComponent implements OnInit {
 
   form = new FormGroup({
     email: new FormControl('', [Validators.required]),
@@ -24,6 +24,8 @@ export class SignInModalComponent implements OnInit, AfterViewInit {
   currentUser: any = {};
   showPass = false;
   returnUrl: string;
+  isLoading = false;
+
 
   constructor(    
     private router: Router,
@@ -44,30 +46,33 @@ export class SignInModalComponent implements OnInit, AfterViewInit {
   ngOnInit(): void {
   }
 
-  ngAfterViewInit() {
-    setTimeout(() => {
-      // this.focusElements.first.focus();
-    });
-  }
-
   reset() {
     this.form.controls.email.setValue('');
     this.form.controls.password.setValue('');
   }
 
   async singIn () {
+    this.isLoading = true;
     this.authenticationService.login(this.form.controls.email.value!, this.form.controls.password.value!)
       .subscribe((user: any) => {
+        this.isLoading = false;
           if (!user) {
-            this.utilService.notification('No se pudo obtener el usuario', 'error');
+            this.utilService.openErrorModal('Error', 'The operation could not be completed!', 'Buu :(');
             return;
           }
           this.currentUser = user;
           this.dialog.closeAll();
-          this.router.navigateByUrl('home');
+          this.router.navigateByUrl('/home');
+          /*const dialogRef = this.utilService.openSuccessModal('Success', 'The operation was successful!', 'Got it');
+          const sub = dialogRef.afterClosed().subscribe(() => {
+            this.dialog.closeAll();
+            this.router.navigateByUrl('/home');
+            sub.unsubscribe();
+          });*/
         },
         (error: any) => {
-          this.utilService.notification('Email o contraseña incorrectos', 'error')
+          this.isLoading = false;
+          this.utilService.openErrorModal('Error', 'The operation could not be completed!', 'Buu :(');
         });
   }
 

@@ -30,4 +30,8 @@ export class MascotaService {
     
     return this.http.post<any>(postulationsControllerUrl, {petId: petId}, { headers });
   }
+
+  updateFav(petId: any, isFavPet: boolean): Observable<any> {
+    return this.http.patch<any>(getAllMascotasUrl + `/${petId}`, {});
+  }
 }

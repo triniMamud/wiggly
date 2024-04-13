@@ -1,125 +1,177 @@
-@media (min-width: 1920px) {
-  .home-card-body {
-    display: inline-grid;
-    width: 100%;
-  }
+.home-card-body {
+  display: inline-grid;
+  width: 100%;
+}
 
-  .li-imagen-pet {
-    transition: opacity .5s;
-  }
+.li-imagen-pet {
+  transition: opacity .5s;
 
-  .imagen-pet {
+  img {
     width: 100%;
     border-top-left-radius: 1em;
     border-top-right-radius: 1em;
     height: 16.3em;
   }
+}
 
-  .slider-button {
-    visibility: visible;
-  }
 
-  .pet-info {
-    display: flex;
-    flex-direction: column;
-  }
 
-  .fav-button-card {
-    position: absolute;
-    width: 100%;
-    display: flex;
-    justify-content: flex-end;
-    margin-left: -0.5em;
-    cursor: pointer;
-  }
-  
-  .fav-button-card mat-icon {
-    color: #FDA769;
-    border: #E76801;
-    transition: .2s ease;
-  }
-  
-  .fav-button-card mat-icon:hover {
-    color: #E76801;
-    scale: 1.15;
-  }
+.slider-button {
+  visibility: visible;
+}
 
-  .pet-info-header {
-    margin-top: 0.5em;
-  }
+.pet-info {
+  display: flex;
+  flex-direction: column;
+}
 
-  .pet-info-header {
-    margin-top: 0.5em;
+.fav-button-card {
+  position: absolute;
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
+  margin-left: -0.5em;
+  cursor: pointer;
+}
+
+.fav-button-card mat-icon {
+  color: #FDA769;
+  border: #E76801;
+  transition: .2s ease;
+}
+
+.fav-button-card mat-icon:hover {
+  color: #E76801;
+  scale: 1.15;
+}
+
+.pet-info-header {
+  margin-top: 0.5em;
+}
+
+.pet-info-header {
+  margin-top: 0.5em;
+}
+
+.pet-info-name {
+  text-align: center;
+  color: #191D23;
+  font-size: 32px;
+  font-family: Manrope;
+  font-weight: 600;
+  word-wrap: break-word;
+}
+
+.pet-info-location {
+  text-align: center;
+  color: #64748B;
+  font-size: 18px;
+  font-family: Manrope;
+  font-weight: 400;
+  word-wrap: break-word;
+}
+
+.pet-info-container {
+  display: inline-flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  margin-top: 0.5em;
+  justify-content: center;
+  margin-bottom: 0.5em;
+}
+
+.circulo-container {
+  margin-bottom: 1em;
+  margin-right: 1em;
+  justify-content: center;
+  padding: 0.25em 0.2em 0.2em 0.25em;
+  background: white;
+  border-radius: 5em;
+  border: 1px #FDA769 solid;
+  align-items: center;
+  display: inline-flex;
+  width: 35%;
+}
+
+.circulo-info {
+  color: #555555;
+  font-size: 16px;
+  font-family: Poppins;
+  font-weight: 400;
+  line-height: 24px;
+  word-wrap: break-word
+}
+
+.button-container {
+  display: flex;
+  margin-bottom: 1em;
+  justify-content: center;
+  align-items: center;
+}
+
+.modal-button {
+  justify-content: center;
+  align-items: center;
+  display: flex;
+}
+
+.button {
+  color: white;
+  font-size: 16px;
+  font-family: Manrope;
+  font-weight: 600;
+  line-height: 20px;
+  word-wrap: break-word
+}
+
+@media (min-width: 1280px) {
+  .li-imagen-pet img {
+    height: 16em;
   }
 
   .pet-info-name {
-    text-align: center;
-    color: #191D23;
-    font-size: 32px;
-    font-family: Manrope;
-    font-weight: 600;
-    word-wrap: break-word;
+    font-size: 22px;
+    margin-bottom: 0.05em;
   }
 
   .pet-info-location {
-    text-align: center;
-    color: #64748B;
-    font-size: 18px;
-    font-family: Manrope;
-    font-weight: 400;
-    word-wrap: break-word;
-  }
-
-  .pet-info-container {
-    display: inline-flex;
-    flex-wrap: wrap;
-    flex-direction: row;
-    margin-top: 0.5em;
-    justify-content: center;
+    font-size: 13.5px;
     margin-bottom: 0.5em;
   }
 
+  .pet-info-container {
+    margin-top: 0em;
+    margin-bottom: 0em;
+    flex-wrap: nowrap;
+    margin-inline: 0.5em;
+    justify-content: space-between
+  }
+
   .circulo-container {
-    margin-bottom: 1em;
-    margin-right: 1em;
-    justify-content: center;
-    padding: 0.25em 0.2em 0.2em 0.25em;
-    background: white;
-    border-radius: 5em;
-    border: 1px #FDA769 solid;
-    align-items: center;
-    display: inline-flex;
-    width: 35%;
+    margin-bottom: 0.5em;
+    margin-right: 0em;
+    padding: 0.25em 0 0.2em 0;
+    width: 30%;
   }
 
   .circulo-info {
-    color: #555555;
-    font-size: 16px;
-    font-family: Poppins;
-    font-weight: 400;
-    line-height: 24px;
-    word-wrap: break-word
-  }
-
-  .button-container {
-    display: flex;
-    margin-bottom: 1em;
-    justify-content: center;
-    align-items: center;
-  }
-
-  .modal-button {
-    justify-content: center;
-    align-items: center;
-    display: flex;
+    font-size: 13px;
+    text-align: center;
+    line-height: 16px;
   }
 
   .button {
-    color: white;
-    font-size: 16px;
-    font-family: Manrope;
-    font-weight: 600;
-    line-height: 20px;
-    word-wrap: break-word
+    font-size: 14px;
+    p {
+      display: none;
+    }
+  }
+
+  .button-container {
+    margin-bottom: 0.5em;
+  }
+
+  .Cta {
+    padding: 0.3em 0.4em;
   }
 }

@@ -13,7 +13,8 @@
   margin-bottom: 0.5em;
 
   strong {
-    color: #E76801; font-size: medium;
+    color: #E76801;
+    font-size: medium;
   }
 }
 
@@ -49,4 +50,31 @@
 
 .icon-info-opcion {
   display: flex;
+  align-items: center;
+  width: fit-content;
+}
+
+@media (min-width: 1280px) {
+  .container-titulo p {  
+    margin-bottom: 0.5em;
+    strong {
+      font-size: 14px;
+    }
+  }
+
+  .ciruclo-info-opcion {
+    width: 30%;
+    margin-bottom: 0.5em;
+    padding-inline: 0.5em;
+    padding-top: 0;
+    padding-bottom: 0;
+  }
+
+  .titulo-info-opcion {
+    font-size: 14px;
+  }
+
+  .icon-info-opcion {
+    font-size: 15px;
+  }
 }

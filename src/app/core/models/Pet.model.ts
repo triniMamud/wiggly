@@ -4,7 +4,7 @@ import { BathroomEnum } from "./BathroomEnum";
 export interface Pet {
   id?: number;
   name?: String;
-  type?: PetTypeEnum;
+  type?: String;
   age?: number;
   gender?: String;
   size?: String;

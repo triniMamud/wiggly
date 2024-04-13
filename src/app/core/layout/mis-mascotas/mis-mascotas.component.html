@@ -3,15 +3,21 @@
     <div class="button-container" *ngIf="this.misMascotas && this.misMascotas.length != 0">
       <button class="agrega-mascota" (click)="addMiMascota()">Agregá una mascota</button>
     </div>
-    <div class="card-mascotas-container" *ngFor="let miMascota of misMascotas; let i = index">
-      <app-mis-mascotas-card [myPet]="miMascota" (postulationPetClicked)="handlePetPostulationClick($event)"></app-mis-mascotas-card>
+    <div class="body-container">
+      <div class="card-mascotas-container" *ngFor="let miMascota of misMascotas; let i = index">
+        <app-mis-mascotas-card [myPet]="miMascota" (postulationPetClicked)="handlePetPostulationClick($event)"></app-mis-mascotas-card>
+      </div>
+      <div *ngIf="isLoading" class="spinner-container">
+        <mat-spinner ></mat-spinner>
+      </div>
     </div>
   </div>
   <div class="postulaciones-detail-container" *ngIf="this.showPostulationDetail">
-    <button (click)="this.showPostulationDetail = false">Atrás</button>
+    <button (click)="this.showPostulationDetail = false" class="cambiar-step-button step-button">
+      <mat-icon class="flecha-step">arrow_back</mat-icon>Volver
+    </button>
     <app-mis-postulaciones [postulationsDetails]="postulationsDetails"></app-mis-postulaciones>
   </div>
-
   <div class="no-mascotas-container" *ngIf="!misMascotas || misMascotas.length == 0">
     <p>Aun no tienes ninguna mascota para dar en adopción!</p>
     <img src="../../../../assets/images/AdobeStock_610288835.png">

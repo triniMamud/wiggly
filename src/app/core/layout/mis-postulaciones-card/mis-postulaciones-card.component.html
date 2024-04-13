@@ -10,11 +10,13 @@
         <div class="info-container">
           <label>Email</label> {{myPostulation.email}}
         </div>
-        <div class="info-container">
-          <label>Edad</label> {{myPostulation.age}}
-        </div>
-        <div class="info-container">
-          <label>Ubicación</label> {{myPostulation.location}}
+        <div class="edad-ubicacion-container">
+          <div class="info-container">
+            <label>Edad</label> {{myPostulation.age}}
+          </div>
+          <div class="info-container">
+            <label>Ubicación</label> {{myPostulation.location}}
+          </div>
         </div>
         <div class="info-container">
           <label>Teléfono</label> {{myPostulation.phone}}
@@ -34,11 +36,11 @@
     </mat-tab-group>
   </div>
   <div class="aceptacion-buttons-container">
-    <button>
-      <mat-icon style="color: green;" class="icon-button" matSuffix matTooltip="Aceptar">check_circle</mat-icon>
+    <button class="aceptar-button">
+      Aceptar
     </button>
-    <button>
-      <mat-icon style="color: red;" class="icon-button" matSuffix matTooltip="Cancelar">cancel</mat-icon>
+    <button class="cancelar-button">
+      Cancelar
     </button>
   </div>
 </body>

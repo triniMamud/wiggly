@@ -33,7 +33,16 @@
         </label>
       </div>
       <div class="two-inputs-row">
-        <input formControlName="size" placeholder="Ingresá su tamaño" class="input-formulario" [ngClass]="{'invalid': addPetForm.get('size')?.touched && addPetForm.get('size')?.invalid}">
+        <div class="select-container">
+          <mat-select formControlName="size" class="input-formulario" [ngClass]="{'invalid': addPetForm.get('size')?.touched && addPetForm.get('size')?.invalid}">
+            <mat-option class="mat-option" value="" disabled selected>Ingresá su tamaño</mat-option>
+            <mat-option class="mat-option" value="chico">Chico</mat-option>
+            <mat-option class="mat-option" value="chico-mediano">Chico-Mediano</mat-option>
+            <mat-option class="mat-option" value="mediano">Mediano</mat-option>
+            <mat-option class="mat-option" value="mediano-grande">Mediano-Grande</mat-option>
+            <mat-option class="mat-option" value="grande">Grande</mat-option>
+          </mat-select>
+        </div>
         <input formControlName="location" placeholder="Ingresá dónde se encuentra" class="input-formulario" [ngClass]="{'invalid': addPetForm.get('location')?.touched && addPetForm.get('location')?.invalid}">
       </div>
       <div class="two-inputs-row">
@@ -54,11 +63,11 @@
           </ngx-dropzone-image-preview>
         </div>
       </div>
-    </div>
-    <div class="cambiar-step-button cambiar-step-button-siguiente">
-      <button (click)="nextStep()" class="step-button step-button-siguiente">Siguiente
-        <mat-icon class="flecha-step">arrow_forward</mat-icon>
-      </button>
+      <div class="cambiar-step-button cambiar-step-button-siguiente">
+        <button (click)="nextStep()" class="step-button">Siguiente
+          <mat-icon class="flecha-step">arrow_forward</mat-icon>
+        </button>
+      </div>
     </div>
   </div>
   <div *ngIf="currentStep === 2">
@@ -106,15 +115,15 @@
         placeholder="Agregá información que creas relevante (personalidad, preferencias, juguete o comida favorita, etc.)"></textarea>
     </div>
     <div class="form-footer">
-      <button (click)="submitForm()" class="enviar-formulario-agregar" [disabled]="!this.addPetForm.valid|| this.enviando">{{this.enviando ? 'Enviando Formulario' : 'Enviar formulario'}}</button>
-      <mat-spinner class="spinner" [diameter]="20" *ngIf="this.enviando">
-      </mat-spinner>
-
+      <button (click)="submitForm()" class="enviar-formulario-agregar" [disabled]="!this.addPetForm.valid|| this.isLoading">{{this.isLoading ? 'Enviando Formulario' : 'Enviar formulario'}}</button>
+      <div *ngIf="isLoading" class="spinner-container">
+        <mat-spinner ></mat-spinner>
+      </div>
       <div *ngIf="this.addPetForm.status === 'INVALID'" class="error-message">
         * Debes completar todos los campos requeridos del formulario
       </div>
     </div>
-    <button (click)="previousStep()" class="cambiar-step-button step-button previous-step">
+    <button (click)="previousStep()" class="cambiar-step-button step-button">
       <mat-icon class="flecha-step">arrow_back</mat-icon>
       Volver
     </button>

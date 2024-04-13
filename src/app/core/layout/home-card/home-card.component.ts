@@ -3,6 +3,7 @@ import { MatDialog } from '@angular/material/dialog';
 import { FullPetModalComponent } from '../full-pet-modal/full-pet-modal.component';
 import { MisFavoritosService } from '../../services/mis-favoritos.service';
 import { UtilService } from '../../services/util.service';
+import { MascotaService } from '../../services/mascota.service';
 
 @Component({
   selector: 'app-home-card',
@@ -14,7 +15,10 @@ export class HomeCardComponent {
   @Input() pet: any;
   currentSlideIndex = 0;
 
-  constructor(private dialog: MatDialog, private misFavoritosService: MisFavoritosService, private utilService: UtilService) { }
+  constructor(private dialog: MatDialog,
+    private mascotaService: MascotaService,
+    private misFavoritosService: MisFavoritosService,
+    private utilService: UtilService) { }
 
   ngOnInit(): void {}
 
@@ -40,7 +44,7 @@ export class HomeCardComponent {
     this.dialog.closeAll();
     this.dialog.open(FullPetModalComponent, {
       width: '36em',
-      height: '60em',
+      height: '40em',
       data: { pet: this.pet }
     })
   }
@@ -49,23 +53,27 @@ export class HomeCardComponent {
     if (this.pet.pet.isFavPet) {
       this.misFavoritosService.deleteFavouritePet(this.pet.pet.id).subscribe({
         next: (resp) => {
+          this.mascotaService.updateFav(this.pet.pet.id, false).subscribe((any) => {
             this.pet.pet.isFavPet = false;  
             this.misFavoritosService.refreshFavourites();
+          });
         },
         error: (error) => {
-          this.utilService.notification('No se pudo eliminar la mascota de favoritos', 'warning', 2000);
+          this.utilService.openErrorModal('Error', 'No se pudo eliminar la mascota de favoritos', 'OK', 2000)
         }
       });
     }
     else {
       this.misFavoritosService.addFavouritePet({petId: this.pet.pet.id}).subscribe({
         next: (resp) => {
-          this.pet.pet.isFavPet = true;  
-          this.misFavoritosService.refreshFavourites();
-      },
-      error: (error) => {
-        this.utilService.notification('No se pudo agregar la mascota de favoritos', 'warning', 2000);
-      }
+          this.mascotaService.updateFav(this.pet.pet.id, false).subscribe((any) => {
+            this.pet.pet.isFavPet = true;  
+            this.misFavoritosService.refreshFavourites();
+          });
+        },
+        error: (error) => {
+          this.utilService.openErrorModal('Error', 'No se pudo agregar la mascota de favoritos', 'OK', 2000)
+        }
       });
     }
   }

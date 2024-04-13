@@ -20,7 +20,7 @@ export class FullPetModalComponent {
   petGoodWithChildrenAndPets: string = "";
 
   constructor(
-    @Inject(MAT_DIALOG_DATA) public pet: {pet: any},
+    @Inject(MAT_DIALOG_DATA) public pet: any,
     private mascotaService: MascotaService,
     private utilService: UtilService,
     private dialog: MatDialog,
@@ -86,7 +86,7 @@ export class FullPetModalComponent {
         this.misPostulacionesService.refreshPostulaciones();
       },
       error: (error) => {
-        this.utilService.notification('Error al enviar la postulación', 'warning', 2000);
+        this.utilService.openErrorModal('Error', 'No se pudo enviar la postulación', 'Continuar');
       }
     });
     

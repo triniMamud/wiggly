@@ -36,19 +36,19 @@
       <div class="ciruclo-info-opcion">
         <div class="titulo-info-opcion">Paseador</div>
         <div [ngStyle]="{'color': postulation.canAffordWalker ? 'green' : 'red'}">
-          <mat-icon>{{postulation.canAffordWalker ? 'check' : 'close'}}</mat-icon>
+          <mat-icon class="icon-info-opcion">{{postulation.canAffordWalker ? 'check' : 'close'}}</mat-icon>
         </div>
       </div>
       <div class="ciruclo-info-opcion">
         <div class="titulo-info-opcion">Castración</div>
         <div [ngStyle]="{'color': postulation.castrationCompromise ? 'green' : 'red'}">
-          <mat-icon>{{postulation.castrationCompromise ? 'check' : 'close'}}</mat-icon>
+          <mat-icon class="icon-info-opcion">{{postulation.castrationCompromise ? 'check' : 'close'}}</mat-icon>
         </div>
       </div>
       <div class="ciruclo-info-opcion">
         <div class="titulo-info-opcion">Segimiento</div>
         <div [ngStyle]="{'color': postulation.followUp ? 'green' : 'red'}">
-          <mat-icon>{{postulation.followUp ? 'check' : 'close'}}</mat-icon>
+          <mat-icon class="icon-info-opcion">{{postulation.followUp ? 'check' : 'close'}}</mat-icon>
         </div>
       </div>
     </div>

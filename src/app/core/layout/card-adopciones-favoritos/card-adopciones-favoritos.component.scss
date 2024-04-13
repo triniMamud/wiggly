@@ -1,9 +1,3 @@
-@media (min-width: 1920px) {
-  .ciruculo {
-    padding: 0.25em 0.2em 0.2em 0.25em;
-  }
-}
-
 .fav-button-card {
   position: absolute;
   width: 100%;
@@ -100,4 +94,43 @@
 
 .sldier-button {
   visibility: visible;
+}
+
+@media (min-width: 1280px) {
+  .imagen-pet {
+    height: 12em;
+  }
+
+  .card-adopcion-fav-container {
+    margin-left: 0;
+  }
+
+  .pet-info-name {
+    font-size: 25px;
+    margin-bottom: 0.1em;
+  }
+
+  .pet-info-location {
+    font-size: 15px;
+  }
+
+  .circulo {
+    margin-bottom: 0.5em;
+    margin-right: 0.5em;
+    padding: 0;
+  }
+
+  .circulos-container {
+    margin-top: 0.25em;
+  }
+
+  .circulo-text {
+    font-size: 12px;
+  }
+}
+
+@media (min-width: 1920px) {
+  .ciruculo {
+    padding: 0.25em 0.2em 0.2em 0.25em;
+  }
 }

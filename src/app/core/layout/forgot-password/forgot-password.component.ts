@@ -29,14 +29,13 @@ export class ForgotPasswordComponent {
   }
 
   forgotPassword() {
-    this.userService.resetPassword(this.email!)
-      .subscribe(() => {
+    this.userService.resetPassword(this.email!).subscribe(() => {
         let dialogRef = this.dialog.open(ModalOkComponent, {
           data: { email: this.email },
         });
       },
       (error: any) => {
-        this.utilService.notification('No se pudo enviar un mail de recuperacion', 'error')
+        this.utilService.openErrorModal('Error', 'No se pudo enviar un mail de recuperacion', 'OK', 2000);
       });
   }
 

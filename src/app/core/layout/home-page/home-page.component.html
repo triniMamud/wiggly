@@ -6,10 +6,10 @@
           <h2 class="menu-title">Mascota</h2>
           <ul class="menu-dropdown">
             <li>
-              <input type="checkbox" value="perros"><label for="perros">Perros</label>
+              <input type="checkbox" [(ngModel)]="filtrosSeleccionados.perros" (change)="onFilterChange()" value="perros"><label for="perros">Perros</label>
             </li>
             <li>
-              <input type="checkbox" value="gatos"><label for="gatos">Gatos</label>
+              <input type="checkbox" [(ngModel)]="filtrosSeleccionados.gatos" (change)="onFilterChange()" value="gatos"><label for="gatos">Gatos</label>
             </li>
           </ul>
         </a>
@@ -19,13 +19,13 @@
           <h2 class="menu-title">Tamaño</h2>
           <ul class="menu-dropdown">
             <li>
-              <input type="checkbox" value="pequeño"><label for="pequeño">Pequeño</label>
+              <input type="checkbox" [(ngModel)]="filtrosSeleccionados.chico" (change)="onFilterChange()" value="chico"><label for="chico">Chico</label>
             </li>
             <li>
-              <input type="checkbox" value="mediano"><label for="mediano">Mediano</label>
+              <input type="checkbox" [(ngModel)]="filtrosSeleccionados.mediano" (change)="onFilterChange()" value="mediano"><label for="mediano">Mediano</label>
             </li>
             <li>
-              <input type="checkbox" value="grande"><label for="grande">Grande</label>
+              <input type="checkbox" [(ngModel)]="filtrosSeleccionados.grande" (change)="onFilterChange()" value="grande"><label for="grande">Grande</label>
             </li>
           </ul>
         </a>
@@ -35,13 +35,13 @@
           <h2 class="menu-title">Edad</h2>
           <ul class="menu-dropdown">
             <li>
-              <input type="checkbox" value="cachorro"><label for="cachorro">Cachorro</label>
+              <input type="checkbox" [(ngModel)]="filtrosSeleccionados.cachorro" (change)="onFilterChange()" value="cachorro"><label for="cachorro">Cachorro</label>
             </li>
             <li>
-              <input type="checkbox" value="adulto"><label for="adulto">Adulto</label>
+              <input type="checkbox" [(ngModel)]="filtrosSeleccionados.adulto" (change)="onFilterChange()" value="adulto"><label for="adulto">Adulto</label>
             </li>
             <li>
-              <input type="checkbox" value="mayor"><label for="mayor">Mayor</label>
+              <input type="checkbox" [(ngModel)]="filtrosSeleccionados.mayor" (change)="onFilterChange()" value="mayor"><label for="mayor">Mayor</label>
             </li>
           </ul>
         </a>
@@ -51,17 +51,22 @@
           <h2 class="menu-title">Género</h2>
           <ul class="menu-dropdown">
             <li>
-              <input type="checkbox" value="macho"><label for="macho">Macho</label>
+              <input type="checkbox" [(ngModel)]="filtrosSeleccionados.macho" (change)="onFilterChange()" value="macho"><label for="macho">Macho</label>
             </li>
             <li>
-              <input type="checkbox" value="hembra"><label for="hembra">Hembra</label>
+              <input type="checkbox" [(ngModel)]="filtrosSeleccionados.hembra" (change)="onFilterChange()" value="hembra"><label for="hembra">Hembra</label>
             </li>
           </ul>
         </a>
       </li>
     </ul>
   </div>
-  <div class="mascotas-container" *ngFor="let mascota of mascotas; let i = index">
-    <app-home-card [pet]="mascota"></app-home-card>
+  <div class="body-container">
+    <div class="mascotas-container" *ngFor="let mascota of mascotasFiltradas; let i = index">
+      <app-home-card [pet]="mascota"></app-home-card>
+    </div>
+    <div *ngIf="isLoading" class="spinner-container">
+      <mat-spinner ></mat-spinner>
+    </div>
   </div>
 </body>

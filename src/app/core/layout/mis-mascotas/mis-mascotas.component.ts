@@ -15,6 +15,7 @@ export class MisMascotasComponent {
   misMascotas: any;
   showPostulationDetail: boolean = false;
   postulationsDetails: any[] = [];
+  isLoading = false;
 
   constructor(
     private misMascotasService: MisMascotasService,
@@ -26,18 +27,21 @@ export class MisMascotasComponent {
   }
 
   getAllMisMascotas() {
-    this.misMascotasService.getAllMisMascotas().subscribe((response: any)=>{
+    this.isLoading = true;
+    this.misMascotasService.getAllMisMascotas().subscribe((response: any)=> {
+      this.isLoading = false;
       this.misMascotas = response;
     },
-    error =>{
-      this.utilService.notification('No se pudo obtener las mascotas', 'warning',2000)
+    error => {
+      this.isLoading = false;
+      this.utilService.openErrorModal('Error', 'No se pudo obtener las mascotas', 'OK');
     });
   }
 
   addMiMascota() {
     const dialogRef = this.dialog.open(AgregarMascotaComponent, {
       width: '40em',
-      height: '57em',
+      height: '40em',
     });
 
     dialogRef.afterClosed().subscribe(result => {

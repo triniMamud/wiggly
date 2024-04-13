@@ -1,4 +1,6 @@
 import { Component, Input } from '@angular/core';
+import { MisFavoritosService } from '../../services/mis-favoritos.service';
+import { MascotaService } from '../../services/mascota.service';
 
 @Component({
   selector: 'app-card-adopciones-favoritos',
@@ -10,7 +12,8 @@ export class CardAdopcionesFavoritosComponent {
   @Input() favPet: any;
   currentSlideIndex = 0;
 
-  constructor() {}
+  constructor(private misFavoritosService: MisFavoritosService,
+    private mascotaService: MascotaService) {}
 
   ngOnInit(): void {    
   }
@@ -20,16 +23,29 @@ export class CardAdopcionesFavoritosComponent {
       this.currentSlideIndex--;
     }
     else {
-      this.currentSlideIndex = this.favPet.petImages.length - 1;
+      this.currentSlideIndex = this.favPet.images.length - 1;
     }
   }
 
   nextSlide() {
-    if (this.currentSlideIndex < this.favPet.petImages.length - 1) {
+    if (this.currentSlideIndex < this.favPet.images.length - 1) {
       this.currentSlideIndex++;
     }
     else {
       this.currentSlideIndex = 0;
     }
+  }
+
+  toggleFav() {
+    this.misFavoritosService.deleteFavouritePet(this.favPet.pet.id).subscribe({
+      next: (resp) => {
+        this.mascotaService.updateFav(this.favPet.pet.id, false).subscribe((any) => {
+          this.favPet.pet.isFavPet = false;  
+          this.misFavoritosService.refreshFavourites();
+        });
+      },
+      error: (error) => {
+      }
+    });
   }
 }

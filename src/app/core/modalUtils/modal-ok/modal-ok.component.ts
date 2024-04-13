@@ -9,6 +9,6 @@ import { MAT_DIALOG_DATA } from '@angular/material/dialog';
 })
 export class ModalOkComponent {
 
-  constructor(@Inject(MAT_DIALOG_DATA) public data: {email: string}) { }
+  constructor(@Inject(MAT_DIALOG_DATA) public data: any) {}
 
 }

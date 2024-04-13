@@ -29,8 +29,8 @@
 
 .imagen-pet {
   width: 100%;
+  border-bottom-left-radius: 1em;
   border-top-left-radius: 1em;
-  border-top-right-radius: 1em;
   height: 100%;
 }
 
@@ -103,4 +103,21 @@
   margin-left: 0.5em;
 }
 
+@media (min-width: 1280px) {
+  .slider-card-postulacion {
+    width: 50%;
+  }
 
+  .slider-li {
+    height: 100%;
+    width: 100%;
+  }
+
+  .slider-container-card-postulacion {
+    height: 17em;
+  }
+
+  .pet-info {
+    width: 50%;
+  }
+}

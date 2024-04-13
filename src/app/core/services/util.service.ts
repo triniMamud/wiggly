@@ -1,12 +1,14 @@
 import { Injectable } from '@angular/core';
-//import { MatSnackBar } from '@angular/material/snack-bar';
+import { ModalOkComponent } from '../modalUtils/modal-ok/modal-ok.component';
+import { ModalErrorComponent } from '../modalUtils/modal-error/modal-error.component';
+import { MatDialog } from '@angular/material/dialog';
 
 @Injectable({
   providedIn: 'root'
 })
 export class UtilService {
 
-  constructor(/*private snackBar: MatSnackBar*/) { }
+  constructor(public dialog: MatDialog) { }
 
   notification(statusMessage: string, tipo?: string, duration?: number) {
     /*if (tipo) {
@@ -33,5 +35,35 @@ export class UtilService {
     }*/
     
     //VER QUE HACER
+  }
+
+  public openSuccessModal(title: string, content: string, buttonText?: string, duration?: number) {
+    const dialogRef = this.dialog.open(ModalOkComponent, {
+      width: '300px',
+      data: { title, content, buttonText }
+    });
+    
+    if (duration) {
+      setTimeout(() => {
+        dialogRef.close();
+      }, duration);
+    }
+
+    return dialogRef;
+  }
+
+  public openErrorModal(title: string, content: string, buttonText?: string, duration?: number) {
+    const dialogRef = this.dialog.open(ModalErrorComponent, {
+      width: '300px',
+      data: { title, content, buttonText }
+    });
+
+    if (duration) {
+      setTimeout(() => {
+        dialogRef.close();
+      }, duration);
+    }
+
+    return dialogRef;
   }
 }

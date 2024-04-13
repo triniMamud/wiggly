@@ -1,117 +1,136 @@
-@media (min-width: 1920px) {
+body {
+  display: inline-grid;
+  width: 100%;
+}
+
+.li-imagen-pet {
+  transition: opacity .5s;
+}
+
+.imagen-pet {
+  width: 100%;
+  border-top-left-radius: 1em;
+  border-top-right-radius: 1em;
+  height: 16.3em;
+}
+
+.slider-button {
+  visibility: visible;
+}
+
+.edit-button-card {
+  position: absolute;
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
+  margin-left: -1.5em;
+  cursor: pointer;
+}
+
+.edit-button-card mat-icon {
+  color: #FDA769;
+  border: #E76801;
+  transition: .2s ease;
+}
+
+.edit-button-card mat-icon:hover {
+  color: #E76801;
+  scale: 1.15;
+}
+
+.pet-info {
+  display: flex;
+  flex-direction: column;
+}
+
+.pet-info-header {
+  margin-top: 0.5em;
+}
+
+.pet-info-title {
+  text-align: center;
+  color: #191D23;
+  font-size: 32px;
+  font-family: Manrope;
+  font-weight: 600;
+  word-wrap: break-word;
+}
+
+.pet-info-subtitle {
+  text-align: center;
+  color: #64748B;
+  font-size: 18px;
+  font-family: Manrope;
+  font-weight: 400;
+  word-wrap: break-word;
+}
+
+.postulaciones-count {
+  margin-bottom: 1.5em;
+  margin-left: 1.5em;
+  margin-top: 0.5em;
+}
+
+.naranja-oscuro {
+  color: #E76801;
+}
+
+.button-container {
+  display: flex;
+  margin-bottom: 1em;
+  justify-content: center;
+  align-items: center;
+}
+
+.button-ver-postulaciones {
+  padding: 0.7em;
+  background: #FDA769;
+  border-radius: 0.4em;
+  cursor: pointer;
+  transition: .3s background-color;
+  border: none;
+  color: white;
+}
+
+.button-ver-postulaciones:disabled {
+  border: 0.50px rgb(161, 161, 161) solid;
+  border-radius: 0.4em;
+  padding: 0.5em;
+  background-color: rgb(161, 161, 161);
+  color: white;
+  font-size: 14px;
+  width: auto;
+  justify-content: flex-start; align-items: center; gap: 10px; display: inline-flex
+}
+
+.button-ver-postulaciones:disabled:hover {
+  cursor: default;
+  background-color: rgb(161, 161, 161);
+  color: white;
+  border: 0.50px rgb(161, 161, 161) solid;
+}
+
+.button-ver-postulaciones:hover {
+  background: #E76801;
+}
+
+@media (min-width: 1280px) {
   body {
-    display: inline-grid;
-    width: 100%;
-  }
-
-  .li-imagen-pet {
-    transition: opacity .5s;
-  }
-
-  .imagen-pet {
-    width: 100%;
-    border-top-left-radius: 1em;
-    border-top-right-radius: 1em;
-    height: 16.3em;
-  }
-
-  .slider-button {
-    visibility: visible;
-  }
-
-  .edit-button-card {
-    position: absolute;
-    width: 100%;
-    display: flex;
-    justify-content: flex-end;
-    margin-left: -1.5em;
-    cursor: pointer;
-  }
-  
-  .edit-button-card mat-icon {
-    color: #FDA769;
-    border: #E76801;
-    transition: .2s ease;
-  }
-  
-  .edit-button-card mat-icon:hover {
-    color: #E76801;
-    scale: 1.15;
-  }
-
-  .pet-info {
     display: flex;
     flex-direction: column;
-  }
-
-  .pet-info-header {
-    margin-top: 0.5em;
-  }
-
-  .pet-info-title {
-    text-align: center;
-    color: #191D23;
-    font-size: 32px;
-    font-family: Manrope;
-    font-weight: 600;
-    word-wrap: break-word;
-  }
-
-  .pet-info-subtitle {
-    text-align: center;
-    color: #64748B;
-    font-size: 18px;
-    font-family: Manrope;
-    font-weight: 400;
-    word-wrap: break-word;
-  }
-
-  .postulaciones-count {
-    margin-bottom: 1.5em;
-    margin-left: 1.5em;
-    margin-top: 0.5em;
-  }
-
-  .naranja-oscuro {
-    color: #E76801;
-  }
-
-  .button-container {
-    display: flex;
-    margin-bottom: 1em;
     justify-content: center;
     align-items: center;
   }
 
-  .button-ver-postulaciones {
-    padding: 0.7em;
-    background: #FDA769;
-    border-radius: 0.4em;
-    cursor: pointer;
-    transition: .3s background-color;
-    border: none;
-    color: white;
+  .imagen-pet {
+    height: 12.5em;
   }
-  
-  .button-ver-postulaciones:disabled {
-    border: 0.50px rgb(161, 161, 161) solid;
-    border-radius: 0.4em;
-    padding: 0.5em;
-    background-color: rgb(161, 161, 161);
-    color: white;
-    font-size: 14px;
-    width: auto;
-    justify-content: flex-start; align-items: center; gap: 10px; display: inline-flex
+
+  .pet-info-title {
+    font-size: 22px;
   }
-  
-  .button-ver-postulaciones:disabled:hover {
-    cursor: default;
-    background-color: rgb(161, 161, 161);
-    color: white;
-    border: 0.50px rgb(161, 161, 161) solid;
-  }
-  
-  .button-ver-postulaciones:hover {
-    background: #E76801;
+
+  .postulaciones-count {
+    margin: 0;
   }
 }

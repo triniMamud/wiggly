@@ -6,7 +6,7 @@
     </div>
   </div>
   <div class="postulacion-detail-container" *ngIf="petPostulationsDetail.length != 0">
-    <div *ngFor="let postulation of petPostulationsDetail; let i = index" >
+    <div class="postulacion-card-detail" *ngFor="let postulation of petPostulationsDetail; let i = index" >
       <app-mis-postulaciones-card class="card-container" [myPostulation]="postulation"></app-mis-postulaciones-card>
     </div>
   </div>

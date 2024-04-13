@@ -7,8 +7,9 @@
       </ul>
       <button type="button" class="slider-nav slider-button" (click)="previousSlide()"></button>
       <button type="button" class="slider-nav slider-nav-next slider-button" (click)="nextSlide()"></button>
-      <div class="fav-button-card">
-        <mat-icon matSuffix>favorite_border</mat-icon>
+      <div class="fav-button-card" (click)="toggleFav()">
+        <mat-icon *ngIf="!this.favPet.pet.isFavPet" matSuffix>favorite_border</mat-icon>
+        <mat-icon *ngIf="this.favPet.pet.isFavPet" matSuffix>favorite</mat-icon>
       </div>
   </div>
 

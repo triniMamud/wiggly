@@ -18,6 +18,21 @@
   }
 }
 
-@media (min-width: 1920px) {
+@media (min-width: 1280px) {
+  .general-menu-body {
+    flex-direction: row;
+    justify-content: flex-start;
+  }
 
+  .titulo {
+    margin-bottom: 0.5em;
+
+    strong {
+      font-size: 14px;
+    }
+  }
+
+  ::ng-deep .mat-mdc-tab-body {
+    margin-bottom: 1em!important;
+  }
 }

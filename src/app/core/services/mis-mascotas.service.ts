@@ -1,7 +1,7 @@
 import { Injectable } from "@angular/core";
 import { AuthenticationService } from "./authentication.service";
 import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
-import { Observable } from "rxjs";
+import { BehaviorSubject, Observable } from "rxjs";
 import { getAllMisMascotasUrl, postulationsControllerUrl, postNewPetUrl } from "../constants/endpoints";
 
 @Injectable({
@@ -10,6 +10,8 @@ import { getAllMisMascotasUrl, postulationsControllerUrl, postNewPetUrl } from "
 export class MisMascotasService {
   
   public user: any = this.authenticationService.getUser();
+  private refreshListSubject = new BehaviorSubject<boolean>(false);
+  refreshListObservable = this.refreshListSubject.asObservable();
 
   constructor(
     private http: HttpClient,
@@ -41,5 +43,9 @@ export class MisMascotasService {
     .set('email', this.user.email);
 
     return this.http.get<any>(postulationsControllerUrl, { headers });
+  }
+
+  refreshMascotasList() {
+    this.refreshListSubject.next(true);
   }
 }

@@ -1,10 +1,13 @@
 <body>
-  <div *ngIf="!showPostulationDetail">
+  <div class="adopcion-postulacion-container" *ngIf="!showPostulationDetail">
     <div *ngFor="let postulacion of postulaciones; let i = index" class="card-adopcion-postu-container">
       <app-card-adopciones-postulaciones [postulatedPet]="postulacion" class="card-adopcion-postu-component"></app-card-adopciones-postulaciones>
     </div>
+    <div *ngIf="isLoading" class="spinner-container">
+      <mat-spinner ></mat-spinner>
+    </div>
   </div>
-  <div *ngIf="!postulaciones || postulaciones.length == 0" class="adopciones-postu-none">
+  <div *ngIf="!isLoading && (!postulaciones || postulaciones.length == 0)" class="adopciones-postu-none">
     <p>Aun no te postulaste para adoptar una mascota!</p>
     <img src="../../../../assets/images/AdobeStock_610288835.png">
   </div>
