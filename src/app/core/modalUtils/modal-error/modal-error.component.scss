@@ -1,0 +1,17 @@
+::ng-deep .mdc-dialog__actions {
+  padding-left: 24px;
+}
+
+::ng-deep .mdc-dialog__actions button {
+  color: #FDA769!important;
+  border-radius: 0.4em;
+  cursor: pointer;
+  transition: .3s all!important;
+  border: none;
+  background-color: transparent!important;
+}
+
+::ng-deep .mdc-button:hover {
+  background: #FDA769!important;
+  color: white!important;
+}

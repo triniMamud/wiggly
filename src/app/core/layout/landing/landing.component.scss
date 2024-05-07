@@ -1,3 +1,49 @@
+@media(min-width: 300px) {
+  .wiggly-logo {
+    width: 100%;
+    margin-left: 1em;
+    margin-top: 5em;
+    img {
+      width: 140%;
+    }
+  }
+
+  .wiggly-slogan {
+    font-size: 55px;
+    text-align: center;
+  }
+
+  .wiggly-subslogan {
+    text-align: center;
+    margin-top: 1em;
+  }
+
+  .wiggly-text {
+    text-align: center;
+  }
+
+  .back-image-circle {
+    height: 35%;
+  }
+
+  .header-button {
+    font-weight: 500;
+    font-size: 15px;
+  }
+
+  .header-button-text {
+    display: none;
+  }
+
+  header {
+    margin-top: 1em;
+  }
+
+  .text-container {
+    width: 155%;
+  }
+}
+
 body {
   margin-top: 1%;
   width:100%;

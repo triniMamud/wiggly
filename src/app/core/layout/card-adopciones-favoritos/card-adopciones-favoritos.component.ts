@@ -42,6 +42,7 @@ export class CardAdopcionesFavoritosComponent {
         this.mascotaService.updateFav(this.favPet.pet.id, false).subscribe((any) => {
           this.favPet.pet.isFavPet = false;  
           this.misFavoritosService.refreshFavourites();
+          this.misFavoritosService.updateFavProperty({isFavPet: false});
         });
       },
       error: (error) => {

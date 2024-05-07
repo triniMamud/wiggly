@@ -1,6 +1,6 @@
 <body>
-  <div class="mascotas-container" *ngIf="!showPostulationDetail">
-    <div class="button-container" *ngIf="this.misMascotas && this.misMascotas.length != 0">
+  <div class="mascotas-container" *ngIf="!showPostulationDetail && (this.misMascotas && this.misMascotas.length != 0)">
+    <div class="button-container">
       <button class="agrega-mascota" (click)="addMiMascota()">Agregá una mascota</button>
     </div>
     <div class="body-container">

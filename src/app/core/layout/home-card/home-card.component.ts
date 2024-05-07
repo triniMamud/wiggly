@@ -20,7 +20,12 @@ export class HomeCardComponent {
     private misFavoritosService: MisFavoritosService,
     private utilService: UtilService) { }
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.misFavoritosService.setInitialStateFav(this.pet);
+    this.misFavoritosService.currentPetCard.subscribe(updatedPet => {
+      this.pet.pet.isFavPet = updatedPet.isFavPet;
+    });
+  }
 
   previousSlide() {
     if (this.currentSlideIndex > 0) {
@@ -66,7 +71,7 @@ export class HomeCardComponent {
     else {
       this.misFavoritosService.addFavouritePet({petId: this.pet.pet.id}).subscribe({
         next: (resp) => {
-          this.mascotaService.updateFav(this.pet.pet.id, false).subscribe((any) => {
+          this.mascotaService.updateFav(this.pet.pet.id, true).subscribe((any) => {
             this.pet.pet.isFavPet = true;  
             this.misFavoritosService.refreshFavourites();
           });

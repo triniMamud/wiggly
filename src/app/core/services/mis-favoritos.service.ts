@@ -1,6 +1,6 @@
 import { HttpClient, HttpHeaders, HttpResponse } from "@angular/common/http";
 import { Injectable } from "@angular/core";
-import { Observable, Subject } from "rxjs";
+import { BehaviorSubject, Observable, Subject } from "rxjs";
 import { AuthenticationService } from "./authentication.service";
 import { favoritosControllerUrl } from "../constants/endpoints";
 
@@ -11,6 +11,8 @@ export class MisFavoritosService {
   
   public user: any = this.authenticationService.getUser();
   private refreshFavouritesSubject = new Subject<void>();
+  private petCardSource = new BehaviorSubject<any>({});
+  currentPetCard = this.petCardSource.asObservable();
 
   constructor(
     private http: HttpClient,
@@ -46,5 +48,13 @@ export class MisFavoritosService {
 
   getRefreshFavouritesObservable() {
     return this.refreshFavouritesSubject.asObservable();
+  }
+
+  setInitialStateFav(newState: any) {
+    this.petCardSource.next(newState.pet.isFavPet);
+  }
+
+  updateFavProperty(newProperty: any) {
+    this.petCardSource.next({...this.petCardSource.value, ...newProperty});
   }
 }

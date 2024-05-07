@@ -32,6 +32,6 @@ export class MascotaService {
   }
 
   updateFav(petId: any, isFavPet: boolean): Observable<any> {
-    return this.http.patch<any>(getAllMascotasUrl + `/${petId}`, {});
+    return this.http.patch<any>(getAllMascotasUrl + `/${petId}`, {isFavPet: isFavPet});
   }
 }

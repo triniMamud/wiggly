@@ -57,7 +57,7 @@ export class SignInModalComponent implements OnInit {
       .subscribe((user: any) => {
         this.isLoading = false;
           if (!user) {
-            this.utilService.openErrorModal('Error', 'The operation could not be completed!', 'Buu :(');
+            this.utilService.openErrorModal('Error', 'Usuario o contraseña incorrectos', 'OK');
             return;
           }
           this.currentUser = user;
@@ -72,7 +72,7 @@ export class SignInModalComponent implements OnInit {
         },
         (error: any) => {
           this.isLoading = false;
-          this.utilService.openErrorModal('Error', 'The operation could not be completed!', 'Buu :(');
+          this.utilService.openErrorModal('Error', 'Usuario o contraseña incorrectos', 'OK');
         });
   }
 

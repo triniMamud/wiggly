@@ -18,6 +18,7 @@ export class FullPetModalComponent {
   petTypeGender: string = "";
   petBathroom: string = "";
   petGoodWithChildrenAndPets: string = "";
+  isLoading: boolean = false;
 
   constructor(
     @Inject(MAT_DIALOG_DATA) public pet: any,
@@ -81,12 +82,17 @@ export class FullPetModalComponent {
   }
 
   postularse() {    
+    this.isLoading = true;
     this.mascotaService.postulateToPet(this.petData.id).subscribe({
       next: (resp) => {
+        this.isLoading = false;
         this.misPostulacionesService.refreshPostulaciones();
+        this.dialog.closeAll();
+        this.utilService.openSuccessModal('¡Felicidades!', 'La postulación fue éxitosa. Podrás seguir su estado desde la pestaña de Adopciones', 'Continuar');
       },
       error: (error) => {
-        this.utilService.openErrorModal('Error', 'No se pudo enviar la postulación', 'Continuar');
+        this.isLoading = false;
+        this.utilService.openErrorModal('Error', error.error.message, 'Continuar');
       }
     });
     

@@ -14,7 +14,7 @@
   <div class="pet-info-container">
     <div class="pet-info">
       <div class="pet-info-header">
-        <p class="pet-info-header-title">{{petData.name}}, {{petData.age}} años</p>
+        <p class="pet-info-header-title">{{petData.name}}, {{this.petData.age}} {{this.petData.age===1 ? "año" : "años"}}</p> 
         <p class="pet-info-header-subtitle">{{petData.location}}</p> 
       </div>
       <div class="caracteristicas-container">
@@ -43,6 +43,9 @@
     <div class="postularse-container">
       <button (click)="postularse()">Postularse</button>
     </div>
+  </div>
+  <div *ngIf="isLoading" class="spinner-container">
+    <mat-spinner ></mat-spinner>
   </div>
 </body>
 
