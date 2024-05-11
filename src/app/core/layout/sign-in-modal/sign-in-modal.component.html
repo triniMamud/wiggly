@@ -8,9 +8,9 @@
     <input class="input-email" required type="email" ngModel email formControlName="email" placeholder="Email"> 
     <div class="password-container">
       <input required matInput formControlName="password" [type]="!showPass ? 'password' : 'text'" placeholder="Contraseña">
-      <button mat-icon-button (click)="showPass = !showPass;">
+      <span mat-icon-button (click)="showPass = !showPass;">
         <mat-icon matSuffix >{{!showPass ? 'visibility_off' : 'visibility'}}</mat-icon>
-      </button>
+      </span>
     </div>
   </form>
   <button class="forgot-password-button" (click)="openForgotPasswordModal()">¿Olvidaste tu contraseña?</button>

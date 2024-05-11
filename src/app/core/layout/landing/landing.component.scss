@@ -1,4 +1,4 @@
-@media(min-width: 300px) {
+@media(max-width: 500px) {
   .wiggly-logo {
     width: 100%;
     margin-left: 1em;
@@ -76,6 +76,11 @@ footer {
   justify-items: end;
   width:inherit;
   gap: 5%;
+}
+
+.slogans-container {
+  display: flex;
+  flex-direction: column;
 }
 
 .header-button-text {
@@ -181,7 +186,7 @@ footer {
   line-height: 40px;
   letter-spacing: 2px;
   word-wrap: break-word;
-  margin-top: 2em;
+  margin-top: 4em;
 
   .naranja-oscuro {
     color: #E76801;
@@ -279,7 +284,7 @@ footer {
   .wiggly-text {
     font-size: 60px;
     line-height: 60px;
-    margin-top: 2em;
+    margin-top: 4em;
   }
 
   .back-image-circle {
