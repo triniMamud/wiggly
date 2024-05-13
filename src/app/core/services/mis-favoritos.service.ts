@@ -11,8 +11,8 @@ export class MisFavoritosService {
   
   public user: any = this.authenticationService.getUser();
   private refreshFavouritesSubject = new Subject<void>();
-  private petCardSource = new BehaviorSubject<any>({});
-  currentPetCard = this.petCardSource.asObservable();
+  private petsSource = new BehaviorSubject<any>({});
+  currentPets = this.petsSource.asObservable();
 
   constructor(
     private http: HttpClient,
@@ -51,10 +51,16 @@ export class MisFavoritosService {
   }
 
   setInitialStateFav(newState: any) {
-    this.petCardSource.next(newState.pet.isFavPet);
+    this.petsSource.next(newState);
   }
 
-  updateFavProperty(newProperty: any) {
-    this.petCardSource.next({...this.petCardSource.value, ...newProperty});
+  updateFavProperty(id: number, newProperty: any) {
+    const updatedValues = this.petsSource.value.map((item: any) => {
+      if (item.pet.id === id) {
+        item.pet.isFavPet = newProperty;
+      }
+      return item;
+    });
+    this.petsSource.next(updatedValues);
   }
 }

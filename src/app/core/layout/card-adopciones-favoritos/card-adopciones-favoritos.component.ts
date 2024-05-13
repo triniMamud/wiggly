@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { MisFavoritosService } from '../../services/mis-favoritos.service';
 import { MascotaService } from '../../services/mascota.service';
 
@@ -42,7 +42,7 @@ export class CardAdopcionesFavoritosComponent {
         this.mascotaService.updateFav(this.favPet.pet.id, false).subscribe((any) => {
           this.favPet.pet.isFavPet = false;  
           this.misFavoritosService.refreshFavourites();
-          this.misFavoritosService.updateFavProperty({isFavPet: false});
+          this.misFavoritosService.updateFavProperty(this.favPet.pet.id, false);
         });
       },
       error: (error) => {

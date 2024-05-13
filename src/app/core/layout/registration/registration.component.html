@@ -13,9 +13,9 @@
       <input class="register-input" formControlName="email" type="email" placeholder="Email"> 
       <div class="password-container">
         <input class="register-input" formControlName="password" [type]="!showPass ? 'password' : 'text'" placeholder="Contraseña" >
-        <button mat-icon-button (click)="showPass = !showPass;">
+        <span mat-icon-button (click)="showPass = !showPass;">
           <mat-icon matSuffix >{{!showPass ? 'visibility_off' : 'visibility'}}</mat-icon>
-        </button>
+        </span>
       </div>
       <div class="form-info-container">
             <input class="register-input mr-05" formControlName="age" type="number" placeholder="Edad">

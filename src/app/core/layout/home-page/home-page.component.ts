@@ -52,6 +52,19 @@ export class HomePageComponent implements OnInit {
         this.getAllPets();
       }
     });
+
+    this.misFavoritosService.currentPets.subscribe((data: any) => {
+      this.mascotas = data;
+    });
+  }
+
+  handleUpdateFav(event: {id: number, isFavPet: any}) {
+    this.mascotas = this.mascotas.map((item: any) => {
+      if (item.id === event.id) {
+        return { ...item, ...event.isFavPet };
+      }
+      return item;
+    });
   }
 
   getAllPets(){
@@ -60,6 +73,7 @@ export class HomePageComponent implements OnInit {
       this.isLoading = false;
       this.mascotas = response;
       this.mascotasFiltradas = [...this.mascotas];
+      this.misFavoritosService.setInitialStateFav(this.mascotas);
     },
     error =>{
       this.isLoading = false;

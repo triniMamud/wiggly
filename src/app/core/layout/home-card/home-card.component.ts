@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { FullPetModalComponent } from '../full-pet-modal/full-pet-modal.component';
 import { MisFavoritosService } from '../../services/mis-favoritos.service';
@@ -14,6 +14,7 @@ export class HomeCardComponent {
 
   @Input() pet: any;
   currentSlideIndex = 0;
+  @Output() update = new EventEmitter<{id: number, isFavPet: any}>();
 
   constructor(private dialog: MatDialog,
     private mascotaService: MascotaService,
@@ -21,10 +22,6 @@ export class HomeCardComponent {
     private utilService: UtilService) { }
 
   ngOnInit(): void {
-    this.misFavoritosService.setInitialStateFav(this.pet);
-    this.misFavoritosService.currentPetCard.subscribe(updatedPet => {
-      this.pet.pet.isFavPet = updatedPet.isFavPet;
-    });
   }
 
   previousSlide() {
@@ -60,6 +57,7 @@ export class HomeCardComponent {
         next: (resp) => {
           this.mascotaService.updateFav(this.pet.pet.id, false).subscribe((any) => {
             this.pet.pet.isFavPet = false;  
+            this.update.emit({id: this.pet.pet.id, isFavPet: false});
             this.misFavoritosService.refreshFavourites();
           });
         },
@@ -73,6 +71,7 @@ export class HomeCardComponent {
         next: (resp) => {
           this.mascotaService.updateFav(this.pet.pet.id, true).subscribe((any) => {
             this.pet.pet.isFavPet = true;  
+            this.update.emit({id: this.pet.pet.id, isFavPet: true});
             this.misFavoritosService.refreshFavourites();
           });
         },

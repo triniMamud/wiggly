@@ -53,7 +53,7 @@ export class AgregarMascotaComponent {
     const pet = {
       name: this.addPetForm.get('name')?.value,
       type: this.addPetForm.get('type')?.value ? "DOG" : "CAT",
-      age: this.setAge(this.addPetForm.get('age')?.value), 
+      age: this.addPetForm.get('age')?.value, 
       gender: this.addPetForm.get('gender')?.value ? "Macho": "Hembra",
       size: this.addPetForm.get('size')?.value,
       location: this.addPetForm.get('location')?.value,
@@ -146,6 +146,6 @@ export class AgregarMascotaComponent {
     if(age <= 1.5) return "PUPPY";
     else if(age > 9) return "ELDER";
     return "ADULT";
-}
+  }
   
 }
