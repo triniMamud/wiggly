@@ -126,15 +126,15 @@ input[type="date"]::-webkit-calendar-picker-indicator {
   position: relative;
   display: flex;
   border-radius: 8px;
-  width: 100%;
+  width: 103.55%;
   height: 33.5%;
   justify-content: center;
   align-items: center;
 
-  button {
+  span {
     position: absolute;
-    top: 0.87em;
-    right: 1.5em;
+    top: 1.78em;
+    right: 2.5em;
 
     mat-icon {
       color: #E76801;
