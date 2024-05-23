@@ -95,7 +95,7 @@
 
       <div class="two-inputs-row" style="margin-bottom: 2em;">
         <input style="margin: 0;" formControlName="timeAlonePet" class="input-formulario" placeholder="¿Cuanto se quedería sola?" [ngClass]="{'invalid': userAnswers.get('timeAlonePet')?.touched && userAnswers.get('timeAlonePet')?.invalid}">
-        <input style="margin: 0;" formControlName="timesWalkPet" class="input-formulario" placeholder="¿Cuanto saldría a caminar?" [ngClass]="{'invalid': userAnswers.get('timesWalkPet')?.touched && userAnswers.get('timesWalkPet')?.invalid}">
+        <input type="number" style="margin: 0;" formControlName="timesWalkPet" class="input-formulario" placeholder="¿Cuanto saldría a caminar?" [ngClass]="{'invalid': userAnswers.get('timesWalkPet')?.touched && userAnswers.get('timesWalkPet')?.invalid}">
       </div>
 
       <div style="width: 100%; margin-bottom: 2em;">
