@@ -1,7 +1,7 @@
 import { HttpClient, HttpHeaders } from "@angular/common/http";
 import { Injectable } from "@angular/core";
 import { Observable } from "rxjs";
-import { getFavoritosByUserUrl } from "../constants/endpoints";
+import { favoritosControllerUrl } from "../constants/endpoints";
 import { AuthenticationService } from "./authentication.service";
 
 @Injectable({
@@ -20,6 +20,6 @@ export class FavoritosService {
     .set('Content-Type', 'application/json')
     .set('email', this.user.email);
 
-    return this.http.get<any>(getFavoritosByUserUrl, { headers });
+    return this.http.get<any>(favoritosControllerUrl, { headers });
   }
 }

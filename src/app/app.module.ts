@@ -58,6 +58,7 @@ import { AdoptionTypePipe } from './core/pipes/adoption-type.pipe';
 import { HouseTypePipe } from './core/pipes/house-type.pipe';
 import { MisPostulacionesCardComponent } from './core/layout/mis-postulaciones-card/mis-postulaciones-card.component';
 import { ModalErrorComponent } from './core/modalUtils/modal-error/modal-error.component';
+import { UserFormComponent } from './core/layout/user-form/user-form.component';
 
 @NgModule({
   declarations: [
@@ -89,7 +90,8 @@ import { ModalErrorComponent } from './core/modalUtils/modal-error/modal-error.c
     AdoptionTypePipe,
     HouseTypePipe,
     MisPostulacionesCardComponent,
-    ModalErrorComponent
+    ModalErrorComponent,
+    UserFormComponent
   ],
   imports: [
     CarouselModule,

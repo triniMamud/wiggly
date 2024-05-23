@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { ModalOkComponent } from '../modalUtils/modal-ok/modal-ok.component';
 import { ModalErrorComponent } from '../modalUtils/modal-error/modal-error.component';
-import { MatDialog } from '@angular/material/dialog';
+import { MatDialog, MatDialogRef } from '@angular/material/dialog';
 
 @Injectable({
   providedIn: 'root'
@@ -52,10 +52,16 @@ export class UtilService {
     return dialogRef;
   }
 
-  public openErrorModal(title: string, content: string, buttonText?: string, duration?: number) {
+  public openErrorModal(title: string, content: string, buttonText?: string, duration?: number, onClose?: () => void): MatDialogRef<any> {
     const dialogRef = this.dialog.open(ModalErrorComponent, {
       width: '300px',
       data: { title, content, buttonText }
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      if (onClose) {
+        onClose(); // Execute callback when modal closes
+      }
     });
 
     if (duration) {
@@ -65,5 +71,5 @@ export class UtilService {
     }
 
     return dialogRef;
-  }
+}
 }

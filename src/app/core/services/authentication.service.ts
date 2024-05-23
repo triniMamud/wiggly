@@ -40,7 +40,8 @@ export class AuthenticationService {
 
         const kCloackUser: any = {
           name: res?.name,
-          email: res?.email
+          email: res?.email,
+          formAnswered: res?.formAnswered
         };
 
         localStorage.setItem('user', JSON.stringify(kCloackUser));
@@ -71,7 +72,9 @@ export class AuthenticationService {
 
       const kCloackUser: any = {
         name: res?.name,
-        email: res?.email
+        email: res?.email,
+        formAnswered: res?.formAnswered,
+        adoptionType: res?.adoptionType
       };
 
       localStorage.setItem('user', JSON.stringify(kCloackUser));
