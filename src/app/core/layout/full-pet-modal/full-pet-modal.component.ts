@@ -4,6 +4,9 @@ import { MisMascotasService } from '../../services/mis-mascotas.service';
 import { MascotaService } from '../../services/mascota.service';
 import { UtilService } from '../../services/util.service';
 import { MisPostulacionesService } from '../../services/mis-postulaciones.service';
+import { AuthenticationService } from '../../services/authentication.service';
+import { UserFormComponent } from '../user-form/user-form.component';
+import { UserService } from '../../services/user.service';
 
 @Component({
   selector: 'app-full-pet-modal',
@@ -25,7 +28,9 @@ export class FullPetModalComponent {
     private mascotaService: MascotaService,
     private utilService: UtilService,
     private dialog: MatDialog,
-    private misPostulacionesService: MisPostulacionesService
+    private misPostulacionesService: MisPostulacionesService,
+    private authenticationService: AuthenticationService,
+    private userService: UserService
   ){}
 
   ngOnInit(): void {
@@ -83,19 +88,38 @@ export class FullPetModalComponent {
 
   postularse() {    
     this.isLoading = true;
-    this.mascotaService.postulateToPet(this.petData.id).subscribe({
-      next: (resp) => {
+    this.userService.getIsFormAnswered().subscribe((resp: boolean) => {
+      if(!resp) {
         this.isLoading = false;
-        this.misPostulacionesService.refreshPostulaciones();
         this.dialog.closeAll();
-        this.utilService.openSuccessModal('¡Felicidades!', 'La postulación fue éxitosa. Podrás seguir su estado desde la pestaña de Adopciones', 'Continuar');
-      },
-      error: (error) => {
-        this.isLoading = false;
-        this.utilService.openErrorModal('Error', error.error.message, 'Continuar');
-      }
+        this.utilService.openErrorModal('¡Necesitamos más información!', 'Antes de postularte, necesitamos que completes un formulario. Esto es por única vez, y será compartido con el refugio donde se encuentre la mascota que elegiste.', 'Continuar', undefined,
+        () => {
+          this.openUserForm();
+        });
+      } else {
+        this.mascotaService.postulateToPet(this.petData.id).subscribe({
+          next: (resp) => {
+            this.isLoading = false;
+            this.misPostulacionesService.refreshPostulaciones();
+            this.dialog.closeAll();
+            this.utilService.openSuccessModal('¡Felicidades!', 'La postulación fue éxitosa. Podrás seguir su estado desde la pestaña de Adopciones', 'Continuar');
+          },
+          error: (error) => {
+            this.isLoading = false;
+            this.utilService.openErrorModal('Error', error.error.message, 'Continuar');
+          }
+        });
+      } 
+    })
+  }
+
+  openUserForm() {
+    this.dialog.closeAll();
+    this.dialog.open(UserFormComponent, {
+      width: '36em',
+      height: '40em',
+      data: { pet: this.pet }
     });
-    
   }
 
 

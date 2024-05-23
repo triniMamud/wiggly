@@ -1,0 +1,266 @@
+<div class="agregar-mascota-header">
+  <p class="agregar-mascota-titulo"> Formulario de Adoptante </p>
+  <p class="agregar-mascota-subtitulo"> Completá tu información </p>
+</div>
+<form [formGroup]="userAnswers">
+  <div *ngIf="currentStep === 1">
+    <div class="descripcion-container">
+      <p>Este formulario consta de dos o tres partes, te pedimos que lo completes a conciencia y lo mas detallado posible</p>
+    </div>
+    <div class="form-step-content">
+      <div class="two-inputs-row" style="    align-items: center;
+      margin-bottom: 2em;
+      justify-content: flex-start;
+      display: flex;
+      flex-direction: column;">
+        <div style="display: flex;
+        justify-content: flex-start;
+        align-items: center; width: 100%;">
+          <div style="width: 50%;">¿Tenés otras mascotas?</div>
+          <label class="toggle toggle-label">
+            <input type="checkbox" formControlName="hasOtherPets">
+            <span class="slider"></span>
+            <span class="labels" data-on="Si" data-off="No"></span>
+          </label>
+        </div>
+        <div *ngIf="userAnswers.get('hasOtherPets')?.value" style="width: 100%;">
+          <!--<label for="otherPetsDetails">Detalles de otras mascotas:</label>-->
+          <textarea style="margin: 0; margin-bottom: 1em; width: 96%;" class="input-formulario" type="text" formControlName="otherPetsInfo" placeholder="Ingresa más informacion sobre tu mascota">
+          </textarea>
+        </div>
+      </div>
+
+      <div style="width: 100%;">
+      </div>
+      <div style="display: flex;
+      width: 100%;
+      margin-bottom: 2em;
+      align-items: center;
+      flex-direction: column;
+      justify-content: flex-start;">
+        <div class="two-inputs-row" style="    align-items: center;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;">
+          <input style="width: 44%; margin: 0;" class="input-formulario" type="number" formControlName="familyMembers" placeholder="¿Con cuantas personas viviría?">
+          <div style="display: flex;
+          justify-content: space-between;
+          width: 44%;">
+            <div style="display: flex; align-items: center;">¿Algún menor?</div>
+            <label class="toggle toggle-label">
+              <input type="checkbox" formControlName="hasChildren">
+              <span class="slider"></span>
+              <span class="labels" data-on="Si" data-off="No"></span>
+            </label>
+          </div>
+        </div>
+        <div *ngIf="userAnswers.get('hasChildren')?.value" style="width: 100%;">
+          <!--<label for="otherPetsDetails">Detalles de otras mascotas:</label>-->
+          <textarea style="margin-top: 2em; width: 96%;" class="input-formulario" type="text" formControlName="childrenInfo" placeholder="Ingresa más informacion (edad, si le gustan los perros/gatos, ...)">
+          </textarea>
+        </div>
+      </div>
+
+      <div class="toggles-container" style="    width: 100%;   margin-bottom: 2em;  margin-top: 0;    display: flex;      flex-direction: column;">
+        <div style="    display: flex;        margin-bottom: 1em; align-items: center;        justify-content: space-between;">
+          <div style="    width: 80%;">¿Estás conciente de los gastos que puede implicar una mascota?</div>
+          <label class="toggle toggle-label"> 
+            <input type="checkbox" formControlName="costsAwareness">
+            <span class="slider"></span>
+            <span class="labels" data-on="Si" data-off="No"></span>
+          </label>
+        </div>
+        <div style="    display: flex;        margin-bottom: 1em; align-items: center;        justify-content: space-between;">
+          <div>¿Podrías costear un/a entrenador/a de ser necesario?</div>
+          <label class="toggle toggle-label">
+            <input type="checkbox" formControlName="canAffordTrainee">
+            <span class="slider"></span>
+            <span class="labels" data-on="Si" data-off="No"></span>
+          </label>
+        </div>
+        <div style="    display: flex;        margin-bottom: 1em; align-items: center;        justify-content: space-between;">
+          <div>¿Podrías costear un/a paseador/a de ser necesario?</div>
+          <label class="toggle toggle-label">
+            <input type="checkbox" formControlName="canAffordWalker">
+            <span class="slider"></span>
+            <span class="labels" data-on="Si" data-off="No"></span>
+          </label>
+        </div>
+      </div>
+
+      <div style="width: 100%; margin-bottom: 2em;">
+        <textarea style="margin: 0; width: 96%;" formControlName="jobSituation" placeholder="Ingresá cual es tu situación laboral" class="input-formulario" [ngClass]="{'invalid': userAnswers.get('jobSituation')?.touched && userAnswers.get('jobSituation')?.invalid}">
+        </textarea>
+      </div>
+
+      <div class="two-inputs-row" style="margin-bottom: 2em;">
+        <input style="margin: 0;" formControlName="timeAlonePet" class="input-formulario" placeholder="¿Cuanto se quedería sola?" [ngClass]="{'invalid': userAnswers.get('timeAlonePet')?.touched && userAnswers.get('timeAlonePet')?.invalid}">
+        <input style="margin: 0;" formControlName="timesWalkPet" class="input-formulario" placeholder="¿Cuanto saldría a caminar?" [ngClass]="{'invalid': userAnswers.get('timesWalkPet')?.touched && userAnswers.get('timesWalkPet')?.invalid}">
+      </div>
+
+      <div style="width: 100%; margin-bottom: 2em;">
+        <textarea style="margin: 0; width: 96%;" formControlName="sleepingPlace" placeholder="Ingresá dónde dormiría (en el living, afuera, en la habitación, ...)" class="input-formulario" [ngClass]="{'invalid': userAnswers.get('sleepingPlace')?.touched && userAnswers.get('sleepingPlace')?.invalid}">
+        </textarea>
+      </div>
+
+      <div class="two-inputs-row" style="    margin-bottom: 2em;">
+        <div class="toggles-container" style="margin: 0; flex-direction: column;">
+          <div style="    display: flex;        margin-bottom: 1em; align-items: center;        justify-content: space-between;">
+            <div style="width: 80%;">En caso de que la mascota no esté castrada, ¿podrías comprometerte a hacerlo?</div>
+            <label class="toggle toggle-label">
+              <input type="checkbox" formControlName="castrationCompromise">
+              <span class="slider"></span>
+              <span class="labels" data-on="Si" data-off="No"></span>
+            </label>
+          </div>
+          <div style="    display: flex;        margin-bottom: 1em; align-items: center;        justify-content: space-between;">
+            <div style="width: 80%;">¿Estás de acuerdo con que el refugio haga un seguimiento del caso?</div>
+            <label class="toggle toggle-label"> 
+              <input type="checkbox" formControlName="followUp">
+              <span class="slider"></span>
+              <span class="labels" data-on="Si" data-off="No"></span>
+            </label>
+          </div>
+        </div>
+      </div>
+
+      <div style="width: 100%; margin-bottom: 2em;">
+        <textarea  style="margin: 0; width: 96%;" formControlName="travelAsignee" placeholder="Ingresá a cuidado de quien quedaría la mascota en caso de que tengas que viajar" class="input-formulario" [ngClass]="{'invalid': userAnswers.get('travelAsignee')?.touched && userAnswers.get('travelAsignee')?.invalid}">
+        </textarea>
+      </div>
+    </div>
+
+    <div class="cambiar-step-button cambiar-step-button-siguiente">
+      <button (click)="nextStep()" class="step-button">Siguiente
+        <mat-icon class="flecha-step">arrow_forward</mat-icon>
+      </button>
+    </div>
+  </div>
+  <div *ngIf="currentStep === 2">
+    <div class="form-step-content">
+      <div class="two-inputs-row">
+        <div class="select-container" style="margin: 0;">
+          <mat-select formControlName="houseType" class="input-formulario" [ngClass]="{'invalid': userAnswers.get('houseType')?.touched && userAnswers.get('houseType')?.invalid}">
+            <mat-option class="mat-option" value="" disabled selected>Tipo de hogar donde vivis</mat-option>
+            <mat-option class="mat-option" value="0">Casa</mat-option>
+            <mat-option class="mat-option" value="1">Departamento</mat-option>
+            <mat-option class="mat-option" value="2">PH</mat-option>
+            <mat-option class="mat-option" value="3">Otro</mat-option>
+          </mat-select>
+        </div>
+        <div class="select-container" style="margin: 0;">
+          <mat-select formControlName="openSpaces" class="input-formulario" [ngClass]="{'invalid': userAnswers.get('openSpaces')?.touched && userAnswers.get('openSpaces')?.invalid}">
+            <mat-option class="mat-option" value="" disabled selected>¿Hay espacios abiertos?</mat-option>
+            <mat-option class="mat-option" value="0">Patio</mat-option>
+            <mat-option class="mat-option" value="1">Terraza</mat-option>
+            <mat-option class="mat-option" value="2">Balcón</mat-option>
+            <mat-option class="mat-option" value="3">Jardín</mat-option>
+            <mat-option class="mat-option" value="3">Ninguno</mat-option>
+          </mat-select>
+        </div>
+      </div>
+
+      <div class="toggles-container" style="justify-content: space-around; margin-top: 0;">
+        <div *ngIf="userAnswers.get('openSpaces')?.value == '2'" style="display: flex; flex-direction: column;  align-items: center;">
+          <div style="margin-bottom: 0.5em;">¿Hay red de contención?</div>
+          <label class="toggle toggle-label">  
+            <input type="checkbox" formControlName="hasContentionNet">
+            <span class="slider"></span>
+            <span class="labels" data-on="Si" data-off="No"></span>
+          </label>
+        </div>
+        <div style="display: flex; flex-direction: column;  align-items: center;">
+          <div style="margin-bottom: 0.5em;">¿Sos propietario/a?</div>
+          <label class="toggle toggle-label">
+            <input type="checkbox" formControlName="isOwner">
+            <span class="slider"></span>
+            <span class="labels" data-on="Si" data-off="No"></span>
+          </label>
+        </div>
+        <div style="display: flex; flex-direction: column;  align-items: center;">
+          <div style="margin-bottom: 0.5em;">¿Permiten mascotas?</div>
+          <label class="toggle toggle-label">
+            <input type="checkbox" formControlName="allowsPets">
+            <span class="slider"></span>
+            <span class="labels" data-on="Si" data-off="No"></span>
+          </label>
+        </div>
+      </div>
+
+      <div class="dropzone-container">
+        <div class="custom-dropzone" ngx-dropzone [accept]="'image/*'" (change)="onSelect($event)">
+          <ngx-dropzone-label>
+            <div>
+              <mat-icon>add_a_photo</mat-icon>
+              <h2>Arrastra y suelta fotos de tu casa. No es necesario, pero podría agilizar el proceso de adopción</h2>
+            </div>
+          </ngx-dropzone-label>
+          <ngx-dropzone-image-preview ngProjectAs="ngx-dropzone-preview" *ngFor="let f of userAnswers.get('houseImages')?.value; let i = index" [file]="f" [removable]="true" (removed)="onRemove(f, i)">
+            <ngx-dropzone-label>{{ f.name }} ({{ f.type }})</ngx-dropzone-label>
+          </ngx-dropzone-image-preview>
+        </div>
+      </div>
+    </div>
+    <div>
+      <div *ngIf="this.user.adoptionType === 'ADOPTION'" class="form-footer">
+        <button (click)="submitForm()" class="enviar-formulario-agregar" [disabled]="!this.userAnswers.valid|| this.isLoading">{{this.isLoading ? 'Enviando Formulario' : 'Enviar formulario'}}</button>
+        <div *ngIf="isLoading" class="spinner-container">
+          <mat-spinner ></mat-spinner>
+        </div>
+        <div *ngIf="this.userAnswers.status === 'INVALID'" class="error-message">
+          * Debes completar todos los campos requeridos del formulario
+        </div>
+      </div>
+      <div>
+        <button (click)="previousStep()" class="cambiar-step-button step-button">
+          <mat-icon class="flecha-step">arrow_back</mat-icon>
+          Volver
+        </button>
+        <button *ngIf="!(this.user.adoptionType === 'ADOPTION')" (click)="nextStep()" class="step-button">Siguiente
+          <mat-icon class="flecha-step">arrow_forward</mat-icon>
+        </button>
+      </div>
+    </div>
+  </div>
+  
+  <div *ngIf="currentStep === 3 && !(this.user.adoptionType === 'ADOPTION')">
+    <div class="form-step-content">
+      <div class="select-container">
+        <mat-select formControlName="transitPreferences" class="input-formulario" [ngClass]="{'invalid': userAnswers.get('transitPreferences')?.touched && userAnswers.get('transitPreferences')?.invalid}">
+          <mat-option class="mat-option" value="" disabled selected>Ingresá a qué tipo de mascota te gustaría transitar</mat-option>
+          <mat-option class="mat-option" value="0">Perra cachorra</mat-option>
+          <mat-option class="mat-option" value="1">Perro cachorro</mat-option>
+          <mat-option class="mat-option" value="2">Gata cachorra</mat-option>
+          <mat-option class="mat-option" value="3">Gato cachorro</mat-option>
+          <mat-option class="mat-option" value="4">Perra adulta</mat-option>
+          <mat-option class="mat-option" value="5">Perro adulto</mat-option>
+          <mat-option class="mat-option" value="6">Gata adulta</mat-option>
+          <mat-option class="mat-option" value="7">Gato adulto</mat-option>
+          <mat-option class="mat-option" value="8">Sin preferencias</mat-option>
+          <mat-option class="mat-option" value="9">Otro</mat-option>
+        </mat-select>
+      </div>
+
+      <div>
+        <input formControlName="maxTimeTransit" placeholder="¿Cuál sería el tiempo máximo que podrías transitar?" class="input-formulario" [ngClass]="{'invalid': userAnswers.get('maxTimeTransit')?.touched && userAnswers.get('maxTimeTransit')?.invalid}">
+      </div>
+
+      <textarea formControlName="lastTransitsInfo" class="input-formulario textarea-info medical-info" [ngClass]="{'invalid': userAnswers.get('lastTransitsInfo')?.touched && userAnswers.get('lastTransitsInfo')?.invalid}"
+      placeholder="Agregá todos los detalles sobre tránsitos pasados que consideres relevantes"></textarea>  
+    </div>
+
+    <div class="form-footer">
+      <button (click)="submitForm()" class="enviar-formulario-agregar" [disabled]="!this.userAnswers.valid|| this.isLoading">{{this.isLoading ? 'Enviando Formulario' : 'Enviar formulario'}}</button>
+      <div *ngIf="isLoading" class="spinner-container">
+        <mat-spinner ></mat-spinner>
+      </div>
+      <div *ngIf="this.userAnswers.status === 'INVALID'" class="error-message">
+        * Debes completar todos los campos requeridos del formulario
+      </div>
+    </div>
+    <button (click)="previousStep()" class="cambiar-step-button step-button">
+      <mat-icon class="flecha-step">arrow_back</mat-icon>
+      Volver
+    </button>
+  </div>
+</form>
